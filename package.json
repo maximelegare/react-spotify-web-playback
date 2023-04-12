@@ -80,7 +80,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "buildVite":"tsc && vite build",
+    "build": "tsup",
     "clean": "del lib/* && del esm/*",
     "watch": "tsup --watch",
     "test": "is-ci \"test:coverage\" \"test:watch\"",
