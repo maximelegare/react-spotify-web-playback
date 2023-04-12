@@ -15,10 +15,10 @@ import {
 import {
   getDevices,
   getPlaybackState,
-  next,
+  // next,
   pause,
   play,
-  previous,
+  // previous,
   seek,
   setDevice,
   setVolume,
@@ -363,50 +363,50 @@ class SpotifyWebPlayer extends PureComponent<Props, State> {
     }
   };
 
-  private handleClickTogglePlay = async () => {
-    const { isActive } = this.state;
+  // private handleClickTogglePlay = async () => {
+  //   const { isActive } = this.state;
 
-    try {
-      await this.togglePlay(!this.isExternalPlayer && !isActive);
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error(error);
-    }
-  };
+  //   try {
+  //     await this.togglePlay(!this.isExternalPlayer && !isActive);
+  //   } catch (error) {
+  //     // eslint-disable-next-line no-console
+  //     console.error(error);
+  //   }
+  // };
 
-  private handleClickPrevious = async () => {
-    try {
-      /* istanbul ignore else */
-      if (this.isExternalPlayer) {
-        await previous(this.token);
-        this.syncTimeout = window.setTimeout(() => {
-          this.syncDevice();
-        }, 300);
-      } else if (this.player) {
-        await this.player.previousTrack();
-      }
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error(error);
-    }
-  };
+  // private handleClickPrevious = async () => {
+  //   try {
+  //     /* istanbul ignore else */
+  //     if (this.isExternalPlayer) {
+  //       await previous(this.token);
+  //       this.syncTimeout = window.setTimeout(() => {
+  //         this.syncDevice();
+  //       }, 300);
+  //     } else if (this.player) {
+  //       await this.player.previousTrack();
+  //     }
+  //   } catch (error) {
+  //     // eslint-disable-next-line no-console
+  //     console.error(error);
+  //   }
+  // };
 
-  private handleClickNext = async () => {
-    try {
-      /* istanbul ignore else */
-      if (this.isExternalPlayer) {
-        await next(this.token);
-        this.syncTimeout = window.setTimeout(() => {
-          this.syncDevice();
-        }, 300);
-      } else if (this.player) {
-        await this.player.nextTrack();
-      }
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error(error);
-    }
-  };
+  // private handleClickNext = async () => {
+  //   try {
+  //     /* istanbul ignore else */
+  //     if (this.isExternalPlayer) {
+  //       await next(this.token);
+  //       this.syncTimeout = window.setTimeout(() => {
+  //         this.syncDevice();
+  //       }, 300);
+  //     } else if (this.player) {
+  //       await this.player.nextTrack();
+  //     }
+  //   } catch (error) {
+  //     // eslint-disable-next-line no-console
+  //     console.error(error);
+  //   }
+  // };
 
   private handleClickDevice = async (deviceId: string) => {
     const { isUnsupported } = this.state;
@@ -893,12 +893,12 @@ class SpotifyWebPlayer extends PureComponent<Props, State> {
       error,
       isActive,
       isMagnified,
-      isPlaying,
+      // isPlaying,
       isUnsupported,
-      nextTracks,
+      // nextTracks,
       playerPosition,
       position,
-      previousTracks,
+      // previousTracks,
       progressMs,
       status,
       track,
@@ -975,32 +975,32 @@ class SpotifyWebPlayer extends PureComponent<Props, State> {
 
       output.controls = (
         <Controls
-          devices={this.renderInlineActions ? null : output.devices}
+          // devices={this.renderInlineActions ? null : output.devices}
           durationMs={track.durationMs}
-          isExternalDevice={this.isExternalPlayer}
+          // isExternalDevice={this.isExternalPlayer}
           isMagnified={isMagnified}
-          isPlaying={isPlaying}
-          layout={layout}
-          locale={this.locale}
-          nextTracks={nextTracks}
+          // isPlaying={isPlaying}
+          // layout={layout}
+          // locale={this.locale}
+          // nextTracks={nextTracks}
           onChangeRange={this.handleChangeRange}
-          onClickNext={this.handleClickNext}
-          onClickPrevious={this.handleClickPrevious}
-          onClickTogglePlay={this.handleClickTogglePlay}
+          // onClickNext={this.handleClickNext}
+          // onClickPrevious={this.handleClickPrevious}
+          // onClickTogglePlay={this.handleClickTogglePlay}
           onToggleMagnify={this.handleToggleMagnify}
           position={position}
-          previousTracks={previousTracks}
+          // previousTracks={previousTracks}
           progressMs={progressMs}
           styles={this.styles}
-          volume={this.renderInlineActions ? null : output.volume}
+          // volume={this.renderInlineActions ? null : output.volume}
         />
       );
 
       output.main = (
         <Wrapper layout={layout} styles={this.styles}>
-          {output.info}
+          {/* {output.info} */}
           {output.controls}
-          {output.actions}
+          {/* {output.actions} */}
         </Wrapper>
       );
     } else if (output.info) {

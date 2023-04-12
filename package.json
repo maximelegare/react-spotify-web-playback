@@ -76,7 +76,7 @@
     "typescript": "^4.9.5"
   },
   "scripts": {
-    "build": "npm run clean && tsup",
+    "build": "tsup",
     "clean": "del lib/* && del esm/*",
     "watch": "tsup --watch",
     "test": "is-ci \"test:coverage\" \"test:watch\"",
