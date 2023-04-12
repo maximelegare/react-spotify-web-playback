@@ -4,7 +4,7 @@ import {
   getSpotifyLink,
   getSpotifyLinkTitle,
   getSpotifyURIType,
-} from '~/modules/getters';
+} from './modules/getters';
 
 describe('getLocale', () => {
   it('should return a merged locale', () => {

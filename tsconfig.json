@@ -1,6 +1,7 @@
 {
   "extends": "@gilbarbara/tsconfig",
   "compilerOptions": {
+    "jsx": "react",
     "baseUrl": ".",
     "downlevelIteration": true,
     "noEmit": true,

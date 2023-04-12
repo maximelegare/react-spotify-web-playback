@@ -1,3 +1,4 @@
+import React from "react"
 import { textColor } from 'colorizr';
 
 interface Props {

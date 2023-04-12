@@ -1,10 +1,9 @@
-import { memo } from 'react';
+import React, { memo } from 'react';
 import RangeSlider, { RangeSliderPosition } from '@gilbarbara/react-range-slider';
 
-import { millisecondsToTime } from '~/modules/helpers';
-import { px, styled } from '~/modules/styled';
-
-import { StyledProps, StylesOptions } from '~/types';
+import { millisecondsToTime } from '../modules/helpers';
+import { px, styled } from '../modules/styled';
+import { StyledProps, StylesOptions } from '../types';
 
 interface Props {
   durationMs: number;
@@ -32,12 +31,12 @@ const Wrapper = styled('div')(
     },
 
     '.rswp_progress': {
-      marginRight: px(style.sliderHeight + 6),
+      
       textAlign: 'right',
     },
 
     '.rswp_duration': {
-      marginLeft: px(style.sliderHeight + 6),
+      
       textAlign: 'left',
     },
   }),
@@ -65,7 +64,7 @@ function Slider(props: Props) {
         sliderHeight: styles.sliderHeight,
       }}
     >
-      <div className="rswp_progress">{millisecondsToTime(progressMs)}</div>
+      <div className="rswp_progress" style={{fontFamily:styles.sliderDurationFontFamily, fontSize:styles.sliderDurationFontSize}}>{millisecondsToTime(progressMs)}</div>
       <RangeSlider
         axis="x"
         className="slider"
@@ -78,7 +77,7 @@ function Slider(props: Props) {
             thumbColor: styles.sliderHandleColor,
             thumbSize: isMagnified ? handleSize + 4 : handleSize,
             height: isMagnified ? styles.sliderHeight + 4 : styles.sliderHeight,
-            padding: 0,
+            padding: "0px 13px",
             rangeColor: styles.sliderColor,
             trackBorderRadius: styles.sliderTrackBorderRadius,
             trackColor: styles.sliderTrackColor,
@@ -89,7 +88,7 @@ function Slider(props: Props) {
         xMin={0}
         xStep={0.1}
       />
-      <div className="rswp_duration">{millisecondsToTime(durationMs)}</div>
+      <div className="rswp_duration" style={{fontFamily:styles.sliderDurationFontFamily , fontSize:styles.sliderDurationFontSize}}>{millisecondsToTime(durationMs)}</div>
     </Wrapper>
   );
 }

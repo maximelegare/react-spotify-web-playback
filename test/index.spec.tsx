@@ -1,9 +1,9 @@
 import React from 'react';
 import { act, configure, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 
-import * as helpers from '~/modules/helpers';
+import * as helpers from './modules/helpers';
 
-import SpotifyWebPlayer, { Props } from '~/index';
+import SpotifyWebPlayer, { Props } from './index';
 
 import { playerState, playerStatus } from './fixtures/data';
 import { setBoundingClientRect } from './fixtures/helpers';

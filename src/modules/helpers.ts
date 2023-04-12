@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { SpotifyTrack } from '~/types';
+import { SpotifyTrack } from '../types';
 
 export function convertTrack(track: Spotify.Track): SpotifyTrack {
   const { album, artists, duration_ms, id, name, uri } = track;

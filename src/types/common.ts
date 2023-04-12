@@ -1,9 +1,9 @@
 /* eslint-disable camelcase */
 import { ReactNode } from 'react';
 
-import { ERROR_TYPE, STATUS, TYPE } from '~/constants';
-
 import { SpotifyDevice, SpotifyTrack } from './spotify';
+
+import { ERROR_TYPE, STATUS, TYPE } from '../constants';
 
 export type ErrorType = (typeof ERROR_TYPE)[keyof typeof ERROR_TYPE];
 export type Status = (typeof STATUS)[keyof typeof STATUS];
@@ -175,6 +175,8 @@ export interface StylesOptions {
   loaderColor: string;
   loaderSize: number | string;
   sliderColor: string;
+  sliderDurationFontFamily?:string;
+  sliderDurationFontSize?:string;
   sliderHandleBorderRadius: number | string;
   sliderHandleColor: string;
   sliderHeight: number;

@@ -1,16 +1,15 @@
-import { memo, ReactNode, useEffect, useRef, useState } from 'react';
+import React, { memo, ReactNode, useEffect, useRef, useState } from 'react';
 import { fade } from 'colorizr';
-
-import { getSpotifyLink, getSpotifyLinkTitle } from '~/modules/getters';
-import { usePrevious } from '~/modules/hooks';
-import { checkTracksStatus, removeTracks, saveTracks } from '~/modules/spotify';
-import { CssLikeObject, px, styled } from '~/modules/styled';
-
-import { Layout, Locale, SpotifyTrack, StyledProps, StylesOptions } from '~/types';
 
 import Favorite from './icons/Favorite';
 import FavoriteOutline from './icons/FavoriteOutline';
 import SpotifyLogo from './SpotifyLogo';
+
+import { getSpotifyLink, getSpotifyLinkTitle } from '../modules/getters';
+import { usePrevious } from '../modules/hooks';
+import { checkTracksStatus, removeTracks, saveTracks } from '../modules/spotify';
+import { CssLikeObject, px, styled } from '../modules/styled';
+import { Layout, Locale, SpotifyTrack, StyledProps, StylesOptions } from '../types';
 
 interface Props {
   hideAttribution: boolean;

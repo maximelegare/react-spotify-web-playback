@@ -1,6 +1,7 @@
-import { keyframes, px, styled } from '~/modules/styled';
+import React from "react"
 
-import { ComponentsProps, StyledProps } from '~/types';
+import { keyframes, px, styled } from '../modules/styled';
+import { ComponentsProps, StyledProps } from '../types';
 
 const Wrapper = styled('div')(
   {

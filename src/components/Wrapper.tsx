@@ -1,8 +1,7 @@
-import { memo } from 'react';
+import React, { memo } from 'react';
 
-import { CssLikeObject, px, styled } from '~/modules/styled';
-
-import { ComponentsProps, StyledProps } from '~/types';
+import { CssLikeObject, px, styled } from '../modules/styled';
+import { ComponentsProps, StyledProps } from '../types';
 
 const StyledWrapper = styled('div')(
   {
@@ -36,16 +35,17 @@ const StyledWrapper = styled('div')(
     }
 
     return {
-      minHeight: px(style.h),
       ...styles,
     };
   },
   'WrapperRSWP',
 );
 
-function Wrapper({ children, layout, styles }: ComponentsProps) {
+function Wrapper({ children, layout,
+  //  styles
+   }: ComponentsProps) {
   return (
-    <StyledWrapper data-component-name="Wrapper" style={{ h: styles.height, layout }}>
+    <StyledWrapper data-component-name="Wrapper" style={{  layout }}>
       {children}
     </StyledWrapper>
   );

@@ -1,16 +1,15 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import RangeSlider, { RangeSliderPosition } from '@gilbarbara/react-range-slider';
-
-import { useMediaQuery, usePrevious } from '~/modules/hooks';
-import { CssLikeObject, px, styled } from '~/modules/styled';
-
-import { Layout, Locale, StyledProps, StylesOptions } from '~/types';
 
 import ClickOutside from './ClickOutside';
 import VolumeHigh from './icons/VolumeHigh';
 import VolumeLow from './icons/VolumeLow';
 import VolumeMid from './icons/VolumeMid';
 import VolumeMute from './icons/VolumeMute';
+
+import { useMediaQuery, usePrevious } from '../modules/hooks';
+import { CssLikeObject, px, styled } from '../modules/styled';
+import { Layout, Locale, StyledProps, StylesOptions } from '../types';
 
 interface Props {
   inlineVolume: boolean;
@@ -145,9 +144,9 @@ export default function Volume(props: Props) {
 
     clearTimeout(timeoutRef.current);
 
-    timeoutRef.current = window.setTimeout(() => {
+    // timeoutRef.current = window.setTimeout(() => {
       setVolume(currentvolume);
-    }, 250);
+    // }, 250);
 
     setVolumeState(currentvolume);
   };
@@ -184,7 +183,7 @@ export default function Volume(props: Props) {
                 thumbBorder: 0,
                 thumbBorderRadius: styles.sliderHandleBorderRadius,
                 thumbColor: styles.sliderHandleColor,
-                height: 4,
+                height: styles.sliderHeight,
                 padding: 0,
                 rangeColor: styles.sliderColor,
                 trackBorderRadius: styles.sliderTrackBorderRadius,

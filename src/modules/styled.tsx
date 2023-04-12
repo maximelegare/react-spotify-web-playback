@@ -13,7 +13,7 @@ import { addon as addonStyle } from 'nano-css/addon/style.js';
 // @ts-ignore
 import { addon as addonStyled } from 'nano-css/addon/styled.js';
 
-import { StyledProps } from '~/types';
+import { StyledProps } from '../types';
 
 interface NanoExtended extends NanoRenderer {
   styled: (

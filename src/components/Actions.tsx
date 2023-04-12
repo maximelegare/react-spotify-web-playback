@@ -1,8 +1,7 @@
-import { memo, ReactNode } from 'react';
+import React, { memo, ReactNode } from 'react';
 
-import { CssLikeObject, px, styled } from '~/modules/styled';
-
-import { Layout, StyledProps, StylesOptions } from '~/types';
+import { CssLikeObject, px, styled } from '../modules/styled';
+import { Layout, StyledProps, StylesOptions } from '../types';
 
 interface Props {
   children: ReactNode;

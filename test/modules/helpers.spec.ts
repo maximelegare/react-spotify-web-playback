@@ -5,7 +5,7 @@ import {
   parseVolume,
   round,
   validateURI,
-} from '~/modules/helpers';
+} from './modules/helpers';
 
 describe('isNumber', () => {
   it('should return properly', () => {
