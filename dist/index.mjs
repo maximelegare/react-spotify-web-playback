@@ -1,17 +1,17 @@
 var __defProp = Object.defineProperty;
-var __getOwnPropNames = Object.getOwnPropertyNames;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __esm = (fn, res) => function __init() {
-  return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
-};
-var __export = (target, all) => {
-  for (var name in all)
-    __defProp(target, name, { get: all[name], enumerable: true });
-};
 var __publicField = (obj, key, value) => {
   __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
   return value;
 };
+
+// src/index.tsx
+import React22, { createRef, PureComponent } from "react";
+import isEqual from "@gilbarbara/deep-equal";
+import memoize from "memoize-one";
+
+// src/components/Actions.tsx
+import React, { memo } from "react";
 
 // src/modules/styled.tsx
 import { createElement } from "react";
@@ -23,65 +23,58 @@ import { addon as addonRule } from "nano-css/addon/rule.js";
 import { addon as addonStyle } from "nano-css/addon/style.js";
 import { addon as addonStyled } from "nano-css/addon/styled.js";
 import {} from "nano-css";
-var nano, keyframes, put, styled, px;
-var init_styled = __esm({
-  "src/modules/styled.tsx"() {
-    "use strict";
-    nano = create({ h: createElement });
-    addonRule(nano);
-    addonKeyframes(nano);
-    addonJSX(nano);
-    addonStyle(nano);
-    addonStyled(nano);
-    addonNesting(nano);
-    ({ keyframes, put, styled } = nano);
-    px = (value) => typeof value === "number" ? `${value}px` : value;
-  }
-});
+var nano = create({ h: createElement });
+addonRule(nano);
+addonKeyframes(nano);
+addonJSX(nano);
+addonStyle(nano);
+addonStyled(nano);
+addonNesting(nano);
+var { keyframes, put, styled } = nano;
+var px = (value) => typeof value === "number" ? `${value}px` : value;
 
 // src/components/Actions.tsx
-import React, { memo } from "react";
+var Wrapper = styled("div")(
+  {
+    alignItems: "center",
+    display: "flex",
+    justifyContent: "flex-end",
+    "pointer-events": "none"
+  },
+  ({ style }) => {
+    let styles = {
+      bottom: 0,
+      position: "absolute",
+      right: 0,
+      width: "auto"
+    };
+    if (style.layout === "responsive") {
+      styles = {
+        "@media (max-width: 767px)": styles,
+        "@media (min-width: 768px)": {
+          height: px(style.h)
+        }
+      };
+    }
+    return {
+      height: px(32),
+      ...styles
+    };
+  },
+  "ActionsRSWP"
+);
 function Actions(props) {
   const { children, layout, styles } = props;
   return /* @__PURE__ */ React.createElement(Wrapper, { "data-component-name": "Actions", style: { h: styles.height, layout } }, children);
 }
-var Wrapper, Actions_default;
-var init_Actions = __esm({
-  "src/components/Actions.tsx"() {
-    "use strict";
-    init_styled();
-    Wrapper = styled("div")(
-      {
-        alignItems: "center",
-        display: "flex",
-        justifyContent: "flex-end",
-        "pointer-events": "none"
-      },
-      ({ style }) => {
-        let styles = {
-          bottom: 0,
-          position: "absolute",
-          right: 0,
-          width: "auto"
-        };
-        if (style.layout === "responsive") {
-          styles = {
-            "@media (max-width: 767px)": styles,
-            "@media (min-width: 768px)": {
-              height: px(style.h)
-            }
-          };
-        }
-        return {
-          height: px(32),
-          ...styles
-        };
-      },
-      "ActionsRSWP"
-    );
-    Actions_default = memo(Actions);
-  }
-});
+var Actions_default = memo(Actions);
+
+// src/components/Controls.tsx
+import React3, { memo as memo3 } from "react";
+
+// src/components/Slider.tsx
+import React2, { memo as memo2 } from "react";
+import RangeSlider from "@gilbarbara/react-range-slider";
 
 // src/modules/helpers.ts
 function convertTrack(track) {
@@ -159,15 +152,31 @@ function validateURI(input) {
   }
   return false;
 }
-var init_helpers = __esm({
-  "src/modules/helpers.ts"() {
-    "use strict";
-  }
-});
 
 // src/components/Slider.tsx
-import React2, { memo as memo2 } from "react";
-import RangeSlider from "@gilbarbara/react-range-slider";
+var Wrapper2 = styled("div")(
+  {
+    alignItems: "center",
+    display: "flex",
+    fontSize: px(12),
+    transition: "height 0.3s",
+    zIndex: 10
+  },
+  ({ style }) => ({
+    '[class^="rswp_"]': {
+      color: style.c,
+      lineHeight: 1,
+      minWidth: px(32)
+    },
+    ".rswp_progress": {
+      textAlign: "right"
+    },
+    ".rswp_duration": {
+      textAlign: "left"
+    }
+  }),
+  "SliderRSWP"
+);
 function Slider(props) {
   const { durationMs, isMagnified, onChangeRange, onToggleMagnify, position, progressMs, styles } = props;
   const handleChangeRange = async ({ x }) => {
@@ -216,41 +225,9 @@ function Slider(props) {
     /* @__PURE__ */ React2.createElement("div", { className: "rswp_duration", style: { fontFamily: styles.sliderDurationFontFamily, fontSize: styles.sliderDurationFontSize } }, millisecondsToTime(durationMs))
   );
 }
-var Wrapper2, Slider_default;
-var init_Slider = __esm({
-  "src/components/Slider.tsx"() {
-    "use strict";
-    init_helpers();
-    init_styled();
-    Wrapper2 = styled("div")(
-      {
-        alignItems: "center",
-        display: "flex",
-        fontSize: px(12),
-        transition: "height 0.3s",
-        zIndex: 10
-      },
-      ({ style }) => ({
-        '[class^="rswp_"]': {
-          color: style.c,
-          lineHeight: 1,
-          minWidth: px(32)
-        },
-        ".rswp_progress": {
-          textAlign: "right"
-        },
-        ".rswp_duration": {
-          textAlign: "left"
-        }
-      }),
-      "SliderRSWP"
-    );
-    Slider_default = memo2(Slider);
-  }
-});
+var Slider_default = memo2(Slider);
 
 // src/components/Controls.tsx
-import React3, { memo as memo3 } from "react";
 function Controls(props) {
   const {
     // devices,
@@ -285,16 +262,12 @@ function Controls(props) {
     }
   ));
 }
-var Controls_default;
-var init_Controls = __esm({
-  "src/components/Controls.tsx"() {
-    "use strict";
-    init_Slider();
-    Controls_default = memo3(Controls);
-    {
-    }
-  }
-});
+var Controls_default = memo3(Controls);
+{
+}
+
+// src/components/Devices.tsx
+import React9, { useCallback, useState } from "react";
 
 // src/components/ClickOutside.tsx
 import React4, { memo as memo4, useEffect, useRef } from "react";
@@ -327,13 +300,7 @@ function ClickOutside(props) {
   }, [isActive]);
   return /* @__PURE__ */ React4.createElement("div", { ref: containerRef, ...rest }, children);
 }
-var ClickOutside_default;
-var init_ClickOutside = __esm({
-  "src/components/ClickOutside.tsx"() {
-    "use strict";
-    ClickOutside_default = memo4(ClickOutside);
-  }
-});
+var ClickOutside_default = memo4(ClickOutside);
 
 // src/components/icons/Devices.tsx
 import React5 from "react";
@@ -346,11 +313,6 @@ function DevicesIcon(props) {
     }
   ));
 }
-var init_Devices = __esm({
-  "src/components/icons/Devices.tsx"() {
-    "use strict";
-  }
-});
 
 // src/components/icons/DevicesComputer.tsx
 import React6 from "react";
@@ -363,11 +325,6 @@ function DevicesComputerIcon(props) {
     }
   ));
 }
-var init_DevicesComputer = __esm({
-  "src/components/icons/DevicesComputer.tsx"() {
-    "use strict";
-  }
-});
 
 // src/components/icons/DevicesMobile.tsx
 import React7 from "react";
@@ -380,11 +337,6 @@ function DevicesMobileIcon(props) {
     }
   ));
 }
-var init_DevicesMobile = __esm({
-  "src/components/icons/DevicesMobile.tsx"() {
-    "use strict";
-  }
-});
 
 // src/components/icons/DevicesSpeaker.tsx
 import React8 from "react";
@@ -397,14 +349,118 @@ function DevicesSpeakerIcon(props) {
     }
   ));
 }
-var init_DevicesSpeaker = __esm({
-  "src/components/icons/DevicesSpeaker.tsx"() {
-    "use strict";
-  }
-});
 
 // src/components/Devices.tsx
-import React9, { useCallback, useState } from "react";
+var Wrapper3 = styled("div")(
+  {
+    "pointer-events": "all",
+    alignItems: "center",
+    display: "flex",
+    justifyContent: "center",
+    position: "relative",
+    zIndex: 20,
+    "> div": {
+      backgroundColor: "#000",
+      borderRadius: px(8),
+      color: "#fff",
+      filter: "drop-shadow(1px 1px 6px rgba(0, 0, 0, 0.5))",
+      fontSize: px(14),
+      padding: px(16),
+      position: "absolute",
+      textAlign: "left",
+      "> p": {
+        fontWeight: "bold",
+        marginBottom: px(8),
+        marginTop: px(16),
+        whiteSpace: "nowrap"
+      },
+      button: {
+        alignItems: "center",
+        display: "flex",
+        whiteSpace: "nowrap",
+        "&:not(:last-of-type)": {
+          marginBottom: px(12)
+        },
+        span: {
+          display: "inline-block",
+          marginLeft: px(4)
+        }
+      },
+      "> span": {
+        background: "transparent",
+        borderLeft: `6px solid transparent`,
+        borderRight: `6px solid transparent`,
+        content: '""',
+        display: "block",
+        height: 0,
+        position: "absolute",
+        width: 0
+      }
+    },
+    "> button": {
+      alignItems: "center",
+      display: "flex",
+      fontSize: px(24),
+      height: px(32),
+      justifyContent: "center",
+      width: px(32)
+    }
+  },
+  ({ style }) => {
+    const isCompact = style.layout === "compact";
+    const divStyles = isCompact ? {
+      bottom: "120%",
+      left: 0
+    } : {
+      [style.p]: "120%",
+      left: 0,
+      "@media (min-width: 768px)": {
+        left: "auto",
+        right: 0
+      }
+    };
+    const spanStyles = isCompact ? {
+      bottom: `-${px(6)}`,
+      borderTop: `6px solid #000`,
+      left: px(10)
+    } : {
+      [style.p === "top" ? "border-bottom" : "border-top"]: `6px solid #000`,
+      [style.p]: "-6px",
+      left: px(10),
+      "@media (min-width: 768px)": {
+        left: "auto",
+        right: px(10)
+      }
+    };
+    return {
+      "> button": {
+        color: style.c
+      },
+      "> div": {
+        ...divStyles,
+        "> span": spanStyles
+      }
+    };
+  },
+  "DevicesRSWP"
+);
+var ListHeader = styled("div")({
+  p: {
+    whiteSpace: "nowrap",
+    "&:nth-of-type(1)": {
+      fontWeight: "bold",
+      marginBottom: px(8)
+    },
+    "&:nth-of-type(2)": {
+      alignItems: "center",
+      display: "flex",
+      span: {
+        display: "inline-block",
+        marginLeft: px(4)
+      }
+    }
+  }
+});
 function getDeviceIcon(type) {
   if (type.toLowerCase().includes("speaker")) {
     return /* @__PURE__ */ React9.createElement(DevicesSpeakerIcon, null);
@@ -486,160 +542,35 @@ function Devices(props) {
     ))
   ));
 }
-var Wrapper3, ListHeader;
-var init_Devices2 = __esm({
-  "src/components/Devices.tsx"() {
-    "use strict";
-    init_ClickOutside();
-    init_Devices();
-    init_DevicesComputer();
-    init_DevicesMobile();
-    init_DevicesSpeaker();
-    init_styled();
-    Wrapper3 = styled("div")(
-      {
-        "pointer-events": "all",
-        alignItems: "center",
-        display: "flex",
-        justifyContent: "center",
-        position: "relative",
-        zIndex: 20,
-        "> div": {
-          backgroundColor: "#000",
-          borderRadius: px(8),
-          color: "#fff",
-          filter: "drop-shadow(1px 1px 6px rgba(0, 0, 0, 0.5))",
-          fontSize: px(14),
-          padding: px(16),
-          position: "absolute",
-          textAlign: "left",
-          "> p": {
-            fontWeight: "bold",
-            marginBottom: px(8),
-            marginTop: px(16),
-            whiteSpace: "nowrap"
-          },
-          button: {
-            alignItems: "center",
-            display: "flex",
-            whiteSpace: "nowrap",
-            "&:not(:last-of-type)": {
-              marginBottom: px(12)
-            },
-            span: {
-              display: "inline-block",
-              marginLeft: px(4)
-            }
-          },
-          "> span": {
-            background: "transparent",
-            borderLeft: `6px solid transparent`,
-            borderRight: `6px solid transparent`,
-            content: '""',
-            display: "block",
-            height: 0,
-            position: "absolute",
-            width: 0
-          }
-        },
-        "> button": {
-          alignItems: "center",
-          display: "flex",
-          fontSize: px(24),
-          height: px(32),
-          justifyContent: "center",
-          width: px(32)
-        }
-      },
-      ({ style }) => {
-        const isCompact = style.layout === "compact";
-        const divStyles = isCompact ? {
-          bottom: "120%",
-          left: 0
-        } : {
-          [style.p]: "120%",
-          left: 0,
-          "@media (min-width: 768px)": {
-            left: "auto",
-            right: 0
-          }
-        };
-        const spanStyles = isCompact ? {
-          bottom: `-${px(6)}`,
-          borderTop: `6px solid #000`,
-          left: px(10)
-        } : {
-          [style.p === "top" ? "border-bottom" : "border-top"]: `6px solid #000`,
-          [style.p]: "-6px",
-          left: px(10),
-          "@media (min-width: 768px)": {
-            left: "auto",
-            right: px(10)
-          }
-        };
-        return {
-          "> button": {
-            color: style.c
-          },
-          "> div": {
-            ...divStyles,
-            "> span": spanStyles
-          }
-        };
-      },
-      "DevicesRSWP"
-    );
-    ListHeader = styled("div")({
-      p: {
-        whiteSpace: "nowrap",
-        "&:nth-of-type(1)": {
-          fontWeight: "bold",
-          marginBottom: px(8)
-        },
-        "&:nth-of-type(2)": {
-          alignItems: "center",
-          display: "flex",
-          span: {
-            display: "inline-block",
-            marginLeft: px(4)
-          }
-        }
-      }
-    });
-  }
-});
 
 // src/components/ErrorMessage.tsx
 import React10 from "react";
+var Wrapper4 = styled("div")(
+  {
+    alignItems: "center",
+    display: "flex",
+    justifyContent: "center",
+    textAlign: "center",
+    width: "100%"
+  },
+  ({ style }) => ({
+    backgroundColor: style.bgColor,
+    borderTop: `1px solid ${style.errorColor}`,
+    color: style.errorColor,
+    height: px(style.h)
+  }),
+  "ErrorRSWP"
+);
 function ErrorMessage({
   children,
   styles: { bgColor, errorColor, height }
 }) {
   return /* @__PURE__ */ React10.createElement(Wrapper4, { "data-component-name": "ErrorMessage", style: { bgColor, errorColor, h: height } }, children);
 }
-var Wrapper4;
-var init_ErrorMessage = __esm({
-  "src/components/ErrorMessage.tsx"() {
-    "use strict";
-    init_styled();
-    Wrapper4 = styled("div")(
-      {
-        alignItems: "center",
-        display: "flex",
-        justifyContent: "center",
-        textAlign: "center",
-        width: "100%"
-      },
-      ({ style }) => ({
-        backgroundColor: style.bgColor,
-        borderTop: `1px solid ${style.errorColor}`,
-        color: style.errorColor,
-        height: px(style.h)
-      }),
-      "ErrorRSWP"
-    );
-  }
-});
+
+// src/components/Info.tsx
+import React14, { memo as memo5, useEffect as useEffect3, useRef as useRef3, useState as useState3 } from "react";
+import { fade } from "colorizr";
 
 // src/components/icons/Favorite.tsx
 import React11 from "react";
@@ -652,11 +583,6 @@ function Favorite(props) {
     }
   ));
 }
-var init_Favorite = __esm({
-  "src/components/icons/Favorite.tsx"() {
-    "use strict";
-  }
-});
 
 // src/components/icons/FavoriteOutline.tsx
 import React12 from "react";
@@ -669,11 +595,6 @@ function FavoriteOutline(props) {
     }
   ));
 }
-var init_FavoriteOutline = __esm({
-  "src/components/icons/FavoriteOutline.tsx"() {
-    "use strict";
-  }
-});
 
 // src/components/SpotifyLogo.tsx
 import React13 from "react";
@@ -687,11 +608,6 @@ function SpotifyLogo({ bgColor, ...rest }) {
     }
   ));
 }
-var init_SpotifyLogo = __esm({
-  "src/components/SpotifyLogo.tsx"() {
-    "use strict";
-  }
-});
 
 // src/modules/getters.ts
 function getLocale(locale) {
@@ -742,11 +658,6 @@ function getSpotifyURIType(uri) {
   const [, type = ""] = uri.split(":");
   return type;
 }
-var init_getters = __esm({
-  "src/modules/getters.ts"() {
-    "use strict";
-  }
-});
 
 // src/modules/hooks.ts
 import { useEffect as useEffect2, useRef as useRef2, useState as useState2 } from "react";
@@ -783,11 +694,6 @@ function usePrevious(value) {
   }, [value]);
   return ref.current;
 }
-var init_hooks = __esm({
-  "src/modules/hooks.ts"() {
-    "use strict";
-  }
-});
 
 // src/modules/spotify.ts
 async function checkTracksStatus(token, tracks) {
@@ -903,15 +809,169 @@ async function setVolume(token, volume) {
     method: "PUT"
   });
 }
-var init_spotify = __esm({
-  "src/modules/spotify.ts"() {
-    "use strict";
-  }
-});
 
 // src/components/Info.tsx
-import React14, { memo as memo5, useEffect as useEffect3, useRef as useRef3, useState as useState3 } from "react";
-import { fade } from "colorizr";
+var imageSize = 64;
+var iconSize = 32;
+var Wrapper5 = styled("div")(
+  {
+    textAlign: "left",
+    "> a": {
+      display: "inline-flex",
+      textDecoration: "none",
+      minHeigth: px(64),
+      minWidth: px(64),
+      "&:hover": {
+        textDecoration: "underline"
+      }
+    },
+    button: {
+      alignItems: "center",
+      display: "flex",
+      fontSize: px(16),
+      height: px(iconSize + 8),
+      justifyContent: "center",
+      width: px(iconSize)
+    }
+  },
+  ({ style }) => {
+    const isCompactLayout = style.layout === "compact";
+    const styles = {};
+    if (isCompactLayout) {
+      styles.borderBottom = `1px solid ${fade(style.c, 40)}`;
+      styles["> a"] = {
+        display: "flex",
+        margin: "0 auto",
+        maxWidth: px(640),
+        paddingBottom: "100%",
+        position: "relative",
+        img: {
+          display: "block",
+          bottom: 0,
+          left: 0,
+          maxWidth: "100%",
+          position: "absolute",
+          right: 0,
+          top: 0
+        }
+      };
+    } else {
+      styles.alignItems = "center";
+      styles.display = "flex";
+      styles.minHeight = px(80);
+      styles["@media (max-width: 767px)"] = {
+        borderBottom: `1px solid ${fade(style.c, 40)}`,
+        paddingLeft: px(8),
+        display: "none",
+        width: "100%"
+      };
+      styles.img = {
+        height: px(imageSize),
+        width: px(imageSize)
+      };
+      styles["&.rswp__active"] = {
+        "@media (max-width: 767px)": {
+          display: "flex"
+        }
+      };
+    }
+    return {
+      button: {
+        color: style.c,
+        "&.rswp__active": {
+          color: style.activeColor
+        }
+      },
+      ...styles
+    };
+  },
+  "InfoRSWP"
+);
+var ContentWrapper = styled("div")(
+  {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    "> a": {
+      fontSize: px(22),
+      marginTop: px(4)
+    }
+  },
+  ({ style }) => {
+    const isCompactLayout = style.layout === "compact";
+    const styles = {};
+    if (isCompactLayout) {
+      styles.padding = px(8);
+      styles.width = "100%";
+    } else {
+      styles.minHeight = px(imageSize);
+      if (!style.hideCoverArt) {
+        styles.marginLeft = px(8);
+        styles.width = `calc(100% - ${px(imageSize + 8)})`;
+      } else {
+        styles.width = "100%";
+      }
+    }
+    return styles;
+  },
+  "ContentWrapperRSWP"
+);
+var Content = styled("div")(
+  {
+    display: "flex",
+    justifyContent: "start",
+    '[data-type="title-artist-wrapper"]': {
+      overflow: "hidden",
+      div: {
+        marginLeft: `-${px(8)}`,
+        whiteSpace: "nowrap"
+      }
+    },
+    p: {
+      fontSize: px(14),
+      lineHeight: 1.3,
+      paddingLeft: px(8),
+      paddingRight: px(8),
+      width: "100%",
+      "&:nth-of-type(1)": {
+        alignItems: "center",
+        display: "inline-flex"
+      },
+      "&:nth-of-type(2)": {
+        fontSize: px(12)
+      }
+    },
+    span: {
+      display: "inline-block"
+    }
+  },
+  ({ style }) => {
+    return {
+      '[data-type="title-artist-wrapper"]': {
+        color: style.trackNameColor,
+        maxWidth: `calc(100% - ${px(style.showSaveIcon ? iconSize : 0)})`,
+        div: {
+          "-webkit-mask-image": `linear-gradient(90deg,transparent 0, ${style.bgColor} 6px, ${style.bgColor} calc(100% - 12px),transparent)`
+        }
+      },
+      p: {
+        "&:nth-of-type(1)": {
+          color: style.trackNameColor,
+          a: {
+            color: style.trackNameColor
+          }
+        },
+        "&:nth-of-type(2)": {
+          color: style.trackArtistColor,
+          a: {
+            color: style.trackArtistColor
+          }
+        }
+      }
+    };
+  },
+  "ContentRSWP"
+);
 function Info(props) {
   const {
     hideAttribution,
@@ -1084,244 +1144,67 @@ function Info(props) {
     )
   );
 }
-var imageSize, iconSize, Wrapper5, ContentWrapper, Content, Info_default;
-var init_Info = __esm({
-  "src/components/Info.tsx"() {
-    "use strict";
-    init_Favorite();
-    init_FavoriteOutline();
-    init_SpotifyLogo();
-    init_getters();
-    init_hooks();
-    init_spotify();
-    init_styled();
-    imageSize = 64;
-    iconSize = 32;
-    Wrapper5 = styled("div")(
-      {
-        textAlign: "left",
-        "> a": {
-          display: "inline-flex",
-          textDecoration: "none",
-          minHeigth: px(64),
-          minWidth: px(64),
-          "&:hover": {
-            textDecoration: "underline"
-          }
-        },
-        button: {
-          alignItems: "center",
-          display: "flex",
-          fontSize: px(16),
-          height: px(iconSize + 8),
-          justifyContent: "center",
-          width: px(iconSize)
-        }
-      },
-      ({ style }) => {
-        const isCompactLayout = style.layout === "compact";
-        const styles = {};
-        if (isCompactLayout) {
-          styles.borderBottom = `1px solid ${fade(style.c, 40)}`;
-          styles["> a"] = {
-            display: "flex",
-            margin: "0 auto",
-            maxWidth: px(640),
-            paddingBottom: "100%",
-            position: "relative",
-            img: {
-              display: "block",
-              bottom: 0,
-              left: 0,
-              maxWidth: "100%",
-              position: "absolute",
-              right: 0,
-              top: 0
-            }
-          };
-        } else {
-          styles.alignItems = "center";
-          styles.display = "flex";
-          styles.minHeight = px(80);
-          styles["@media (max-width: 767px)"] = {
-            borderBottom: `1px solid ${fade(style.c, 40)}`,
-            paddingLeft: px(8),
-            display: "none",
-            width: "100%"
-          };
-          styles.img = {
-            height: px(imageSize),
-            width: px(imageSize)
-          };
-          styles["&.rswp__active"] = {
-            "@media (max-width: 767px)": {
-              display: "flex"
-            }
-          };
-        }
-        return {
-          button: {
-            color: style.c,
-            "&.rswp__active": {
-              color: style.activeColor
-            }
-          },
-          ...styles
-        };
-      },
-      "InfoRSWP"
-    );
-    ContentWrapper = styled("div")(
-      {
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        "> a": {
-          fontSize: px(22),
-          marginTop: px(4)
-        }
-      },
-      ({ style }) => {
-        const isCompactLayout = style.layout === "compact";
-        const styles = {};
-        if (isCompactLayout) {
-          styles.padding = px(8);
-          styles.width = "100%";
-        } else {
-          styles.minHeight = px(imageSize);
-          if (!style.hideCoverArt) {
-            styles.marginLeft = px(8);
-            styles.width = `calc(100% - ${px(imageSize + 8)})`;
-          } else {
-            styles.width = "100%";
-          }
-        }
-        return styles;
-      },
-      "ContentWrapperRSWP"
-    );
-    Content = styled("div")(
-      {
-        display: "flex",
-        justifyContent: "start",
-        '[data-type="title-artist-wrapper"]': {
-          overflow: "hidden",
-          div: {
-            marginLeft: `-${px(8)}`,
-            whiteSpace: "nowrap"
-          }
-        },
-        p: {
-          fontSize: px(14),
-          lineHeight: 1.3,
-          paddingLeft: px(8),
-          paddingRight: px(8),
-          width: "100%",
-          "&:nth-of-type(1)": {
-            alignItems: "center",
-            display: "inline-flex"
-          },
-          "&:nth-of-type(2)": {
-            fontSize: px(12)
-          }
-        },
-        span: {
-          display: "inline-block"
-        }
-      },
-      ({ style }) => {
-        return {
-          '[data-type="title-artist-wrapper"]': {
-            color: style.trackNameColor,
-            maxWidth: `calc(100% - ${px(style.showSaveIcon ? iconSize : 0)})`,
-            div: {
-              "-webkit-mask-image": `linear-gradient(90deg,transparent 0, ${style.bgColor} 6px, ${style.bgColor} calc(100% - 12px),transparent)`
-            }
-          },
-          p: {
-            "&:nth-of-type(1)": {
-              color: style.trackNameColor,
-              a: {
-                color: style.trackNameColor
-              }
-            },
-            "&:nth-of-type(2)": {
-              color: style.trackArtistColor,
-              a: {
-                color: style.trackArtistColor
-              }
-            }
-          }
-        };
-      },
-      "ContentRSWP"
-    );
-    Info_default = memo5(Info);
-  }
-});
+var Info_default = memo5(Info);
 
 // src/components/Loader.tsx
 import React15 from "react";
+var Wrapper6 = styled("div")(
+  {
+    alignItems: "center",
+    display: "flex",
+    jsutifyContent: "center",
+    position: "relative",
+    "> div": {
+      borderRadius: "50%",
+      borderStyle: "solid",
+      borderWidth: 0,
+      boxSizing: "border-box",
+      height: 0,
+      left: "50%",
+      position: "absolute",
+      top: "50%",
+      transform: "translate(-50%, -50%)",
+      width: 0
+    }
+  },
+  ({ style }) => {
+    const pulse = keyframes({
+      "0%": {
+        height: 0,
+        width: 0
+      },
+      "30%": {
+        borderWidth: px(8),
+        height: px(style.loaderSize),
+        opacity: 1,
+        width: px(style.loaderSize)
+      },
+      "100%": {
+        borderWidth: 0,
+        height: px(style.loaderSize),
+        opacity: 0,
+        width: px(style.loaderSize)
+      }
+    });
+    return {
+      height: px(style.h),
+      "> div": {
+        animation: `${pulse} 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1)`,
+        borderColor: style.loaderColor,
+        height: px(style.loaderSize),
+        width: px(style.loaderSize)
+      }
+    };
+  },
+  "LoaderRSWP"
+);
 function Loader({ styles: { height, loaderColor, loaderSize } }) {
   return /* @__PURE__ */ React15.createElement(Wrapper6, { "data-component-name": "Loader", style: { h: height, loaderColor, loaderSize } }, /* @__PURE__ */ React15.createElement("div", null));
 }
-var Wrapper6;
-var init_Loader = __esm({
-  "src/components/Loader.tsx"() {
-    "use strict";
-    init_styled();
-    Wrapper6 = styled("div")(
-      {
-        alignItems: "center",
-        display: "flex",
-        jsutifyContent: "center",
-        position: "relative",
-        "> div": {
-          borderRadius: "50%",
-          borderStyle: "solid",
-          borderWidth: 0,
-          boxSizing: "border-box",
-          height: 0,
-          left: "50%",
-          position: "absolute",
-          top: "50%",
-          transform: "translate(-50%, -50%)",
-          width: 0
-        }
-      },
-      ({ style }) => {
-        const pulse = keyframes({
-          "0%": {
-            height: 0,
-            width: 0
-          },
-          "30%": {
-            borderWidth: px(8),
-            height: px(style.loaderSize),
-            opacity: 1,
-            width: px(style.loaderSize)
-          },
-          "100%": {
-            borderWidth: 0,
-            height: px(style.loaderSize),
-            opacity: 0,
-            width: px(style.loaderSize)
-          }
-        });
-        return {
-          height: px(style.h),
-          "> div": {
-            animation: `${pulse} 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1)`,
-            borderColor: style.loaderColor,
-            height: px(style.loaderSize),
-            width: px(style.loaderSize)
-          }
-        };
-      },
-      "LoaderRSWP"
-    );
-  }
-});
+
+// src/components/Volume.tsx
+import React20, { useCallback as useCallback2, useEffect as useEffect4, useRef as useRef4, useState as useState4 } from "react";
+import RangeSlider2 from "@gilbarbara/react-range-slider";
 
 // src/components/icons/VolumeHigh.tsx
 import React16 from "react";
@@ -1345,11 +1228,6 @@ function VolumeHigh(props) {
     )
   );
 }
-var init_VolumeHigh = __esm({
-  "src/components/icons/VolumeHigh.tsx"() {
-    "use strict";
-  }
-});
 
 // src/components/icons/VolumeLow.tsx
 import React17 from "react";
@@ -1373,11 +1251,6 @@ function VolumeLow(props) {
     )
   );
 }
-var init_VolumeLow = __esm({
-  "src/components/icons/VolumeLow.tsx"() {
-    "use strict";
-  }
-});
 
 // src/components/icons/VolumeMid.tsx
 import React18 from "react";
@@ -1401,11 +1274,6 @@ function VolumeHigh2(props) {
     )
   );
 }
-var init_VolumeMid = __esm({
-  "src/components/icons/VolumeMid.tsx"() {
-    "use strict";
-  }
-});
 
 // src/components/icons/VolumeMute.tsx
 import React19 from "react";
@@ -1429,15 +1297,93 @@ function VolumeMute(props) {
     )
   );
 }
-var init_VolumeMute = __esm({
-  "src/components/icons/VolumeMute.tsx"() {
-    "use strict";
-  }
-});
 
 // src/components/Volume.tsx
-import React20, { useCallback as useCallback2, useEffect as useEffect4, useRef as useRef4, useState as useState4 } from "react";
-import RangeSlider2 from "@gilbarbara/react-range-slider";
+var WrapperWithToggle = styled("div")(
+  {
+    display: "none",
+    "pointer-events": "all",
+    position: "relative",
+    zIndex: 20,
+    "> div": {
+      alignItems: "center",
+      backgroundColor: "#000",
+      borderRadius: px(4),
+      color: "#fff",
+      display: "flex",
+      filter: "drop-shadow(1px 1px 6px rgba(0, 0, 0, 0.5))",
+      flexDirection: "column",
+      left: "-4px",
+      padding: px(16),
+      position: "absolute",
+      "> span": {
+        background: "transparent",
+        borderLeft: `6px solid transparent`,
+        borderRight: `6px solid transparent`,
+        content: '""',
+        display: "block",
+        height: 0,
+        position: "absolute",
+        width: 0
+      }
+    },
+    "> button": {
+      alignItems: "center",
+      display: "flex",
+      fontSize: px(24),
+      height: px(32),
+      justifyContent: "center",
+      width: px(32)
+    },
+    "@media (any-pointer: fine)": {
+      display: "block"
+    }
+  },
+  ({ style }) => {
+    const isCompact = style.layout === "compact";
+    const spanStyles = isCompact ? {
+      bottom: `-${px(6)}`,
+      borderTop: `6px solid #000`
+    } : {
+      [style.p === "top" ? "border-bottom" : "border-top"]: `6px solid #000`,
+      [style.p]: "-6px"
+    };
+    return {
+      "> button": {
+        color: style.c
+      },
+      "> div": {
+        [isCompact ? "bottom" : style.p]: "130%",
+        "> span": spanStyles
+      }
+    };
+  },
+  "VolumeRSWP"
+);
+var WrapperInline = styled("div")(
+  {
+    display: "none",
+    padding: `0 ${px(8)}`,
+    "pointer-events": "all",
+    "> div": {
+      display: "flex",
+      padding: `0 ${px(5)}`,
+      width: px(100)
+    },
+    "> span": {
+      display: "flex",
+      fontSize: px(24)
+    },
+    "@media (any-pointer: fine)": {
+      alignItems: "center",
+      display: "flex"
+    }
+  },
+  ({ style }) => ({
+    color: style.c
+  }),
+  "VolumeInlineRSWP"
+);
 function Volume(props) {
   const { inlineVolume, layout, locale, playerPosition, setVolume: setVolume2, styles, volume } = props;
   const [isOpen, setIsOpen] = useState4(false);
@@ -1545,107 +1491,42 @@ function Volume(props) {
     )
   ));
 }
-var WrapperWithToggle, WrapperInline;
-var init_Volume = __esm({
-  "src/components/Volume.tsx"() {
-    "use strict";
-    init_ClickOutside();
-    init_VolumeHigh();
-    init_VolumeLow();
-    init_VolumeMid();
-    init_VolumeMute();
-    init_hooks();
-    init_styled();
-    WrapperWithToggle = styled("div")(
-      {
-        display: "none",
-        "pointer-events": "all",
-        position: "relative",
-        zIndex: 20,
-        "> div": {
-          alignItems: "center",
-          backgroundColor: "#000",
-          borderRadius: px(4),
-          color: "#fff",
-          display: "flex",
-          filter: "drop-shadow(1px 1px 6px rgba(0, 0, 0, 0.5))",
-          flexDirection: "column",
-          left: "-4px",
-          padding: px(16),
-          position: "absolute",
-          "> span": {
-            background: "transparent",
-            borderLeft: `6px solid transparent`,
-            borderRight: `6px solid transparent`,
-            content: '""',
-            display: "block",
-            height: 0,
-            position: "absolute",
-            width: 0
-          }
-        },
-        "> button": {
-          alignItems: "center",
-          display: "flex",
-          fontSize: px(24),
-          height: px(32),
-          justifyContent: "center",
-          width: px(32)
-        },
-        "@media (any-pointer: fine)": {
-          display: "block"
-        }
-      },
-      ({ style }) => {
-        const isCompact = style.layout === "compact";
-        const spanStyles = isCompact ? {
-          bottom: `-${px(6)}`,
-          borderTop: `6px solid #000`
-        } : {
-          [style.p === "top" ? "border-bottom" : "border-top"]: `6px solid #000`,
-          [style.p]: "-6px"
-        };
-        return {
-          "> button": {
-            color: style.c
-          },
-          "> div": {
-            [isCompact ? "bottom" : style.p]: "130%",
-            "> span": spanStyles
-          }
-        };
-      },
-      "VolumeRSWP"
-    );
-    WrapperInline = styled("div")(
-      {
-        display: "none",
-        padding: `0 ${px(8)}`,
-        "pointer-events": "all",
-        "> div": {
-          display: "flex",
-          padding: `0 ${px(5)}`,
-          width: px(100)
-        },
-        "> span": {
-          display: "flex",
-          fontSize: px(24)
-        },
-        "@media (any-pointer: fine)": {
-          alignItems: "center",
-          display: "flex"
-        }
-      },
-      ({ style }) => ({
-        color: style.c
-      }),
-      "VolumeInlineRSWP"
-    );
-  }
-});
 
 // src/components/Wrapper.tsx
 import React21, { memo as memo6 } from "react";
+var StyledWrapper = styled("div")(
+  {
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "column",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    position: "relative",
+    "> *": {
+      width: "100%"
+    }
+  },
+  ({ style }) => {
+    let styles = {};
+    if (style.layout === "responsive") {
+      styles = {
+        "> *": {
+          "@media (min-width: 768px)": {
+            width: "33.3333%"
+          }
+        },
+        "@media (min-width: 768px)": {
+          flexDirection: "row",
+          padding: `0 ${px(8)}`
+        }
+      };
+    }
+    return {
+      ...styles
+    };
+  },
+  "WrapperRSWP"
+);
 function Wrapper7({
   children,
   layout
@@ -1653,925 +1534,818 @@ function Wrapper7({
 }) {
   return /* @__PURE__ */ React21.createElement(StyledWrapper, { "data-component-name": "Wrapper", style: { layout } }, children);
 }
-var StyledWrapper, Wrapper_default;
-var init_Wrapper = __esm({
-  "src/components/Wrapper.tsx"() {
-    "use strict";
-    init_styled();
-    StyledWrapper = styled("div")(
-      {
-        alignItems: "center",
-        display: "flex",
-        flexDirection: "column",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        position: "relative",
-        "> *": {
-          width: "100%"
-        }
-      },
-      ({ style }) => {
-        let styles = {};
-        if (style.layout === "responsive") {
-          styles = {
-            "> *": {
-              "@media (min-width: 768px)": {
-                width: "33.3333%"
-              }
-            },
-            "@media (min-width: 768px)": {
-              flexDirection: "row",
-              padding: `0 ${px(8)}`
-            }
-          };
-        }
-        return {
-          ...styles
-        };
-      },
-      "WrapperRSWP"
-    );
-    Wrapper_default = memo6(Wrapper7);
-  }
-});
+var Wrapper_default = memo6(Wrapper7);
 
 // src/constants.ts
-var ERROR_TYPE, STATUS, TYPE;
-var init_constants = __esm({
-  "src/constants.ts"() {
-    "use strict";
-    ERROR_TYPE = {
-      ACCOUNT: "account",
-      AUTHENTICATION: "authentication",
-      INITIALIZATION: "initialization",
-      PLAYBACK: "playback",
-      PLAYER: "player"
-    };
-    STATUS = {
-      ERROR: "ERROR",
-      IDLE: "IDLE",
-      INITIALIZING: "INITIALIZING",
-      READY: "READY",
-      RUNNING: "RUNNING",
-      UNSUPPORTED: "UNSUPPORTED"
-    };
-    TYPE = {
-      DEVICE: "device_update",
-      FAVORITE: "favorite_update",
-      PLAYER: "player_update",
-      PROGRESS: "progress_update",
-      STATUS: "status_update",
-      TRACK: "track_update"
-    };
-  }
-});
+var ERROR_TYPE = {
+  ACCOUNT: "account",
+  AUTHENTICATION: "authentication",
+  INITIALIZATION: "initialization",
+  PLAYBACK: "playback",
+  PLAYER: "player"
+};
+var STATUS = {
+  ERROR: "ERROR",
+  IDLE: "IDLE",
+  INITIALIZING: "INITIALIZING",
+  READY: "READY",
+  RUNNING: "RUNNING",
+  UNSUPPORTED: "UNSUPPORTED"
+};
+var TYPE = {
+  DEVICE: "device_update",
+  FAVORITE: "favorite_update",
+  PLAYER: "player_update",
+  PROGRESS: "progress_update",
+  STATUS: "status_update",
+  TRACK: "track_update"
+};
 
-// src/types/common.ts
-var init_common = __esm({
-  "src/types/common.ts"() {
-    "use strict";
-  }
-});
-
-// src/types/spotify.ts
-var init_spotify2 = __esm({
-  "src/types/spotify.ts"() {
-    "use strict";
-  }
-});
-
-// src/types/index.ts
-var init_types = __esm({
-  "src/types/index.ts"() {
-    "use strict";
-    init_common();
-    init_spotify2();
-  }
-});
-
-// src/SpotifyWebPlayer.tsx
-var SpotifyWebPlayer_exports = {};
-__export(SpotifyWebPlayer_exports, {
-  ERROR_TYPE: () => ERROR_TYPE,
-  STATUS: () => STATUS,
-  TYPE: () => TYPE,
-  default: () => SpotifyWebPlayer_default
-});
-import React22, { createRef, PureComponent } from "react";
-import isEqual from "@gilbarbara/deep-equal";
-import memoize from "memoize-one";
-var SpotifyWebPlayer, SpotifyWebPlayer_default;
-var init_SpotifyWebPlayer = __esm({
-  "src/SpotifyWebPlayer.tsx"() {
-    "use strict";
-    init_Actions();
-    init_Controls();
-    init_Devices2();
-    init_ErrorMessage();
-    init_Info();
-    init_Loader();
-    init_Volume();
-    init_Wrapper();
-    init_constants();
-    init_getters();
-    init_helpers();
-    init_spotify();
-    init_types();
-    init_constants();
-    SpotifyWebPlayer = class extends PureComponent {
-      constructor(props) {
-        super(props);
-        __publicField(this, "isMounted", false);
-        __publicField(this, "emptyTrack", {
-          artists: [],
-          durationMs: 0,
-          id: "",
-          image: "",
-          name: "",
-          uri: ""
-        });
-        __publicField(this, "locale");
-        __publicField(this, "player");
-        __publicField(this, "playerProgressInterval");
-        __publicField(this, "playerSyncInterval");
-        __publicField(this, "ref", createRef());
-        __publicField(this, "renderInlineActions", false);
-        __publicField(this, "resizeTimeout");
-        __publicField(this, "seekUpdateInterval", 100);
-        __publicField(this, "styles");
-        __publicField(this, "syncTimeout");
-        // eslint-disable-next-line unicorn/consistent-function-scoping
-        __publicField(this, "getPlayOptions", memoize((data) => {
-          const playOptions = {
-            context_uri: void 0,
-            uris: void 0
-          };
-          if (data) {
-            const ids = Array.isArray(data) ? data : [data];
-            if (!ids.every((d) => validateURI(d))) {
-              console.error("Invalid URI");
-              return playOptions;
-            }
-            if (ids.some((d) => getSpotifyURIType(d) === "track")) {
-              if (!ids.every((d) => getSpotifyURIType(d) === "track")) {
-                console.warn("You can't mix tracks URIs with other types");
-              }
-              playOptions.uris = ids.filter((d) => validateURI(d) && getSpotifyURIType(d) === "track");
-            } else {
-              if (ids.length > 1) {
-                console.warn("Albums, Artists, Playlists and Podcasts can't have multiple URIs");
-              }
-              playOptions.context_uri = ids[0];
-            }
-          }
+// src/index.tsx
+var SpotifyWebPlayer = class extends PureComponent {
+  constructor(props) {
+    super(props);
+    __publicField(this, "isMounted", false);
+    __publicField(this, "emptyTrack", {
+      artists: [],
+      durationMs: 0,
+      id: "",
+      image: "",
+      name: "",
+      uri: ""
+    });
+    __publicField(this, "locale");
+    __publicField(this, "player");
+    __publicField(this, "playerProgressInterval");
+    __publicField(this, "playerSyncInterval");
+    __publicField(this, "ref", createRef());
+    __publicField(this, "renderInlineActions", false);
+    __publicField(this, "resizeTimeout");
+    __publicField(this, "seekUpdateInterval", 100);
+    __publicField(this, "styles");
+    __publicField(this, "syncTimeout");
+    // eslint-disable-next-line unicorn/consistent-function-scoping
+    __publicField(this, "getPlayOptions", memoize((data) => {
+      const playOptions = {
+        context_uri: void 0,
+        uris: void 0
+      };
+      if (data) {
+        const ids = Array.isArray(data) ? data : [data];
+        if (!ids.every((d) => validateURI(d))) {
+          console.error("Invalid URI");
           return playOptions;
-        }));
-        __publicField(this, "handleChangeRange", async (position) => {
-          const { track } = this.state;
-          const { callback } = this.props;
-          let progress = 0;
-          try {
-            const percentage = position / 100;
-            let stateChanges = {};
-            if (this.isExternalPlayer) {
-              progress = Math.round(track.durationMs * percentage);
-              await seek(this.token, progress);
-              stateChanges = {
-                position,
-                progressMs: progress
-              };
-            } else if (this.player) {
-              const state = await this.player.getCurrentState();
-              if (state) {
-                progress = Math.round(state.track_window.current_track.duration_ms * percentage);
-                await this.player.seek(progress);
-                stateChanges = {
-                  position,
-                  progressMs: progress
-                };
-              } else {
-                stateChanges = { position: 0 };
-              }
-            }
-            this.updateState(stateChanges);
-            if (callback) {
-              callback({
-                ...this.state,
-                ...stateChanges,
-                type: TYPE.PROGRESS
-              });
-            }
-          } catch (error) {
-            console.error(error);
+        }
+        if (ids.some((d) => getSpotifyURIType(d) === "track")) {
+          if (!ids.every((d) => getSpotifyURIType(d) === "track")) {
+            console.warn("You can't mix tracks URIs with other types");
           }
-        });
-        // private handleClickTogglePlay = async () => {
-        //   const { isActive } = this.state;
-        //   try {
-        //     await this.togglePlay(!this.isExternalPlayer && !isActive);
-        //   } catch (error) {
-        //     // eslint-disable-next-line no-console
-        //     console.error(error);
-        //   }
-        // };
-        // private handleClickPrevious = async () => {
-        //   try {
-        //     /* istanbul ignore else */
-        //     if (this.isExternalPlayer) {
-        //       await previous(this.token);
-        //       this.syncTimeout = window.setTimeout(() => {
-        //         this.syncDevice();
-        //       }, 300);
-        //     } else if (this.player) {
-        //       await this.player.previousTrack();
-        //     }
-        //   } catch (error) {
-        //     // eslint-disable-next-line no-console
-        //     console.error(error);
-        //   }
-        // };
-        // private handleClickNext = async () => {
-        //   try {
-        //     /* istanbul ignore else */
-        //     if (this.isExternalPlayer) {
-        //       await next(this.token);
-        //       this.syncTimeout = window.setTimeout(() => {
-        //         this.syncDevice();
-        //       }, 300);
-        //     } else if (this.player) {
-        //       await this.player.nextTrack();
-        //     }
-        //   } catch (error) {
-        //     // eslint-disable-next-line no-console
-        //     console.error(error);
-        //   }
-        // };
-        __publicField(this, "handleClickDevice", async (deviceId) => {
-          const { isUnsupported } = this.state;
-          const { autoPlay, persistDeviceSelection } = this.props;
-          this.updateState({ currentDeviceId: deviceId });
-          try {
-            await setDevice(this.token, deviceId);
-            if (persistDeviceSelection) {
-              sessionStorage.setItem("rswpDeviceId", deviceId);
-            }
-            if (isUnsupported) {
-              await this.syncDevice();
-              const player = await getPlaybackState(this.token);
-              if (player && !player.is_playing && autoPlay) {
-                await this.togglePlay(true);
-              }
-            }
-          } catch (error) {
-            console.error(error);
+          playOptions.uris = ids.filter((d) => validateURI(d) && getSpotifyURIType(d) === "track");
+        } else {
+          if (ids.length > 1) {
+            console.warn("Albums, Artists, Playlists and Podcasts can't have multiple URIs");
           }
-        });
-        __publicField(this, "handleFavoriteStatusChange", (status) => {
-          const { isSaved } = this.state;
-          this.updateState({ isSaved: status });
-          if (isSaved !== status) {
-            this.handleCallback({
-              ...this.state,
-              isSaved: status,
-              type: TYPE.FAVORITE
-            });
+          playOptions.context_uri = ids[0];
+        }
+      }
+      return playOptions;
+    }));
+    __publicField(this, "handleChangeRange", async (position) => {
+      const { track } = this.state;
+      const { callback } = this.props;
+      let progress = 0;
+      try {
+        const percentage = position / 100;
+        let stateChanges = {};
+        if (this.isExternalPlayer) {
+          progress = Math.round(track.durationMs * percentage);
+          await seek(this.token, progress);
+          stateChanges = {
+            position,
+            progressMs: progress
+          };
+        } else if (this.player) {
+          const state = await this.player.getCurrentState();
+          if (state) {
+            progress = Math.round(state.track_window.current_track.duration_ms * percentage);
+            await this.player.seek(progress);
+            stateChanges = {
+              position,
+              progressMs: progress
+            };
+          } else {
+            stateChanges = { position: 0 };
           }
-        });
-        __publicField(this, "handlePlayerErrors", async (type, message) => {
-          const { status } = this.state;
-          const isPlaybackError = type === ERROR_TYPE.PLAYBACK;
-          const isInitializationError = type === ERROR_TYPE.INITIALIZATION;
-          let nextStatus = status;
-          let devices = [];
-          if (this.player && !isPlaybackError) {
-            this.player.disconnect();
-            this.player = void 0;
-          }
-          if (isInitializationError) {
-            nextStatus = STATUS.UNSUPPORTED;
-            ({ devices = [] } = await getDevices(this.token));
-          } else if (!isPlaybackError) {
-            nextStatus = STATUS.ERROR;
-          }
-          this.updateState({
-            devices,
-            error: message,
-            errorType: type,
-            isInitializing: false,
-            isUnsupported: isInitializationError,
-            status: nextStatus
+        }
+        this.updateState(stateChanges);
+        if (callback) {
+          callback({
+            ...this.state,
+            ...stateChanges,
+            type: TYPE.PROGRESS
           });
-        });
-        __publicField(this, "handlePlayerStateChanges", async (state) => {
-          try {
-            if (state) {
-              const {
-                paused,
-                position,
-                track_window: { current_track, next_tracks, previous_tracks }
-              } = state;
-              const isPlaying = !paused;
-              const volume = await this.player?.getVolume() || 100;
-              let trackState = {};
-              if (position === 0 && current_track) {
-                trackState = {
-                  nextTracks: next_tracks.map(convertTrack),
-                  position: 0,
-                  previousTracks: previous_tracks.map(convertTrack),
-                  track: convertTrack(current_track)
-                };
-              }
-              this.updateState({
-                error: "",
-                errorType: null,
-                isActive: true,
-                isPlaying,
-                progressMs: position,
-                volume: round(volume),
-                ...trackState
-              });
-            } else if (this.isExternalPlayer) {
-              await this.syncDevice();
-            } else {
-              this.updateState({
-                isActive: false,
-                isPlaying: false,
-                nextTracks: [],
-                position: 0,
-                previousTracks: [],
-                track: {
-                  artists: [],
-                  durationMs: 0,
-                  id: "",
-                  image: "",
-                  name: "",
-                  uri: ""
-                }
-              });
-            }
-          } catch (error) {
-            console.error(error);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    });
+    // private handleClickTogglePlay = async () => {
+    //   const { isActive } = this.state;
+    //   try {
+    //     await this.togglePlay(!this.isExternalPlayer && !isActive);
+    //   } catch (error) {
+    //     // eslint-disable-next-line no-console
+    //     console.error(error);
+    //   }
+    // };
+    // private handleClickPrevious = async () => {
+    //   try {
+    //     /* istanbul ignore else */
+    //     if (this.isExternalPlayer) {
+    //       await previous(this.token);
+    //       this.syncTimeout = window.setTimeout(() => {
+    //         this.syncDevice();
+    //       }, 300);
+    //     } else if (this.player) {
+    //       await this.player.previousTrack();
+    //     }
+    //   } catch (error) {
+    //     // eslint-disable-next-line no-console
+    //     console.error(error);
+    //   }
+    // };
+    // private handleClickNext = async () => {
+    //   try {
+    //     /* istanbul ignore else */
+    //     if (this.isExternalPlayer) {
+    //       await next(this.token);
+    //       this.syncTimeout = window.setTimeout(() => {
+    //         this.syncDevice();
+    //       }, 300);
+    //     } else if (this.player) {
+    //       await this.player.nextTrack();
+    //     }
+    //   } catch (error) {
+    //     // eslint-disable-next-line no-console
+    //     console.error(error);
+    //   }
+    // };
+    __publicField(this, "handleClickDevice", async (deviceId) => {
+      const { isUnsupported } = this.state;
+      const { autoPlay, persistDeviceSelection } = this.props;
+      this.updateState({ currentDeviceId: deviceId });
+      try {
+        await setDevice(this.token, deviceId);
+        if (persistDeviceSelection) {
+          sessionStorage.setItem("rswpDeviceId", deviceId);
+        }
+        if (isUnsupported) {
+          await this.syncDevice();
+          const player = await getPlaybackState(this.token);
+          if (player && !player.is_playing && autoPlay) {
+            await this.togglePlay(true);
           }
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    });
+    __publicField(this, "handleFavoriteStatusChange", (status) => {
+      const { isSaved } = this.state;
+      this.updateState({ isSaved: status });
+      if (isSaved !== status) {
+        this.handleCallback({
+          ...this.state,
+          isSaved: status,
+          type: TYPE.FAVORITE
         });
-        __publicField(this, "handlePlayerStatus", async ({ device_id }) => {
-          const { currentDeviceId, devices } = await this.initializeDevices(device_id);
-          this.updateState({
-            currentDeviceId,
-            deviceId: device_id,
-            devices,
-            isInitializing: false,
-            status: device_id ? STATUS.READY : STATUS.IDLE
-          });
-        });
-        __publicField(this, "handleResize", () => {
-          const { layout = "responsive" } = this.props;
-          clearTimeout(this.resizeTimeout);
-          this.resizeTimeout = window.setTimeout(() => {
-            this.renderInlineActions = window.innerWidth >= 768 && layout === "responsive";
-            this.forceUpdate();
-          }, 100);
-        });
-        __publicField(this, "handleToggleMagnify", () => {
-          const { magnifySliderOnHover } = this.props;
-          if (magnifySliderOnHover) {
-            this.updateState((previousState) => {
-              return { isMagnified: !previousState.isMagnified };
-            });
-          }
-        });
-        __publicField(this, "initializePlayer", () => {
-          const { volume } = this.state;
+      }
+    });
+    __publicField(this, "handlePlayerErrors", async (type, message) => {
+      const { status } = this.state;
+      const isPlaybackError = type === ERROR_TYPE.PLAYBACK;
+      const isInitializationError = type === ERROR_TYPE.INITIALIZATION;
+      let nextStatus = status;
+      let devices = [];
+      if (this.player && !isPlaybackError) {
+        this.player.disconnect();
+        this.player = void 0;
+      }
+      if (isInitializationError) {
+        nextStatus = STATUS.UNSUPPORTED;
+        ({ devices = [] } = await getDevices(this.token));
+      } else if (!isPlaybackError) {
+        nextStatus = STATUS.ERROR;
+      }
+      this.updateState({
+        devices,
+        error: message,
+        errorType: type,
+        isInitializing: false,
+        isUnsupported: isInitializationError,
+        status: nextStatus
+      });
+    });
+    __publicField(this, "handlePlayerStateChanges", async (state) => {
+      try {
+        if (state) {
           const {
-            getOAuthToken = (callback) => {
-              callback(this.token);
-            },
-            name = "Spotify Web Player"
-          } = this.props;
-          if (!window.Spotify) {
-            return;
+            paused,
+            position,
+            track_window: { current_track, next_tracks, previous_tracks }
+          } = state;
+          const isPlaying = !paused;
+          const volume = await this.player?.getVolume() || 100;
+          let trackState = {};
+          if (position === 0 && current_track) {
+            trackState = {
+              nextTracks: next_tracks.map(convertTrack),
+              position: 0,
+              previousTracks: previous_tracks.map(convertTrack),
+              track: convertTrack(current_track)
+            };
           }
           this.updateState({
             error: "",
             errorType: null,
-            isInitializing: true
+            isActive: true,
+            isPlaying,
+            progressMs: position,
+            volume: round(volume),
+            ...trackState
           });
-          this.player = new window.Spotify.Player({
-            getOAuthToken,
-            name,
-            volume
+        } else if (this.isExternalPlayer) {
+          await this.syncDevice();
+        } else {
+          this.updateState({
+            isActive: false,
+            isPlaying: false,
+            nextTracks: [],
+            position: 0,
+            previousTracks: [],
+            track: {
+              artists: [],
+              durationMs: 0,
+              id: "",
+              image: "",
+              name: "",
+              uri: ""
+            }
           });
-          this.player.addListener("ready", this.handlePlayerStatus);
-          this.player.addListener("not_ready", this.handlePlayerStatus);
-          this.player.addListener("player_state_changed", this.handlePlayerStateChanges);
-          this.player.addListener(
-            "initialization_error",
-            (error) => this.handlePlayerErrors(ERROR_TYPE.INITIALIZATION, error.message)
-          );
-          this.player.addListener(
-            "authentication_error",
-            (error) => this.handlePlayerErrors(ERROR_TYPE.AUTHENTICATION, error.message)
-          );
-          this.player.addListener(
-            "account_error",
-            (error) => this.handlePlayerErrors(ERROR_TYPE.ACCOUNT, error.message)
-          );
-          this.player.addListener(
-            "playback_error",
-            (error) => this.handlePlayerErrors(ERROR_TYPE.PLAYBACK, error.message)
-          );
-          this.player.addListener("autoplay_failed", async () => {
-            console.log("Autoplay is not allowed by the browser autoplay rules");
-          });
-          this.player.connect();
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    });
+    __publicField(this, "handlePlayerStatus", async ({ device_id }) => {
+      const { currentDeviceId, devices } = await this.initializeDevices(device_id);
+      this.updateState({
+        currentDeviceId,
+        deviceId: device_id,
+        devices,
+        isInitializing: false,
+        status: device_id ? STATUS.READY : STATUS.IDLE
+      });
+    });
+    __publicField(this, "handleResize", () => {
+      const { layout = "responsive" } = this.props;
+      clearTimeout(this.resizeTimeout);
+      this.resizeTimeout = window.setTimeout(() => {
+        this.renderInlineActions = window.innerWidth >= 768 && layout === "responsive";
+        this.forceUpdate();
+      }, 100);
+    });
+    __publicField(this, "handleToggleMagnify", () => {
+      const { magnifySliderOnHover } = this.props;
+      if (magnifySliderOnHover) {
+        this.updateState((previousState) => {
+          return { isMagnified: !previousState.isMagnified };
         });
-        __publicField(this, "setExternalDevice", (id) => {
-          this.updateState({ currentDeviceId: id, isPlaying: true });
-        });
-        __publicField(this, "setVolume", async (volume) => {
-          if (this.isExternalPlayer) {
-            await setVolume(this.token, Math.round(volume * 100));
-            await this.syncDevice();
-          } else if (this.player) {
-            await this.player.setVolume(volume);
-          }
-          this.updateState({ volume });
-        });
-        __publicField(this, "syncDevice", async () => {
-          if (!this.isMounted) {
-            return;
-          }
-          const { deviceId } = this.state;
-          try {
-            const player = await getPlaybackState(this.token);
-            let track = this.emptyTrack;
-            if (!player) {
-              throw new Error("No player");
-            }
-            if (player.item) {
-              track = {
-                artists: player.item.artists,
-                durationMs: player.item.duration_ms,
-                id: player.item.id,
-                image: getAlbumImage(player.item.album),
-                name: player.item.name,
-                uri: player.item.uri
-              };
-            }
-            this.updateState({
-              error: "",
-              errorType: null,
-              isActive: true,
-              isPlaying: player.is_playing,
-              nextTracks: [],
-              previousTracks: [],
-              progressMs: player.item ? player.progress_ms : 0,
-              status: STATUS.READY,
-              track,
-              volume: parseVolume(player.device.volume_percent)
-            });
-          } catch (error) {
-            const state = {
-              isActive: false,
-              isPlaying: false,
-              position: 0,
-              track: this.emptyTrack
-            };
-            if (deviceId) {
-              this.updateState({
-                currentDeviceId: deviceId,
-                ...state
-              });
-              return;
-            }
-            this.updateState({
-              error: error.message,
-              errorType: ERROR_TYPE.PLAYER,
-              status: STATUS.ERROR,
-              ...state
-            });
-          }
-        });
-        __publicField(this, "toggleOffset", async () => {
-          const { currentDeviceId } = this.state;
-          const { offset, uris } = this.props;
-          if (typeof offset === "number" && Array.isArray(uris)) {
-            await play(this.token, { deviceId: currentDeviceId, offset, uris });
-          }
-        });
-        __publicField(this, "togglePlay", async (force = false) => {
-          const { currentDeviceId, isPlaying, needsUpdate } = this.state;
-          const { offset, uris } = this.props;
-          const shouldInitialize = force || needsUpdate;
-          const playOptions = this.getPlayOptions(uris);
-          try {
-            if (this.isExternalPlayer) {
-              if (!isPlaying) {
-                await play(this.token, {
-                  deviceId: currentDeviceId,
-                  offset,
-                  ...shouldInitialize ? playOptions : void 0
-                });
-              } else {
-                await pause(this.token);
-                this.updateState({ isPlaying: false });
-              }
-              this.syncTimeout = window.setTimeout(() => {
-                this.syncDevice();
-              }, 300);
-            } else if (this.player) {
-              await this.player.activateElement();
-              const playerState = await this.player.getCurrentState();
-              const shouldPlay = !playerState && !!(playOptions.context_uri || playOptions.uris);
-              if (shouldPlay || shouldInitialize) {
-                await play(this.token, {
-                  deviceId: currentDeviceId,
-                  offset,
-                  ...shouldInitialize ? playOptions : void 0
-                });
-                await this.player.togglePlay();
-              } else {
-                await this.player.togglePlay();
-              }
-            }
-            if (needsUpdate) {
-              this.updateState({ needsUpdate: false });
-            }
-          } catch (error) {
-            console.error(error);
-          }
-        });
-        __publicField(this, "updateSeekBar", async () => {
-          if (!this.isMounted) {
-            return;
-          }
-          const { progressMs, track } = this.state;
-          try {
-            if (this.isExternalPlayer) {
-              let position = progressMs / track.durationMs;
-              position = Number(((Number.isFinite(position) ? position : 0) * 100).toFixed(1));
-              this.updateState({
-                position,
-                progressMs: progressMs + this.seekUpdateInterval
-              });
-            } else if (this.player) {
-              const state = await this.player.getCurrentState();
-              if (state) {
-                const progress = state.position;
-                const position = Number(
-                  (progress / state.track_window.current_track.duration_ms * 100).toFixed(1)
-                );
-                this.updateState({
-                  position,
-                  progressMs: progress + this.seekUpdateInterval
-                });
-              }
-            }
-          } catch (error) {
-            console.error(error);
-          }
-        });
-        __publicField(this, "updateState", (state) => {
-          if (!this.isMounted) {
-            return;
-          }
-          this.setState(state);
-        });
-        this.state = {
-          currentDeviceId: "",
-          deviceId: "",
-          devices: [],
+      }
+    });
+    __publicField(this, "initializePlayer", () => {
+      const { volume } = this.state;
+      const {
+        getOAuthToken = (callback) => {
+          callback(this.token);
+        },
+        name = "Spotify Web Player"
+      } = this.props;
+      if (!window.Spotify) {
+        return;
+      }
+      this.updateState({
+        error: "",
+        errorType: null,
+        isInitializing: true
+      });
+      this.player = new window.Spotify.Player({
+        getOAuthToken,
+        name,
+        volume
+      });
+      this.player.addListener("ready", this.handlePlayerStatus);
+      this.player.addListener("not_ready", this.handlePlayerStatus);
+      this.player.addListener("player_state_changed", this.handlePlayerStateChanges);
+      this.player.addListener(
+        "initialization_error",
+        (error) => this.handlePlayerErrors(ERROR_TYPE.INITIALIZATION, error.message)
+      );
+      this.player.addListener(
+        "authentication_error",
+        (error) => this.handlePlayerErrors(ERROR_TYPE.AUTHENTICATION, error.message)
+      );
+      this.player.addListener(
+        "account_error",
+        (error) => this.handlePlayerErrors(ERROR_TYPE.ACCOUNT, error.message)
+      );
+      this.player.addListener(
+        "playback_error",
+        (error) => this.handlePlayerErrors(ERROR_TYPE.PLAYBACK, error.message)
+      );
+      this.player.addListener("autoplay_failed", async () => {
+        console.log("Autoplay is not allowed by the browser autoplay rules");
+      });
+      this.player.connect();
+    });
+    __publicField(this, "setExternalDevice", (id) => {
+      this.updateState({ currentDeviceId: id, isPlaying: true });
+    });
+    __publicField(this, "setVolume", async (volume) => {
+      if (this.isExternalPlayer) {
+        await setVolume(this.token, Math.round(volume * 100));
+        await this.syncDevice();
+      } else if (this.player) {
+        await this.player.setVolume(volume);
+      }
+      this.updateState({ volume });
+    });
+    __publicField(this, "syncDevice", async () => {
+      if (!this.isMounted) {
+        return;
+      }
+      const { deviceId } = this.state;
+      try {
+        const player = await getPlaybackState(this.token);
+        let track = this.emptyTrack;
+        if (!player) {
+          throw new Error("No player");
+        }
+        if (player.item) {
+          track = {
+            artists: player.item.artists,
+            durationMs: player.item.duration_ms,
+            id: player.item.id,
+            image: getAlbumImage(player.item.album),
+            name: player.item.name,
+            uri: player.item.uri
+          };
+        }
+        this.updateState({
           error: "",
           errorType: null,
-          isActive: false,
-          isInitializing: false,
-          isMagnified: false,
-          isPlaying: false,
-          isSaved: false,
-          isUnsupported: false,
-          needsUpdate: false,
+          isActive: true,
+          isPlaying: player.is_playing,
           nextTracks: [],
-          playerPosition: "bottom",
-          position: 0,
           previousTracks: [],
-          progressMs: 0,
-          status: STATUS.IDLE,
-          track: this.emptyTrack,
-          volume: parseVolume(props.initialVolume) || 1
-        };
-        this.locale = getLocale(props.locale);
-        this.styles = getMergedStyles(props.styles);
-      }
-      async componentDidMount() {
-        this.isMounted = true;
-        const { top = 0 } = this.ref.current?.getBoundingClientRect() || {};
-        this.updateState({
-          playerPosition: top > window.innerHeight / 2 ? "bottom" : "top",
-          status: STATUS.INITIALIZING
+          progressMs: player.item ? player.progress_ms : 0,
+          status: STATUS.READY,
+          track,
+          volume: parseVolume(player.device.volume_percent)
         });
-        if (!window.onSpotifyWebPlaybackSDKReady) {
-          window.onSpotifyWebPlaybackSDKReady = this.initializePlayer;
-        } else {
-          this.initializePlayer();
-        }
-        await loadSpotifyPlayer();
-        window.addEventListener("resize", this.handleResize);
-        this.handleResize();
-      }
-      async componentDidUpdate(previousProps, previousState) {
-        const { currentDeviceId, deviceId, isInitializing, isPlaying, status, track } = this.state;
-        const {
-          autoPlay,
-          layout,
-          locale,
-          offset,
-          play: playProp,
-          showSaveIcon,
-          styles,
-          syncExternalDevice,
-          uris
-        } = this.props;
-        const isReady = previousState.status !== STATUS.READY && status === STATUS.READY;
-        const changedLayout = !isEqual(previousProps.layout, layout);
-        const changedLocale = !isEqual(previousProps.locale, locale);
-        const changedStyles = !isEqual(previousProps.styles, styles);
-        const changedURIs = !isEqual(previousProps.uris, uris);
-        const playOptions = this.getPlayOptions(uris);
-        const canPlay = !!currentDeviceId && !!(playOptions.context_uri || playOptions.uris);
-        const shouldPlay = isReady && (autoPlay || playProp);
-        if (canPlay && shouldPlay) {
-          await this.togglePlay(true);
-          if (!isPlaying) {
-            this.updateState({ isPlaying: true });
-          }
-          if (this.isExternalPlayer) {
-            this.syncTimeout = window.setTimeout(() => {
-              this.syncDevice();
-            }, 600);
-          }
-        } else if (changedURIs) {
-          if (isPlaying || playProp) {
-            await this.togglePlay(true);
-          } else {
-            this.updateState({ needsUpdate: true });
-          }
-        } else if (previousProps.play !== playProp && playProp !== isPlaying) {
-          await this.togglePlay(!track.id);
-        }
-        if (previousState.status !== status) {
-          this.handleCallback({
-            ...this.state,
-            type: TYPE.STATUS
+      } catch (error) {
+        const state = {
+          isActive: false,
+          isPlaying: false,
+          position: 0,
+          track: this.emptyTrack
+        };
+        if (deviceId) {
+          this.updateState({
+            currentDeviceId: deviceId,
+            ...state
           });
+          return;
         }
-        if (previousState.currentDeviceId !== currentDeviceId && currentDeviceId) {
-          if (!isReady) {
-            this.handleCallback({
-              ...this.state,
-              type: TYPE.DEVICE
+        this.updateState({
+          error: error.message,
+          errorType: ERROR_TYPE.PLAYER,
+          status: STATUS.ERROR,
+          ...state
+        });
+      }
+    });
+    __publicField(this, "toggleOffset", async () => {
+      const { currentDeviceId } = this.state;
+      const { offset, uris } = this.props;
+      if (typeof offset === "number" && Array.isArray(uris)) {
+        await play(this.token, { deviceId: currentDeviceId, offset, uris });
+      }
+    });
+    __publicField(this, "togglePlay", async (force = false) => {
+      const { currentDeviceId, isPlaying, needsUpdate } = this.state;
+      const { offset, uris } = this.props;
+      const shouldInitialize = force || needsUpdate;
+      const playOptions = this.getPlayOptions(uris);
+      try {
+        if (this.isExternalPlayer) {
+          if (!isPlaying) {
+            await play(this.token, {
+              deviceId: currentDeviceId,
+              offset,
+              ...shouldInitialize ? playOptions : void 0
+            });
+          } else {
+            await pause(this.token);
+            this.updateState({ isPlaying: false });
+          }
+          this.syncTimeout = window.setTimeout(() => {
+            this.syncDevice();
+          }, 300);
+        } else if (this.player) {
+          await this.player.activateElement();
+          const playerState = await this.player.getCurrentState();
+          const shouldPlay = !playerState && !!(playOptions.context_uri || playOptions.uris);
+          if (shouldPlay || shouldInitialize) {
+            await play(this.token, {
+              deviceId: currentDeviceId,
+              offset,
+              ...shouldInitialize ? playOptions : void 0
+            });
+            await this.player.togglePlay();
+          } else {
+            await this.player.togglePlay();
+          }
+        }
+        if (needsUpdate) {
+          this.updateState({ needsUpdate: false });
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    });
+    __publicField(this, "updateSeekBar", async () => {
+      if (!this.isMounted) {
+        return;
+      }
+      const { progressMs, track } = this.state;
+      try {
+        if (this.isExternalPlayer) {
+          let position = progressMs / track.durationMs;
+          position = Number(((Number.isFinite(position) ? position : 0) * 100).toFixed(1));
+          this.updateState({
+            position,
+            progressMs: progressMs + this.seekUpdateInterval
+          });
+        } else if (this.player) {
+          const state = await this.player.getCurrentState();
+          if (state) {
+            const progress = state.position;
+            const position = Number(
+              (progress / state.track_window.current_track.duration_ms * 100).toFixed(1)
+            );
+            this.updateState({
+              position,
+              progressMs: progress + this.seekUpdateInterval
             });
           }
-          await this.toggleSyncInterval(this.isExternalPlayer);
-          await this.updateSeekBar();
         }
-        if (previousState.track.id !== track.id && track.id) {
-          this.handleCallback({
-            ...this.state,
-            type: TYPE.TRACK
-          });
-          if (showSaveIcon) {
-            this.updateState({ isSaved: false });
-          }
-        }
-        if (previousState.isPlaying !== isPlaying) {
-          this.toggleProgressBar();
-          await this.toggleSyncInterval(this.isExternalPlayer);
-          this.handleCallback({
-            ...this.state,
-            type: TYPE.PLAYER
-          });
-        }
-        if (previousProps.offset !== offset) {
-          await this.toggleOffset();
-        }
-        if (previousState.isInitializing && !isInitializing) {
-          if (syncExternalDevice && !uris) {
-            const player = await getPlaybackState(this.token);
-            if (player && player.is_playing && player.device.id !== deviceId) {
-              this.setExternalDevice(player.device.id);
-            }
-          }
-        }
-        if (changedLayout) {
-          this.handleResize();
-        }
-        if (changedLocale) {
-          this.locale = getLocale(locale);
-        }
-        if (changedStyles) {
-          this.styles = getMergedStyles(styles);
+      } catch (error) {
+        console.error(error);
+      }
+    });
+    __publicField(this, "updateState", (state) => {
+      if (!this.isMounted) {
+        return;
+      }
+      this.setState(state);
+    });
+    this.state = {
+      currentDeviceId: "",
+      deviceId: "",
+      devices: [],
+      error: "",
+      errorType: null,
+      isActive: false,
+      isInitializing: false,
+      isMagnified: false,
+      isPlaying: false,
+      isSaved: false,
+      isUnsupported: false,
+      needsUpdate: false,
+      nextTracks: [],
+      playerPosition: "bottom",
+      position: 0,
+      previousTracks: [],
+      progressMs: 0,
+      status: STATUS.IDLE,
+      track: this.emptyTrack,
+      volume: parseVolume(props.initialVolume) || 1
+    };
+    this.locale = getLocale(props.locale);
+    this.styles = getMergedStyles(props.styles);
+  }
+  async componentDidMount() {
+    this.isMounted = true;
+    const { top = 0 } = this.ref.current?.getBoundingClientRect() || {};
+    this.updateState({
+      playerPosition: top > window.innerHeight / 2 ? "bottom" : "top",
+      status: STATUS.INITIALIZING
+    });
+    if (!window.onSpotifyWebPlaybackSDKReady) {
+      window.onSpotifyWebPlaybackSDKReady = this.initializePlayer;
+    } else {
+      this.initializePlayer();
+    }
+    await loadSpotifyPlayer();
+    window.addEventListener("resize", this.handleResize);
+    this.handleResize();
+  }
+  async componentDidUpdate(previousProps, previousState) {
+    const { currentDeviceId, deviceId, isInitializing, isPlaying, status, track } = this.state;
+    const {
+      autoPlay,
+      layout,
+      locale,
+      offset,
+      play: playProp,
+      showSaveIcon,
+      styles,
+      syncExternalDevice,
+      uris
+    } = this.props;
+    const isReady = previousState.status !== STATUS.READY && status === STATUS.READY;
+    const changedLayout = !isEqual(previousProps.layout, layout);
+    const changedLocale = !isEqual(previousProps.locale, locale);
+    const changedStyles = !isEqual(previousProps.styles, styles);
+    const changedURIs = !isEqual(previousProps.uris, uris);
+    const playOptions = this.getPlayOptions(uris);
+    const canPlay = !!currentDeviceId && !!(playOptions.context_uri || playOptions.uris);
+    const shouldPlay = isReady && (autoPlay || playProp);
+    if (canPlay && shouldPlay) {
+      await this.togglePlay(true);
+      if (!isPlaying) {
+        this.updateState({ isPlaying: true });
+      }
+      if (this.isExternalPlayer) {
+        this.syncTimeout = window.setTimeout(() => {
+          this.syncDevice();
+        }, 600);
+      }
+    } else if (changedURIs) {
+      if (isPlaying || playProp) {
+        await this.togglePlay(true);
+      } else {
+        this.updateState({ needsUpdate: true });
+      }
+    } else if (previousProps.play !== playProp && playProp !== isPlaying) {
+      await this.togglePlay(!track.id);
+    }
+    if (previousState.status !== status) {
+      this.handleCallback({
+        ...this.state,
+        type: TYPE.STATUS
+      });
+    }
+    if (previousState.currentDeviceId !== currentDeviceId && currentDeviceId) {
+      if (!isReady) {
+        this.handleCallback({
+          ...this.state,
+          type: TYPE.DEVICE
+        });
+      }
+      await this.toggleSyncInterval(this.isExternalPlayer);
+      await this.updateSeekBar();
+    }
+    if (previousState.track.id !== track.id && track.id) {
+      this.handleCallback({
+        ...this.state,
+        type: TYPE.TRACK
+      });
+      if (showSaveIcon) {
+        this.updateState({ isSaved: false });
+      }
+    }
+    if (previousState.isPlaying !== isPlaying) {
+      this.toggleProgressBar();
+      await this.toggleSyncInterval(this.isExternalPlayer);
+      this.handleCallback({
+        ...this.state,
+        type: TYPE.PLAYER
+      });
+    }
+    if (previousProps.offset !== offset) {
+      await this.toggleOffset();
+    }
+    if (previousState.isInitializing && !isInitializing) {
+      if (syncExternalDevice && !uris) {
+        const player = await getPlaybackState(this.token);
+        if (player && player.is_playing && player.device.id !== deviceId) {
+          this.setExternalDevice(player.device.id);
         }
       }
-      async componentWillUnmount() {
-        this.isMounted = false;
-        if (this.player) {
-          this.player.disconnect();
-        }
+    }
+    if (changedLayout) {
+      this.handleResize();
+    }
+    if (changedLocale) {
+      this.locale = getLocale(locale);
+    }
+    if (changedStyles) {
+      this.styles = getMergedStyles(styles);
+    }
+  }
+  async componentWillUnmount() {
+    this.isMounted = false;
+    if (this.player) {
+      this.player.disconnect();
+    }
+    clearInterval(this.playerSyncInterval);
+    clearInterval(this.playerProgressInterval);
+    clearTimeout(this.syncTimeout);
+    window.removeEventListener("resize", this.handleResize);
+  }
+  handleCallback(state) {
+    const { callback } = this.props;
+    if (callback) {
+      callback(state);
+    }
+  }
+  get token() {
+    const { token } = this.props;
+    return token;
+  }
+  async initializeDevices(id) {
+    const { persistDeviceSelection } = this.props;
+    const { devices } = await getDevices(this.token);
+    let currentDeviceId = id;
+    if (persistDeviceSelection) {
+      const savedDeviceId = sessionStorage.getItem("rswpDeviceId");
+      if (!savedDeviceId || !devices.some((d) => d.id === savedDeviceId)) {
+        sessionStorage.setItem("rswpDeviceId", currentDeviceId);
+      } else {
+        currentDeviceId = savedDeviceId;
+      }
+    }
+    return { currentDeviceId, devices };
+  }
+  get isExternalPlayer() {
+    const { currentDeviceId, deviceId, status } = this.state;
+    return currentDeviceId && currentDeviceId !== deviceId || status === STATUS.UNSUPPORTED;
+  }
+  async toggleSyncInterval(shouldSync) {
+    const { syncExternalDeviceInterval } = this.props;
+    try {
+      if (this.isExternalPlayer && shouldSync && !this.playerSyncInterval) {
+        await this.syncDevice();
         clearInterval(this.playerSyncInterval);
-        clearInterval(this.playerProgressInterval);
-        clearTimeout(this.syncTimeout);
-        window.removeEventListener("resize", this.handleResize);
+        this.playerSyncInterval = window.setInterval(
+          this.syncDevice,
+          syncExternalDeviceInterval * 1e3
+        );
       }
-      handleCallback(state) {
-        const { callback } = this.props;
-        if (callback) {
-          callback(state);
-        }
+      if ((!shouldSync || !this.isExternalPlayer) && this.playerSyncInterval) {
+        clearInterval(this.playerSyncInterval);
+        this.playerSyncInterval = void 0;
       }
-      get token() {
-        const { token } = this.props;
-        return token;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  toggleProgressBar() {
+    const { isPlaying } = this.state;
+    if (isPlaying) {
+      if (!this.playerProgressInterval) {
+        this.playerProgressInterval = window.setInterval(
+          this.updateSeekBar,
+          this.seekUpdateInterval
+        );
       }
-      async initializeDevices(id) {
-        const { persistDeviceSelection } = this.props;
-        const { devices } = await getDevices(this.token);
-        let currentDeviceId = id;
-        if (persistDeviceSelection) {
-          const savedDeviceId = sessionStorage.getItem("rswpDeviceId");
-          if (!savedDeviceId || !devices.some((d) => d.id === savedDeviceId)) {
-            sessionStorage.setItem("rswpDeviceId", currentDeviceId);
-          } else {
-            currentDeviceId = savedDeviceId;
+    } else if (this.playerProgressInterval) {
+      clearInterval(this.playerProgressInterval);
+      this.playerProgressInterval = void 0;
+    }
+  }
+  render() {
+    const {
+      currentDeviceId,
+      deviceId,
+      devices,
+      error,
+      isActive,
+      isMagnified,
+      // isPlaying,
+      isUnsupported,
+      // nextTracks,
+      playerPosition,
+      position,
+      // previousTracks,
+      progressMs,
+      status,
+      track,
+      volume
+    } = this.state;
+    const {
+      hideAttribution = false,
+      hideCoverArt = false,
+      inlineVolume = true,
+      layout = "responsive",
+      showSaveIcon,
+      updateSavedStatus
+    } = this.props;
+    const isReady = [STATUS.READY, STATUS.UNSUPPORTED].includes(status);
+    const output = {
+      main: /* @__PURE__ */ React22.createElement(Loader, { styles: this.styles })
+    };
+    if (isReady) {
+      if (!output.info) {
+        output.info = /* @__PURE__ */ React22.createElement(
+          Info_default,
+          {
+            hideAttribution,
+            hideCoverArt,
+            isActive,
+            layout,
+            locale: this.locale,
+            onFavoriteStatusChange: this.handleFavoriteStatusChange,
+            showSaveIcon,
+            styles: this.styles,
+            token: this.token,
+            track,
+            updateSavedStatus
           }
-        }
-        return { currentDeviceId, devices };
+        );
       }
-      get isExternalPlayer() {
-        const { currentDeviceId, deviceId, status } = this.state;
-        return currentDeviceId && currentDeviceId !== deviceId || status === STATUS.UNSUPPORTED;
-      }
-      async toggleSyncInterval(shouldSync) {
-        const { syncExternalDeviceInterval } = this.props;
-        try {
-          if (this.isExternalPlayer && shouldSync && !this.playerSyncInterval) {
-            await this.syncDevice();
-            clearInterval(this.playerSyncInterval);
-            this.playerSyncInterval = window.setInterval(
-              this.syncDevice,
-              syncExternalDeviceInterval * 1e3
-            );
-          }
-          if ((!shouldSync || !this.isExternalPlayer) && this.playerSyncInterval) {
-            clearInterval(this.playerSyncInterval);
-            this.playerSyncInterval = void 0;
-          }
-        } catch (error) {
-          console.error(error);
-        }
-      }
-      toggleProgressBar() {
-        const { isPlaying } = this.state;
-        if (isPlaying) {
-          if (!this.playerProgressInterval) {
-            this.playerProgressInterval = window.setInterval(
-              this.updateSeekBar,
-              this.seekUpdateInterval
-            );
-          }
-        } else if (this.playerProgressInterval) {
-          clearInterval(this.playerProgressInterval);
-          this.playerProgressInterval = void 0;
-        }
-      }
-      render() {
-        const {
+      output.devices = /* @__PURE__ */ React22.createElement(
+        Devices,
+        {
           currentDeviceId,
           deviceId,
           devices,
-          error,
-          isActive,
-          isMagnified,
-          // isPlaying,
-          isUnsupported,
-          // nextTracks,
+          layout,
+          locale: this.locale,
+          onClickDevice: this.handleClickDevice,
+          open: isUnsupported && !deviceId,
           playerPosition,
-          position,
-          // previousTracks,
-          progressMs,
-          status,
-          track,
+          styles: this.styles
+        }
+      );
+      output.volume = currentDeviceId ? /* @__PURE__ */ React22.createElement(
+        Volume,
+        {
+          inlineVolume,
+          layout,
+          locale: this.locale,
+          playerPosition,
+          setVolume: this.setVolume,
+          styles: this.styles,
           volume
-        } = this.state;
-        const {
-          hideAttribution = false,
-          hideCoverArt = false,
-          inlineVolume = true,
-          layout = "responsive",
-          showSaveIcon,
-          updateSavedStatus
-        } = this.props;
-        const isReady = [STATUS.READY, STATUS.UNSUPPORTED].includes(status);
-        const output = {
-          main: /* @__PURE__ */ React22.createElement(Loader, { styles: this.styles })
-        };
-        if (isReady) {
-          if (!output.info) {
-            output.info = /* @__PURE__ */ React22.createElement(
-              Info_default,
-              {
-                hideAttribution,
-                hideCoverArt,
-                isActive,
-                layout,
-                locale: this.locale,
-                onFavoriteStatusChange: this.handleFavoriteStatusChange,
-                showSaveIcon,
-                styles: this.styles,
-                token: this.token,
-                track,
-                updateSavedStatus
-              }
-            );
-          }
-          output.devices = /* @__PURE__ */ React22.createElement(
-            Devices,
-            {
-              currentDeviceId,
-              deviceId,
-              devices,
-              layout,
-              locale: this.locale,
-              onClickDevice: this.handleClickDevice,
-              open: isUnsupported && !deviceId,
-              playerPosition,
-              styles: this.styles
-            }
-          );
-          output.volume = currentDeviceId ? /* @__PURE__ */ React22.createElement(
-            Volume,
-            {
-              inlineVolume,
-              layout,
-              locale: this.locale,
-              playerPosition,
-              setVolume: this.setVolume,
-              styles: this.styles,
-              volume
-            }
-          ) : null;
-          if (this.renderInlineActions) {
-            output.actions = /* @__PURE__ */ React22.createElement(Actions_default, { layout, styles: this.styles }, output.devices, output.volume);
-          }
-          output.controls = /* @__PURE__ */ React22.createElement(
-            Controls_default,
-            {
-              durationMs: track.durationMs,
-              isMagnified,
-              onChangeRange: this.handleChangeRange,
-              onToggleMagnify: this.handleToggleMagnify,
-              position,
-              progressMs,
-              styles: this.styles
-            }
-          );
-          output.main = /* @__PURE__ */ React22.createElement(Wrapper_default, { layout, styles: this.styles }, output.controls);
-        } else if (output.info) {
-          output.main = output.info;
         }
-        if (status === STATUS.ERROR) {
-          output.main = /* @__PURE__ */ React22.createElement(ErrorMessage, { styles: this.styles }, error);
-        }
-        return (
-          // <Player ref={this.ref} data-ready={isReady} styles={this.styles}>
-          /* @__PURE__ */ React22.createElement("div", null, output.main)
-        );
+      ) : null;
+      if (this.renderInlineActions) {
+        output.actions = /* @__PURE__ */ React22.createElement(Actions_default, { layout, styles: this.styles }, output.devices, output.volume);
       }
-    };
-    // eslint-disable-next-line react/static-property-placement
-    __publicField(SpotifyWebPlayer, "defaultProps", {
-      autoPlay: false,
-      initialVolume: 1,
-      magnifySliderOnHover: false,
-      name: "Spotify Web Player",
-      persistDeviceSelection: false,
-      showSaveIcon: false,
-      syncExternalDeviceInterval: 5,
-      syncExternalDevice: false
-    });
-    SpotifyWebPlayer_default = SpotifyWebPlayer;
-  }
-});
-
-// src/index.tsx
-import React23, { lazy } from "react";
-import ReactDOM from "react-dom/client";
-var SpotifyWebPlayer2 = lazy(() => Promise.resolve().then(() => (init_SpotifyWebPlayer(), SpotifyWebPlayer_exports)));
-ReactDOM.createRoot(document.getElementById("root")).render(
-  /* @__PURE__ */ React23.createElement("div", null, /* @__PURE__ */ React23.createElement(
-    SpotifyWebPlayer2,
-    {
-      token: "BQDTSGraQFTrATgiezQgs2x_lI2FMaWXBIt033meTvbijs_ITvWOzEQtWq2UFb7mUF9ZAxGsdxLU4cji-Wqi_q_1Lf-zdagVQJlZarnuUgovyewG6VyF8Iispw5RJMBAvz6bNPicH4yFx7rLNRQEGdf5Jv2revag57ZLbyIyznWlSL6zAPXUcEH9HwNxQC_0ix3l0_exMBpkvlhoL_HDgUBd9NCc9RQAbP6sZ8KKFSy6qAlADKe4SdtilWd49GNyps_L3ywxxWdWnWO2QBhXRpSj6EIvYe7tn1ewUeP9qLXix0hOxe6GizUq1l26SZ-Z",
-      uris: ["spotify:track:3zYpRGnnoegSpt3SguSo3W"]
+      output.controls = /* @__PURE__ */ React22.createElement(
+        Controls_default,
+        {
+          durationMs: track.durationMs,
+          isMagnified,
+          onChangeRange: this.handleChangeRange,
+          onToggleMagnify: this.handleToggleMagnify,
+          position,
+          progressMs,
+          styles: this.styles
+        }
+      );
+      output.main = /* @__PURE__ */ React22.createElement(Wrapper_default, { layout, styles: this.styles }, output.controls);
+    } else if (output.info) {
+      output.main = output.info;
     }
-  ))
-);
+    if (status === STATUS.ERROR) {
+      output.main = /* @__PURE__ */ React22.createElement(ErrorMessage, { styles: this.styles }, error);
+    }
+    return (
+      // <Player ref={this.ref} data-ready={isReady} styles={this.styles}>
+      /* @__PURE__ */ React22.createElement("div", null, output.main)
+    );
+  }
+};
+// eslint-disable-next-line react/static-property-placement
+__publicField(SpotifyWebPlayer, "defaultProps", {
+  autoPlay: false,
+  initialVolume: 1,
+  magnifySliderOnHover: false,
+  name: "Spotify Web Player",
+  persistDeviceSelection: false,
+  showSaveIcon: false,
+  syncExternalDeviceInterval: 5,
+  syncExternalDevice: false
+});
+var src_default = SpotifyWebPlayer;
+export {
+  ERROR_TYPE,
+  STATUS,
+  TYPE,
+  src_default as default
+};
 //# sourceMappingURL=index.mjs.map

@@ -1,4 +1,3 @@
-import { Layout } from 'react-spotify-web-playback';
 import { css, Global } from '@emotion/react';
 import styled from '@emotion/styled';
 import { theme } from '@gilbarbara/components';

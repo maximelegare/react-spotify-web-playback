@@ -42,7 +42,8 @@
     "memoize-one": "^6.0.0",
     "nano-css": "^5.3.5",
     "react": "17 - 18",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-spotify-web-playback": "github:maximelegare/react-spotify-web-playback#useVite"
   },
   "devDependencies": {
     "@gilbarbara/eslint-config": "^0.4.0",
@@ -80,7 +81,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "buildVite":"tsc && vite build",
+    "buildVite": "tsc && vite build",
     "build": "tsup",
     "clean": "del lib/* && del esm/*",
     "watch": "tsup --watch",

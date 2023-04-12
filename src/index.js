@@ -1,1 +1,1 @@
-export { default as SpotifyWebPlayer } from './SpotifyWebPlayer';
+export { default as SpotifyWebPlayer } from './index.tsx';

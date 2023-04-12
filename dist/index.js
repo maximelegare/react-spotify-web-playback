@@ -359,11 +359,6 @@ var __defNormalProp = function(obj, key, value) {
         value: value
     }) : obj[key] = value;
 };
-var __esm = function(fn, res) {
-    return function __init() {
-        return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
-    };
-};
 var __export = function(target, all) {
     for(var name in all)__defProp(target, name, {
         get: all[name],
@@ -411,41 +406,86 @@ var __toESM = function(mod, isNodeMode, target) {
         enumerable: true
     }) : target, mod);
 };
+var __toCommonJS = function(mod) {
+    return __copyProps(__defProp({}, "__esModule", {
+        value: true
+    }), mod);
+};
 var __publicField = function(obj, key, value) {
     __defNormalProp(obj, (typeof key === "undefined" ? "undefined" : _typeof(key)) !== "symbol" ? key + "" : key, value);
     return value;
 };
-// src/modules/styled.tsx
-var import_react, import_nano_css, import_jsx, import_keyframes, import_nesting, import_rule, import_style, import_styled, import_nano_css2, nano, keyframes, put, styled, px;
-var init_styled = __esm({
-    "src/modules/styled.tsx": function() {
-        "use strict";
-        import_react = require("react");
-        import_nano_css = require("nano-css");
-        import_jsx = require("nano-css/addon/jsx.js");
-        import_keyframes = require("nano-css/addon/keyframes.js");
-        import_nesting = require("nano-css/addon/nesting.js");
-        import_rule = require("nano-css/addon/rule.js");
-        import_style = require("nano-css/addon/style.js");
-        import_styled = require("nano-css/addon/styled.js");
-        import_nano_css2 = require("nano-css");
-        nano = (0, import_nano_css.create)({
-            h: import_react.createElement
-        });
-        (0, import_rule.addon)(nano);
-        (0, import_keyframes.addon)(nano);
-        (0, import_jsx.addon)(nano);
-        (0, import_style.addon)(nano);
-        (0, import_styled.addon)(nano);
-        (0, import_nesting.addon)(nano);
-        var ref;
-        ref = nano, keyframes = ref.keyframes, put = ref.put, styled = ref.styled, ref;
-        px = function(value) {
-            return typeof value === "number" ? "".concat(value, "px") : value;
-        };
+// src/index.tsx
+var src_exports = {};
+__export(src_exports, {
+    ERROR_TYPE: function() {
+        return ERROR_TYPE;
+    },
+    STATUS: function() {
+        return STATUS;
+    },
+    TYPE: function() {
+        return TYPE;
+    },
+    default: function() {
+        return src_default;
     }
 });
+module.exports = __toCommonJS(src_exports);
+var import_react24 = __toESM(require("react"));
+var import_deep_equal = __toESM(require("@gilbarbara/deep-equal"));
+var import_memoize_one = __toESM(require("memoize-one"));
 // src/components/Actions.tsx
+var import_react2 = __toESM(require("react"));
+// src/modules/styled.tsx
+var import_react = require("react");
+var import_nano_css = require("nano-css");
+var import_jsx = require("nano-css/addon/jsx.js");
+var import_keyframes = require("nano-css/addon/keyframes.js");
+var import_nesting = require("nano-css/addon/nesting.js");
+var import_rule = require("nano-css/addon/rule.js");
+var import_style = require("nano-css/addon/style.js");
+var import_styled = require("nano-css/addon/styled.js");
+var import_nano_css2 = require("nano-css");
+var nano = (0, import_nano_css.create)({
+    h: import_react.createElement
+});
+(0, import_rule.addon)(nano);
+(0, import_keyframes.addon)(nano);
+(0, import_jsx.addon)(nano);
+(0, import_style.addon)(nano);
+(0, import_styled.addon)(nano);
+(0, import_nesting.addon)(nano);
+var keyframes = nano.keyframes, put = nano.put, styled = nano.styled;
+var px = function(value) {
+    return typeof value === "number" ? "".concat(value, "px") : value;
+};
+// src/components/Actions.tsx
+var Wrapper = styled("div")({
+    alignItems: "center",
+    display: "flex",
+    justifyContent: "flex-end",
+    "pointer-events": "none"
+}, function(param) {
+    var style = param.style;
+    var styles = {
+        bottom: 0,
+        position: "absolute",
+        right: 0,
+        width: "auto"
+    };
+    if (style.layout === "responsive") {
+        styles = {
+            "@media (max-width: 767px)": styles,
+            "@media (min-width: 768px)": {
+                height: px(style.h)
+            }
+        };
+    }
+    return _objectSpread({
+        height: px(32)
+    }, styles);
+}, "ActionsRSWP");
 function Actions(props) {
     var children = props.children, layout = props.layout, styles = props.styles;
     return /* @__PURE__ */ import_react2.default.createElement(Wrapper, {
@@ -456,40 +496,12 @@ function Actions(props) {
         }
     }, children);
 }
-var import_react2, Wrapper, Actions_default;
-var init_Actions = __esm({
-    "src/components/Actions.tsx": function() {
-        "use strict";
-        import_react2 = __toESM(require("react"));
-        init_styled();
-        Wrapper = styled("div")({
-            alignItems: "center",
-            display: "flex",
-            justifyContent: "flex-end",
-            "pointer-events": "none"
-        }, function(param) {
-            var style = param.style;
-            var styles = {
-                bottom: 0,
-                position: "absolute",
-                right: 0,
-                width: "auto"
-            };
-            if (style.layout === "responsive") {
-                styles = {
-                    "@media (max-width: 767px)": styles,
-                    "@media (min-width: 768px)": {
-                        height: px(style.h)
-                    }
-                };
-            }
-            return _objectSpread({
-                height: px(32)
-            }, styles);
-        }, "ActionsRSWP");
-        Actions_default = (0, import_react2.memo)(Actions);
-    }
-});
+var Actions_default = (0, import_react2.memo)(Actions);
+// src/components/Controls.tsx
+var import_react4 = __toESM(require("react"));
+// src/components/Slider.tsx
+var import_react3 = __toESM(require("react"));
+var import_react_range_slider = __toESM(require("@gilbarbara/react-range-slider"));
 // src/modules/helpers.ts
 function convertTrack(track) {
     var album = track.album, artists = track.artists, duration_ms = track.duration_ms, id = track.id, name = track.name, uri = track.uri;
@@ -579,12 +591,29 @@ function validateURI(input) {
     }
     return false;
 }
-var init_helpers = __esm({
-    "src/modules/helpers.ts": function() {
-        "use strict";
-    }
-});
 // src/components/Slider.tsx
+var Wrapper2 = styled("div")({
+    alignItems: "center",
+    display: "flex",
+    fontSize: px(12),
+    transition: "height 0.3s",
+    zIndex: 10
+}, function(param) {
+    var style = param.style;
+    return {
+        '[class^="rswp_"]': {
+            color: style.c,
+            lineHeight: 1,
+            minWidth: px(32)
+        },
+        ".rswp_progress": {
+            textAlign: "right"
+        },
+        ".rswp_duration": {
+            textAlign: "left"
+        }
+    };
+}, "SliderRSWP");
 function Slider(props) {
     var durationMs = props.durationMs, isMagnified = props.isMagnified, onChangeRange = props.onChangeRange, onToggleMagnify = props.onToggleMagnify, position = props.position, progressMs = props.progressMs, styles = props.styles;
     var handleChangeRange = function() {
@@ -648,39 +677,7 @@ function Slider(props) {
         }
     }, millisecondsToTime(durationMs)));
 }
-var import_react3, import_react_range_slider, Wrapper2, Slider_default;
-var init_Slider = __esm({
-    "src/components/Slider.tsx": function() {
-        "use strict";
-        import_react3 = __toESM(require("react"));
-        import_react_range_slider = __toESM(require("@gilbarbara/react-range-slider"));
-        init_helpers();
-        init_styled();
-        Wrapper2 = styled("div")({
-            alignItems: "center",
-            display: "flex",
-            fontSize: px(12),
-            transition: "height 0.3s",
-            zIndex: 10
-        }, function(param) {
-            var style = param.style;
-            return {
-                '[class^="rswp_"]': {
-                    color: style.c,
-                    lineHeight: 1,
-                    minWidth: px(32)
-                },
-                ".rswp_progress": {
-                    textAlign: "right"
-                },
-                ".rswp_duration": {
-                    textAlign: "left"
-                }
-            };
-        }, "SliderRSWP");
-        Slider_default = (0, import_react3.memo)(Slider);
-    }
-});
+var Slider_default = (0, import_react3.memo)(Slider);
 // src/components/Controls.tsx
 function Controls(props) {
     var // devices,
@@ -704,17 +701,11 @@ function Controls(props) {
         styles: styles
     }));
 }
-var import_react4, Controls_default;
-var init_Controls = __esm({
-    "src/components/Controls.tsx": function() {
-        "use strict";
-        import_react4 = __toESM(require("react"));
-        init_Slider();
-        Controls_default = (0, import_react4.memo)(Controls);
-        {}
-    }
-});
+var Controls_default = (0, import_react4.memo)(Controls);
+{}// src/components/Devices.tsx
+var import_react10 = __toESM(require("react"));
 // src/components/ClickOutside.tsx
+var import_react5 = __toESM(require("react"));
 function ClickOutside(props) {
     var children = props.children, isActive = props.isActive, onClick = props.onClick, rest = _objectWithoutProperties(props, [
         "children",
@@ -752,15 +743,9 @@ function ClickOutside(props) {
         ref: containerRef
     }, rest), children);
 }
-var import_react5, ClickOutside_default;
-var init_ClickOutside = __esm({
-    "src/components/ClickOutside.tsx": function() {
-        "use strict";
-        import_react5 = __toESM(require("react"));
-        ClickOutside_default = (0, import_react5.memo)(ClickOutside);
-    }
-});
+var ClickOutside_default = (0, import_react5.memo)(ClickOutside);
 // src/components/icons/Devices.tsx
+var import_react6 = __toESM(require("react"));
 function DevicesIcon(props) {
     return /* @__PURE__ */ import_react6.default.createElement("svg", _objectSpread({
         height: "1em",
@@ -772,14 +757,8 @@ function DevicesIcon(props) {
         fill: "currentColor"
     }));
 }
-var import_react6;
-var init_Devices = __esm({
-    "src/components/icons/Devices.tsx": function() {
-        "use strict";
-        import_react6 = __toESM(require("react"));
-    }
-});
 // src/components/icons/DevicesComputer.tsx
+var import_react7 = __toESM(require("react"));
 function DevicesComputerIcon(props) {
     return /* @__PURE__ */ import_react7.default.createElement("svg", _objectSpread({
         height: "1em",
@@ -791,14 +770,8 @@ function DevicesComputerIcon(props) {
         fill: "currentColor"
     }));
 }
-var import_react7;
-var init_DevicesComputer = __esm({
-    "src/components/icons/DevicesComputer.tsx": function() {
-        "use strict";
-        import_react7 = __toESM(require("react"));
-    }
-});
 // src/components/icons/DevicesMobile.tsx
+var import_react8 = __toESM(require("react"));
 function DevicesMobileIcon(props) {
     return /* @__PURE__ */ import_react8.default.createElement("svg", _objectSpread({
         height: "1em",
@@ -810,14 +783,8 @@ function DevicesMobileIcon(props) {
         fill: "currentColor"
     }));
 }
-var import_react8;
-var init_DevicesMobile = __esm({
-    "src/components/icons/DevicesMobile.tsx": function() {
-        "use strict";
-        import_react8 = __toESM(require("react"));
-    }
-});
 // src/components/icons/DevicesSpeaker.tsx
+var import_react9 = __toESM(require("react"));
 function DevicesSpeakerIcon(props) {
     return /* @__PURE__ */ import_react9.default.createElement("svg", _objectSpread({
         height: "1em",
@@ -829,14 +796,106 @@ function DevicesSpeakerIcon(props) {
         fill: "currentColor"
     }));
 }
-var import_react9;
-var init_DevicesSpeaker = __esm({
-    "src/components/icons/DevicesSpeaker.tsx": function() {
-        "use strict";
-        import_react9 = __toESM(require("react"));
+// src/components/Devices.tsx
+var Wrapper3 = styled("div")({
+    "pointer-events": "all",
+    alignItems: "center",
+    display: "flex",
+    justifyContent: "center",
+    position: "relative",
+    zIndex: 20,
+    "> div": {
+        backgroundColor: "#000",
+        borderRadius: px(8),
+        color: "#fff",
+        filter: "drop-shadow(1px 1px 6px rgba(0, 0, 0, 0.5))",
+        fontSize: px(14),
+        padding: px(16),
+        position: "absolute",
+        textAlign: "left",
+        "> p": {
+            fontWeight: "bold",
+            marginBottom: px(8),
+            marginTop: px(16),
+            whiteSpace: "nowrap"
+        },
+        button: {
+            alignItems: "center",
+            display: "flex",
+            whiteSpace: "nowrap",
+            "&:not(:last-of-type)": {
+                marginBottom: px(12)
+            },
+            span: {
+                display: "inline-block",
+                marginLeft: px(4)
+            }
+        },
+        "> span": {
+            background: "transparent",
+            borderLeft: "6px solid transparent",
+            borderRight: "6px solid transparent",
+            content: '""',
+            display: "block",
+            height: 0,
+            position: "absolute",
+            width: 0
+        }
+    },
+    "> button": {
+        alignItems: "center",
+        display: "flex",
+        fontSize: px(24),
+        height: px(32),
+        justifyContent: "center",
+        width: px(32)
+    }
+}, function(param) {
+    var style = param.style;
+    var isCompact = style.layout === "compact";
+    var _obj;
+    var divStyles = isCompact ? {
+        bottom: "120%",
+        left: 0
+    } : (_obj = {}, _defineProperty(_obj, style.p, "120%"), _defineProperty(_obj, "left", 0), _defineProperty(_obj, "@media (min-width: 768px)", {
+        left: "auto",
+        right: 0
+    }), _obj);
+    var _obj1;
+    var spanStyles = isCompact ? {
+        bottom: "-".concat(px(6)),
+        borderTop: "6px solid #000",
+        left: px(10)
+    } : (_obj1 = {}, _defineProperty(_obj1, style.p === "top" ? "border-bottom" : "border-top", "6px solid #000"), _defineProperty(_obj1, style.p, "-6px"), _defineProperty(_obj1, "left", px(10)), _defineProperty(_obj1, "@media (min-width: 768px)", {
+        left: "auto",
+        right: px(10)
+    }), _obj1);
+    return {
+        "> button": {
+            color: style.c
+        },
+        "> div": _objectSpreadProps(_objectSpread({}, divStyles), {
+            "> span": spanStyles
+        })
+    };
+}, "DevicesRSWP");
+var ListHeader = styled("div")({
+    p: {
+        whiteSpace: "nowrap",
+        "&:nth-of-type(1)": {
+            fontWeight: "bold",
+            marginBottom: px(8)
+        },
+        "&:nth-of-type(2)": {
+            alignItems: "center",
+            display: "flex",
+            span: {
+                display: "inline-block",
+                marginLeft: px(4)
+            }
+        }
     }
 });
-// src/components/Devices.tsx
 function getDeviceIcon(type) {
     if (type.toLowerCase().includes("speaker")) {
         return /* @__PURE__ */ import_react10.default.createElement(DevicesSpeakerIcon, null);
@@ -902,119 +961,23 @@ function Devices(props) {
         type: "button"
     }, icon))));
 }
-var import_react10, Wrapper3, ListHeader;
-var init_Devices2 = __esm({
-    "src/components/Devices.tsx": function() {
-        "use strict";
-        import_react10 = __toESM(require("react"));
-        init_ClickOutside();
-        init_Devices();
-        init_DevicesComputer();
-        init_DevicesMobile();
-        init_DevicesSpeaker();
-        init_styled();
-        Wrapper3 = styled("div")({
-            "pointer-events": "all",
-            alignItems: "center",
-            display: "flex",
-            justifyContent: "center",
-            position: "relative",
-            zIndex: 20,
-            "> div": {
-                backgroundColor: "#000",
-                borderRadius: px(8),
-                color: "#fff",
-                filter: "drop-shadow(1px 1px 6px rgba(0, 0, 0, 0.5))",
-                fontSize: px(14),
-                padding: px(16),
-                position: "absolute",
-                textAlign: "left",
-                "> p": {
-                    fontWeight: "bold",
-                    marginBottom: px(8),
-                    marginTop: px(16),
-                    whiteSpace: "nowrap"
-                },
-                button: {
-                    alignItems: "center",
-                    display: "flex",
-                    whiteSpace: "nowrap",
-                    "&:not(:last-of-type)": {
-                        marginBottom: px(12)
-                    },
-                    span: {
-                        display: "inline-block",
-                        marginLeft: px(4)
-                    }
-                },
-                "> span": {
-                    background: "transparent",
-                    borderLeft: "6px solid transparent",
-                    borderRight: "6px solid transparent",
-                    content: '""',
-                    display: "block",
-                    height: 0,
-                    position: "absolute",
-                    width: 0
-                }
-            },
-            "> button": {
-                alignItems: "center",
-                display: "flex",
-                fontSize: px(24),
-                height: px(32),
-                justifyContent: "center",
-                width: px(32)
-            }
-        }, function(param) {
-            var style = param.style;
-            var isCompact = style.layout === "compact";
-            var _obj;
-            var divStyles = isCompact ? {
-                bottom: "120%",
-                left: 0
-            } : (_obj = {}, _defineProperty(_obj, style.p, "120%"), _defineProperty(_obj, "left", 0), _defineProperty(_obj, "@media (min-width: 768px)", {
-                left: "auto",
-                right: 0
-            }), _obj);
-            var _obj1;
-            var spanStyles = isCompact ? {
-                bottom: "-".concat(px(6)),
-                borderTop: "6px solid #000",
-                left: px(10)
-            } : (_obj1 = {}, _defineProperty(_obj1, style.p === "top" ? "border-bottom" : "border-top", "6px solid #000"), _defineProperty(_obj1, style.p, "-6px"), _defineProperty(_obj1, "left", px(10)), _defineProperty(_obj1, "@media (min-width: 768px)", {
-                left: "auto",
-                right: px(10)
-            }), _obj1);
-            return {
-                "> button": {
-                    color: style.c
-                },
-                "> div": _objectSpreadProps(_objectSpread({}, divStyles), {
-                    "> span": spanStyles
-                })
-            };
-        }, "DevicesRSWP");
-        ListHeader = styled("div")({
-            p: {
-                whiteSpace: "nowrap",
-                "&:nth-of-type(1)": {
-                    fontWeight: "bold",
-                    marginBottom: px(8)
-                },
-                "&:nth-of-type(2)": {
-                    alignItems: "center",
-                    display: "flex",
-                    span: {
-                        display: "inline-block",
-                        marginLeft: px(4)
-                    }
-                }
-            }
-        });
-    }
-});
 // src/components/ErrorMessage.tsx
+var import_react11 = __toESM(require("react"));
+var Wrapper4 = styled("div")({
+    alignItems: "center",
+    display: "flex",
+    justifyContent: "center",
+    textAlign: "center",
+    width: "100%"
+}, function(param) {
+    var style = param.style;
+    return {
+        backgroundColor: style.bgColor,
+        borderTop: "1px solid ".concat(style.errorColor),
+        color: style.errorColor,
+        height: px(style.h)
+    };
+}, "ErrorRSWP");
 function ErrorMessage(param) {
     var children = param.children, _param_styles = param.styles, bgColor = _param_styles.bgColor, errorColor = _param_styles.errorColor, height = _param_styles.height;
     return /* @__PURE__ */ import_react11.default.createElement(Wrapper4, {
@@ -1026,30 +989,11 @@ function ErrorMessage(param) {
         }
     }, children);
 }
-var import_react11, Wrapper4;
-var init_ErrorMessage = __esm({
-    "src/components/ErrorMessage.tsx": function() {
-        "use strict";
-        import_react11 = __toESM(require("react"));
-        init_styled();
-        Wrapper4 = styled("div")({
-            alignItems: "center",
-            display: "flex",
-            justifyContent: "center",
-            textAlign: "center",
-            width: "100%"
-        }, function(param) {
-            var style = param.style;
-            return {
-                backgroundColor: style.bgColor,
-                borderTop: "1px solid ".concat(style.errorColor),
-                color: style.errorColor,
-                height: px(style.h)
-            };
-        }, "ErrorRSWP");
-    }
-});
+// src/components/Info.tsx
+var import_react16 = __toESM(require("react"));
+var import_colorizr2 = require("colorizr");
 // src/components/icons/Favorite.tsx
+var import_react12 = __toESM(require("react"));
 function Favorite(props) {
     return /* @__PURE__ */ import_react12.default.createElement("svg", _objectSpread({
         height: "1em",
@@ -1061,14 +1005,8 @@ function Favorite(props) {
         fill: "currentColor"
     }));
 }
-var import_react12;
-var init_Favorite = __esm({
-    "src/components/icons/Favorite.tsx": function() {
-        "use strict";
-        import_react12 = __toESM(require("react"));
-    }
-});
 // src/components/icons/FavoriteOutline.tsx
+var import_react13 = __toESM(require("react"));
 function FavoriteOutline(props) {
     return /* @__PURE__ */ import_react13.default.createElement("svg", _objectSpread({
         height: "1em",
@@ -1080,14 +1018,9 @@ function FavoriteOutline(props) {
         fill: "currentColor"
     }));
 }
-var import_react13;
-var init_FavoriteOutline = __esm({
-    "src/components/icons/FavoriteOutline.tsx": function() {
-        "use strict";
-        import_react13 = __toESM(require("react"));
-    }
-});
 // src/components/SpotifyLogo.tsx
+var import_react14 = __toESM(require("react"));
+var import_colorizr = require("colorizr");
 function SpotifyLogo(_param) {
     var bgColor = _param.bgColor, rest = _objectWithoutProperties(_param, [
         "bgColor"
@@ -1102,14 +1035,6 @@ function SpotifyLogo(_param) {
         fill: (0, import_colorizr.textColor)(bgColor)
     }));
 }
-var import_react14, import_colorizr;
-var init_SpotifyLogo = __esm({
-    "src/components/SpotifyLogo.tsx": function() {
-        "use strict";
-        import_react14 = __toESM(require("react"));
-        import_colorizr = require("colorizr");
-    }
-});
 // src/modules/getters.ts
 function getLocale(locale) {
     return _objectSpread({
@@ -1157,12 +1082,8 @@ function getSpotifyURIType(uri) {
     var _uri_split = _slicedToArray(uri.split(":"), 2), tmp = _uri_split[1], type = tmp === void 0 ? "" : tmp;
     return type;
 }
-var init_getters = __esm({
-    "src/modules/getters.ts": function() {
-        "use strict";
-    }
-});
 // src/modules/hooks.ts
+var import_react15 = require("react");
 function useMediaQuery(input) {
     var handleChange = function handleChange() {
         setMatches(getMatches(input));
@@ -1200,13 +1121,6 @@ function usePrevious(value) {
     ]);
     return ref.current;
 }
-var import_react15;
-var init_hooks = __esm({
-    "src/modules/hooks.ts": function() {
-        "use strict";
-        import_react15 = require("react");
-    }
-});
 function checkTracksStatus(token, tracks) {
     return _checkTracksStatus.apply(this, arguments);
 }
@@ -1462,12 +1376,158 @@ function _setVolume() {
     });
     return _setVolume.apply(this, arguments);
 }
-var init_spotify = __esm({
-    "src/modules/spotify.ts": function() {
-        "use strict";
-    }
-});
 // src/components/Info.tsx
+var imageSize = 64;
+var iconSize = 32;
+var Wrapper5 = styled("div")({
+    textAlign: "left",
+    "> a": {
+        display: "inline-flex",
+        textDecoration: "none",
+        minHeigth: px(64),
+        minWidth: px(64),
+        "&:hover": {
+            textDecoration: "underline"
+        }
+    },
+    button: {
+        alignItems: "center",
+        display: "flex",
+        fontSize: px(16),
+        height: px(iconSize + 8),
+        justifyContent: "center",
+        width: px(iconSize)
+    }
+}, function(param) {
+    var style = param.style;
+    var isCompactLayout = style.layout === "compact";
+    var styles = {};
+    if (isCompactLayout) {
+        styles.borderBottom = "1px solid ".concat((0, import_colorizr2.fade)(style.c, 40));
+        styles["> a"] = {
+            display: "flex",
+            margin: "0 auto",
+            maxWidth: px(640),
+            paddingBottom: "100%",
+            position: "relative",
+            img: {
+                display: "block",
+                bottom: 0,
+                left: 0,
+                maxWidth: "100%",
+                position: "absolute",
+                right: 0,
+                top: 0
+            }
+        };
+    } else {
+        styles.alignItems = "center";
+        styles.display = "flex";
+        styles.minHeight = px(80);
+        styles["@media (max-width: 767px)"] = {
+            borderBottom: "1px solid ".concat((0, import_colorizr2.fade)(style.c, 40)),
+            paddingLeft: px(8),
+            display: "none",
+            width: "100%"
+        };
+        styles.img = {
+            height: px(imageSize),
+            width: px(imageSize)
+        };
+        styles["&.rswp__active"] = {
+            "@media (max-width: 767px)": {
+                display: "flex"
+            }
+        };
+    }
+    return _objectSpread({
+        button: {
+            color: style.c,
+            "&.rswp__active": {
+                color: style.activeColor
+            }
+        }
+    }, styles);
+}, "InfoRSWP");
+var ContentWrapper = styled("div")({
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    "> a": {
+        fontSize: px(22),
+        marginTop: px(4)
+    }
+}, function(param) {
+    var style = param.style;
+    var isCompactLayout = style.layout === "compact";
+    var styles = {};
+    if (isCompactLayout) {
+        styles.padding = px(8);
+        styles.width = "100%";
+    } else {
+        styles.minHeight = px(imageSize);
+        if (!style.hideCoverArt) {
+            styles.marginLeft = px(8);
+            styles.width = "calc(100% - ".concat(px(imageSize + 8), ")");
+        } else {
+            styles.width = "100%";
+        }
+    }
+    return styles;
+}, "ContentWrapperRSWP");
+var Content = styled("div")({
+    display: "flex",
+    justifyContent: "start",
+    '[data-type="title-artist-wrapper"]': {
+        overflow: "hidden",
+        div: {
+            marginLeft: "-".concat(px(8)),
+            whiteSpace: "nowrap"
+        }
+    },
+    p: {
+        fontSize: px(14),
+        lineHeight: 1.3,
+        paddingLeft: px(8),
+        paddingRight: px(8),
+        width: "100%",
+        "&:nth-of-type(1)": {
+            alignItems: "center",
+            display: "inline-flex"
+        },
+        "&:nth-of-type(2)": {
+            fontSize: px(12)
+        }
+    },
+    span: {
+        display: "inline-block"
+    }
+}, function(param) {
+    var style = param.style;
+    return {
+        '[data-type="title-artist-wrapper"]': {
+            color: style.trackNameColor,
+            maxWidth: "calc(100% - ".concat(px(style.showSaveIcon ? iconSize : 0), ")"),
+            div: {
+                "-webkit-mask-image": "linear-gradient(90deg,transparent 0, ".concat(style.bgColor, " 6px, ").concat(style.bgColor, " calc(100% - 12px),transparent)")
+            }
+        },
+        p: {
+            "&:nth-of-type(1)": {
+                color: style.trackNameColor,
+                a: {
+                    color: style.trackNameColor
+                }
+            },
+            "&:nth-of-type(2)": {
+                color: style.trackArtistColor,
+                a: {
+                    color: style.trackArtistColor
+                }
+            }
+        }
+    };
+}, "ContentRSWP");
 function Info(props) {
     var hideAttribution = props.hideAttribution, hideCoverArt = props.hideCoverArt, isActive = props.isActive, layout = props.layout, locale = props.locale, onFavoriteStatusChange = props.onFavoriteStatusChange, showSaveIcon = props.showSaveIcon, _props_styles = props.styles, activeColor = _props_styles.activeColor, bgColor = _props_styles.bgColor, color = _props_styles.color, height = _props_styles.height, trackArtistColor = _props_styles.trackArtistColor, trackNameColor = _props_styles.trackNameColor, token = props.token, _props_track = props.track, _props_track_artists = _props_track.artists, artists = _props_track_artists === void 0 ? [] : _props_track_artists, id = _props_track.id, image = _props_track.image, name = _props_track.name, uri = _props_track.uri, updateSavedStatus = props.updateSavedStatus;
     var _ref = _slicedToArray((0, import_react16.useState)(false), 2), isSaved = _ref[0], setIsSaved = _ref[1];
@@ -1663,174 +1723,56 @@ function Info(props) {
         bgColor: bgColor
     }))));
 }
-var import_react16, import_colorizr2, imageSize, iconSize, Wrapper5, ContentWrapper, Content, Info_default;
-var init_Info = __esm({
-    "src/components/Info.tsx": function() {
-        "use strict";
-        import_react16 = __toESM(require("react"));
-        import_colorizr2 = require("colorizr");
-        init_Favorite();
-        init_FavoriteOutline();
-        init_SpotifyLogo();
-        init_getters();
-        init_hooks();
-        init_spotify();
-        init_styled();
-        imageSize = 64;
-        iconSize = 32;
-        Wrapper5 = styled("div")({
-            textAlign: "left",
-            "> a": {
-                display: "inline-flex",
-                textDecoration: "none",
-                minHeigth: px(64),
-                minWidth: px(64),
-                "&:hover": {
-                    textDecoration: "underline"
-                }
-            },
-            button: {
-                alignItems: "center",
-                display: "flex",
-                fontSize: px(16),
-                height: px(iconSize + 8),
-                justifyContent: "center",
-                width: px(iconSize)
-            }
-        }, function(param) {
-            var style = param.style;
-            var isCompactLayout = style.layout === "compact";
-            var styles = {};
-            if (isCompactLayout) {
-                styles.borderBottom = "1px solid ".concat((0, import_colorizr2.fade)(style.c, 40));
-                styles["> a"] = {
-                    display: "flex",
-                    margin: "0 auto",
-                    maxWidth: px(640),
-                    paddingBottom: "100%",
-                    position: "relative",
-                    img: {
-                        display: "block",
-                        bottom: 0,
-                        left: 0,
-                        maxWidth: "100%",
-                        position: "absolute",
-                        right: 0,
-                        top: 0
-                    }
-                };
-            } else {
-                styles.alignItems = "center";
-                styles.display = "flex";
-                styles.minHeight = px(80);
-                styles["@media (max-width: 767px)"] = {
-                    borderBottom: "1px solid ".concat((0, import_colorizr2.fade)(style.c, 40)),
-                    paddingLeft: px(8),
-                    display: "none",
-                    width: "100%"
-                };
-                styles.img = {
-                    height: px(imageSize),
-                    width: px(imageSize)
-                };
-                styles["&.rswp__active"] = {
-                    "@media (max-width: 767px)": {
-                        display: "flex"
-                    }
-                };
-            }
-            return _objectSpread({
-                button: {
-                    color: style.c,
-                    "&.rswp__active": {
-                        color: style.activeColor
-                    }
-                }
-            }, styles);
-        }, "InfoRSWP");
-        ContentWrapper = styled("div")({
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            "> a": {
-                fontSize: px(22),
-                marginTop: px(4)
-            }
-        }, function(param) {
-            var style = param.style;
-            var isCompactLayout = style.layout === "compact";
-            var styles = {};
-            if (isCompactLayout) {
-                styles.padding = px(8);
-                styles.width = "100%";
-            } else {
-                styles.minHeight = px(imageSize);
-                if (!style.hideCoverArt) {
-                    styles.marginLeft = px(8);
-                    styles.width = "calc(100% - ".concat(px(imageSize + 8), ")");
-                } else {
-                    styles.width = "100%";
-                }
-            }
-            return styles;
-        }, "ContentWrapperRSWP");
-        Content = styled("div")({
-            display: "flex",
-            justifyContent: "start",
-            '[data-type="title-artist-wrapper"]': {
-                overflow: "hidden",
-                div: {
-                    marginLeft: "-".concat(px(8)),
-                    whiteSpace: "nowrap"
-                }
-            },
-            p: {
-                fontSize: px(14),
-                lineHeight: 1.3,
-                paddingLeft: px(8),
-                paddingRight: px(8),
-                width: "100%",
-                "&:nth-of-type(1)": {
-                    alignItems: "center",
-                    display: "inline-flex"
-                },
-                "&:nth-of-type(2)": {
-                    fontSize: px(12)
-                }
-            },
-            span: {
-                display: "inline-block"
-            }
-        }, function(param) {
-            var style = param.style;
-            return {
-                '[data-type="title-artist-wrapper"]': {
-                    color: style.trackNameColor,
-                    maxWidth: "calc(100% - ".concat(px(style.showSaveIcon ? iconSize : 0), ")"),
-                    div: {
-                        "-webkit-mask-image": "linear-gradient(90deg,transparent 0, ".concat(style.bgColor, " 6px, ").concat(style.bgColor, " calc(100% - 12px),transparent)")
-                    }
-                },
-                p: {
-                    "&:nth-of-type(1)": {
-                        color: style.trackNameColor,
-                        a: {
-                            color: style.trackNameColor
-                        }
-                    },
-                    "&:nth-of-type(2)": {
-                        color: style.trackArtistColor,
-                        a: {
-                            color: style.trackArtistColor
-                        }
-                    }
-                }
-            };
-        }, "ContentRSWP");
-        Info_default = (0, import_react16.memo)(Info);
-    }
-});
+var Info_default = (0, import_react16.memo)(Info);
 // src/components/Loader.tsx
+var import_react17 = __toESM(require("react"));
+var Wrapper6 = styled("div")({
+    alignItems: "center",
+    display: "flex",
+    jsutifyContent: "center",
+    position: "relative",
+    "> div": {
+        borderRadius: "50%",
+        borderStyle: "solid",
+        borderWidth: 0,
+        boxSizing: "border-box",
+        height: 0,
+        left: "50%",
+        position: "absolute",
+        top: "50%",
+        transform: "translate(-50%, -50%)",
+        width: 0
+    }
+}, function(param) {
+    var style = param.style;
+    var pulse = keyframes({
+        "0%": {
+            height: 0,
+            width: 0
+        },
+        "30%": {
+            borderWidth: px(8),
+            height: px(style.loaderSize),
+            opacity: 1,
+            width: px(style.loaderSize)
+        },
+        "100%": {
+            borderWidth: 0,
+            height: px(style.loaderSize),
+            opacity: 0,
+            width: px(style.loaderSize)
+        }
+    });
+    return {
+        height: px(style.h),
+        "> div": {
+            animation: "".concat(pulse, " 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1)"),
+            borderColor: style.loaderColor,
+            height: px(style.loaderSize),
+            width: px(style.loaderSize)
+        }
+    };
+}, "LoaderRSWP");
 function Loader(param) {
     var _param_styles = param.styles, height = _param_styles.height, loaderColor = _param_styles.loaderColor, loaderSize = _param_styles.loaderSize;
     return /* @__PURE__ */ import_react17.default.createElement(Wrapper6, {
@@ -1842,62 +1784,11 @@ function Loader(param) {
         }
     }, /* @__PURE__ */ import_react17.default.createElement("div", null));
 }
-var import_react17, Wrapper6;
-var init_Loader = __esm({
-    "src/components/Loader.tsx": function() {
-        "use strict";
-        import_react17 = __toESM(require("react"));
-        init_styled();
-        Wrapper6 = styled("div")({
-            alignItems: "center",
-            display: "flex",
-            jsutifyContent: "center",
-            position: "relative",
-            "> div": {
-                borderRadius: "50%",
-                borderStyle: "solid",
-                borderWidth: 0,
-                boxSizing: "border-box",
-                height: 0,
-                left: "50%",
-                position: "absolute",
-                top: "50%",
-                transform: "translate(-50%, -50%)",
-                width: 0
-            }
-        }, function(param) {
-            var style = param.style;
-            var pulse = keyframes({
-                "0%": {
-                    height: 0,
-                    width: 0
-                },
-                "30%": {
-                    borderWidth: px(8),
-                    height: px(style.loaderSize),
-                    opacity: 1,
-                    width: px(style.loaderSize)
-                },
-                "100%": {
-                    borderWidth: 0,
-                    height: px(style.loaderSize),
-                    opacity: 0,
-                    width: px(style.loaderSize)
-                }
-            });
-            return {
-                height: px(style.h),
-                "> div": {
-                    animation: "".concat(pulse, " 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1)"),
-                    borderColor: style.loaderColor,
-                    height: px(style.loaderSize),
-                    width: px(style.loaderSize)
-                }
-            };
-        }, "LoaderRSWP");
-    }
-});
+// src/components/Volume.tsx
+var import_react22 = __toESM(require("react"));
+var import_react_range_slider2 = __toESM(require("@gilbarbara/react-range-slider"));
 // src/components/icons/VolumeHigh.tsx
+var import_react18 = __toESM(require("react"));
 function VolumeHigh(props) {
     return /* @__PURE__ */ import_react18.default.createElement("svg", _objectSpread({
         "data-component-name": "VolumeHigh",
@@ -1910,14 +1801,8 @@ function VolumeHigh(props) {
         fill: "currentColor"
     }));
 }
-var import_react18;
-var init_VolumeHigh = __esm({
-    "src/components/icons/VolumeHigh.tsx": function() {
-        "use strict";
-        import_react18 = __toESM(require("react"));
-    }
-});
 // src/components/icons/VolumeLow.tsx
+var import_react19 = __toESM(require("react"));
 function VolumeLow(props) {
     return /* @__PURE__ */ import_react19.default.createElement("svg", _objectSpread({
         "data-component-name": "VolumeLow",
@@ -1930,14 +1815,8 @@ function VolumeLow(props) {
         fill: "currentColor"
     }));
 }
-var import_react19;
-var init_VolumeLow = __esm({
-    "src/components/icons/VolumeLow.tsx": function() {
-        "use strict";
-        import_react19 = __toESM(require("react"));
-    }
-});
 // src/components/icons/VolumeMid.tsx
+var import_react20 = __toESM(require("react"));
 function VolumeHigh2(props) {
     return /* @__PURE__ */ import_react20.default.createElement("svg", _objectSpread({
         "data-component-name": "VolumeMid",
@@ -1950,14 +1829,8 @@ function VolumeHigh2(props) {
         fill: "currentColor"
     }));
 }
-var import_react20;
-var init_VolumeMid = __esm({
-    "src/components/icons/VolumeMid.tsx": function() {
-        "use strict";
-        import_react20 = __toESM(require("react"));
-    }
-});
 // src/components/icons/VolumeMute.tsx
+var import_react21 = __toESM(require("react"));
 function VolumeMute(props) {
     return /* @__PURE__ */ import_react21.default.createElement("svg", _objectSpread({
         "data-component-name": "VolumeMute",
@@ -1970,14 +1843,84 @@ function VolumeMute(props) {
         fill: "currentColor"
     }));
 }
-var import_react21;
-var init_VolumeMute = __esm({
-    "src/components/icons/VolumeMute.tsx": function() {
-        "use strict";
-        import_react21 = __toESM(require("react"));
-    }
-});
 // src/components/Volume.tsx
+var WrapperWithToggle = styled("div")({
+    display: "none",
+    "pointer-events": "all",
+    position: "relative",
+    zIndex: 20,
+    "> div": {
+        alignItems: "center",
+        backgroundColor: "#000",
+        borderRadius: px(4),
+        color: "#fff",
+        display: "flex",
+        filter: "drop-shadow(1px 1px 6px rgba(0, 0, 0, 0.5))",
+        flexDirection: "column",
+        left: "-4px",
+        padding: px(16),
+        position: "absolute",
+        "> span": {
+            background: "transparent",
+            borderLeft: "6px solid transparent",
+            borderRight: "6px solid transparent",
+            content: '""',
+            display: "block",
+            height: 0,
+            position: "absolute",
+            width: 0
+        }
+    },
+    "> button": {
+        alignItems: "center",
+        display: "flex",
+        fontSize: px(24),
+        height: px(32),
+        justifyContent: "center",
+        width: px(32)
+    },
+    "@media (any-pointer: fine)": {
+        display: "block"
+    }
+}, function(param) {
+    var style = param.style;
+    var isCompact = style.layout === "compact";
+    var _obj;
+    var spanStyles = isCompact ? {
+        bottom: "-".concat(px(6)),
+        borderTop: "6px solid #000"
+    } : (_obj = {}, _defineProperty(_obj, style.p === "top" ? "border-bottom" : "border-top", "6px solid #000"), _defineProperty(_obj, style.p, "-6px"), _obj);
+    var _obj1;
+    return {
+        "> button": {
+            color: style.c
+        },
+        "> div": (_obj1 = {}, _defineProperty(_obj1, isCompact ? "bottom" : style.p, "130%"), _defineProperty(_obj1, "> span", spanStyles), _obj1)
+    };
+}, "VolumeRSWP");
+var WrapperInline = styled("div")({
+    display: "none",
+    padding: "0 ".concat(px(8)),
+    "pointer-events": "all",
+    "> div": {
+        display: "flex",
+        padding: "0 ".concat(px(5)),
+        width: px(100)
+    },
+    "> span": {
+        display: "flex",
+        fontSize: px(24)
+    },
+    "@media (any-pointer: fine)": {
+        alignItems: "center",
+        display: "flex"
+    }
+}, function(param) {
+    var style = param.style;
+    return {
+        color: style.c
+    };
+}, "VolumeInlineRSWP");
 function Volume(props) {
     var inlineVolume = props.inlineVolume, layout = props.layout, locale = props.locale, playerPosition = props.playerPosition, setVolume2 = props.setVolume, styles = props.styles, volume = props.volume;
     var _ref = _slicedToArray((0, import_react22.useState)(false), 2), isOpen = _ref[0], setIsOpen = _ref[1];
@@ -2090,99 +2033,36 @@ function Volume(props) {
         type: "button"
     }, icon)));
 }
-var import_react22, import_react_range_slider2, WrapperWithToggle, WrapperInline;
-var init_Volume = __esm({
-    "src/components/Volume.tsx": function() {
-        "use strict";
-        import_react22 = __toESM(require("react"));
-        import_react_range_slider2 = __toESM(require("@gilbarbara/react-range-slider"));
-        init_ClickOutside();
-        init_VolumeHigh();
-        init_VolumeLow();
-        init_VolumeMid();
-        init_VolumeMute();
-        init_hooks();
-        init_styled();
-        WrapperWithToggle = styled("div")({
-            display: "none",
-            "pointer-events": "all",
-            position: "relative",
-            zIndex: 20,
-            "> div": {
-                alignItems: "center",
-                backgroundColor: "#000",
-                borderRadius: px(4),
-                color: "#fff",
-                display: "flex",
-                filter: "drop-shadow(1px 1px 6px rgba(0, 0, 0, 0.5))",
-                flexDirection: "column",
-                left: "-4px",
-                padding: px(16),
-                position: "absolute",
-                "> span": {
-                    background: "transparent",
-                    borderLeft: "6px solid transparent",
-                    borderRight: "6px solid transparent",
-                    content: '""',
-                    display: "block",
-                    height: 0,
-                    position: "absolute",
-                    width: 0
+// src/components/Wrapper.tsx
+var import_react23 = __toESM(require("react"));
+var StyledWrapper = styled("div")({
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "column",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    position: "relative",
+    "> *": {
+        width: "100%"
+    }
+}, function(param) {
+    var style = param.style;
+    var styles = {};
+    if (style.layout === "responsive") {
+        styles = {
+            "> *": {
+                "@media (min-width: 768px)": {
+                    width: "33.3333%"
                 }
             },
-            "> button": {
-                alignItems: "center",
-                display: "flex",
-                fontSize: px(24),
-                height: px(32),
-                justifyContent: "center",
-                width: px(32)
-            },
-            "@media (any-pointer: fine)": {
-                display: "block"
+            "@media (min-width: 768px)": {
+                flexDirection: "row",
+                padding: "0 ".concat(px(8))
             }
-        }, function(param) {
-            var style = param.style;
-            var isCompact = style.layout === "compact";
-            var _obj;
-            var spanStyles = isCompact ? {
-                bottom: "-".concat(px(6)),
-                borderTop: "6px solid #000"
-            } : (_obj = {}, _defineProperty(_obj, style.p === "top" ? "border-bottom" : "border-top", "6px solid #000"), _defineProperty(_obj, style.p, "-6px"), _obj);
-            var _obj1;
-            return {
-                "> button": {
-                    color: style.c
-                },
-                "> div": (_obj1 = {}, _defineProperty(_obj1, isCompact ? "bottom" : style.p, "130%"), _defineProperty(_obj1, "> span", spanStyles), _obj1)
-            };
-        }, "VolumeRSWP");
-        WrapperInline = styled("div")({
-            display: "none",
-            padding: "0 ".concat(px(8)),
-            "pointer-events": "all",
-            "> div": {
-                display: "flex",
-                padding: "0 ".concat(px(5)),
-                width: px(100)
-            },
-            "> span": {
-                display: "flex",
-                fontSize: px(24)
-            },
-            "@media (any-pointer: fine)": {
-                alignItems: "center",
-                display: "flex"
-            }
-        }, function(param) {
-            var style = param.style;
-            return {
-                color: style.c
-            };
-        }, "VolumeInlineRSWP");
+        };
     }
-});
-// src/components/Wrapper.tsx
+    return _objectSpread({}, styles);
+}, "WrapperRSWP");
 function Wrapper7(param) {
     var children = param.children, layout = param.layout;
     return /* @__PURE__ */ import_react23.default.createElement(StyledWrapper, {
@@ -2192,1579 +2072,1471 @@ function Wrapper7(param) {
         }
     }, children);
 }
-var import_react23, StyledWrapper, Wrapper_default;
-var init_Wrapper = __esm({
-    "src/components/Wrapper.tsx": function() {
-        "use strict";
-        import_react23 = __toESM(require("react"));
-        init_styled();
-        StyledWrapper = styled("div")({
-            alignItems: "center",
-            display: "flex",
-            flexDirection: "column",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            position: "relative",
-            "> *": {
-                width: "100%"
-            }
-        }, function(param) {
-            var style = param.style;
-            var styles = {};
-            if (style.layout === "responsive") {
-                styles = {
-                    "> *": {
-                        "@media (min-width: 768px)": {
-                            width: "33.3333%"
-                        }
-                    },
-                    "@media (min-width: 768px)": {
-                        flexDirection: "row",
-                        padding: "0 ".concat(px(8))
-                    }
-                };
-            }
-            return _objectSpread({}, styles);
-        }, "WrapperRSWP");
-        Wrapper_default = (0, import_react23.memo)(Wrapper7);
-    }
-});
+var Wrapper_default = (0, import_react23.memo)(Wrapper7);
 // src/constants.ts
-var ERROR_TYPE, STATUS, TYPE;
-var init_constants = __esm({
-    "src/constants.ts": function() {
-        "use strict";
-        ERROR_TYPE = {
-            ACCOUNT: "account",
-            AUTHENTICATION: "authentication",
-            INITIALIZATION: "initialization",
-            PLAYBACK: "playback",
-            PLAYER: "player"
-        };
-        STATUS = {
-            ERROR: "ERROR",
-            IDLE: "IDLE",
-            INITIALIZING: "INITIALIZING",
-            READY: "READY",
-            RUNNING: "RUNNING",
-            UNSUPPORTED: "UNSUPPORTED"
-        };
-        TYPE = {
-            DEVICE: "device_update",
-            FAVORITE: "favorite_update",
-            PLAYER: "player_update",
-            PROGRESS: "progress_update",
-            STATUS: "status_update",
-            TRACK: "track_update"
-        };
-    }
-});
-// src/types/common.ts
-var init_common = __esm({
-    "src/types/common.ts": function() {
-        "use strict";
-    }
-});
-// src/types/spotify.ts
-var init_spotify2 = __esm({
-    "src/types/spotify.ts": function() {
-        "use strict";
-    }
-});
-// src/types/index.ts
-var init_types = __esm({
-    "src/types/index.ts": function() {
-        "use strict";
-        init_common();
-        init_spotify2();
-    }
-});
-// src/SpotifyWebPlayer.tsx
-var SpotifyWebPlayer_exports = {};
-__export(SpotifyWebPlayer_exports, {
-    ERROR_TYPE: function() {
-        return ERROR_TYPE;
-    },
-    STATUS: function() {
-        return STATUS;
-    },
-    TYPE: function() {
-        return TYPE;
-    },
-    default: function() {
-        return SpotifyWebPlayer_default;
-    }
-});
-var import_react24, import_deep_equal, import_memoize_one, SpotifyWebPlayer, SpotifyWebPlayer_default;
-var init_SpotifyWebPlayer = __esm({
-    "src/SpotifyWebPlayer.tsx": function() {
-        "use strict";
-        import_react24 = __toESM(require("react"));
-        import_deep_equal = __toESM(require("@gilbarbara/deep-equal"));
-        import_memoize_one = __toESM(require("memoize-one"));
-        init_Actions();
-        init_Controls();
-        init_Devices2();
-        init_ErrorMessage();
-        init_Info();
-        init_Loader();
-        init_Volume();
-        init_Wrapper();
-        init_constants();
-        init_getters();
-        init_helpers();
-        init_spotify();
-        init_types();
-        init_constants();
-        SpotifyWebPlayer = /*#__PURE__*/ function(_import_react24_PureComponent) {
-            _inherits(SpotifyWebPlayer, _import_react24_PureComponent);
-            var _super = _createSuper(SpotifyWebPlayer);
-            function SpotifyWebPlayer(props) {
-                _classCallCheck(this, SpotifyWebPlayer);
-                var _this;
-                _this = _super.call(this, props);
-                __publicField(_assertThisInitialized(_this), "isMounted", false);
-                __publicField(_assertThisInitialized(_this), "emptyTrack", {
-                    artists: [],
-                    durationMs: 0,
-                    id: "",
-                    image: "",
-                    name: "",
-                    uri: ""
-                });
-                __publicField(_assertThisInitialized(_this), "locale");
-                __publicField(_assertThisInitialized(_this), "player");
-                __publicField(_assertThisInitialized(_this), "playerProgressInterval");
-                __publicField(_assertThisInitialized(_this), "playerSyncInterval");
-                __publicField(_assertThisInitialized(_this), "ref", (0, import_react24.createRef)());
-                __publicField(_assertThisInitialized(_this), "renderInlineActions", false);
-                __publicField(_assertThisInitialized(_this), "resizeTimeout");
-                __publicField(_assertThisInitialized(_this), "seekUpdateInterval", 100);
-                __publicField(_assertThisInitialized(_this), "styles");
-                __publicField(_assertThisInitialized(_this), "syncTimeout");
-                // eslint-disable-next-line unicorn/consistent-function-scoping
-                __publicField(_assertThisInitialized(_this), "getPlayOptions", (0, import_memoize_one.default)(function(data) {
-                    var playOptions = {
-                        context_uri: void 0,
-                        uris: void 0
-                    };
-                    if (data) {
-                        var ids = Array.isArray(data) ? data : [
-                            data
-                        ];
-                        if (!ids.every(function(d) {
-                            return validateURI(d);
-                        })) {
-                            console.error("Invalid URI");
-                            return playOptions;
-                        }
-                        if (ids.some(function(d) {
-                            return getSpotifyURIType(d) === "track";
-                        })) {
-                            if (!ids.every(function(d) {
-                                return getSpotifyURIType(d) === "track";
-                            })) {
-                                console.warn("You can't mix tracks URIs with other types");
-                            }
-                            playOptions.uris = ids.filter(function(d) {
-                                return validateURI(d) && getSpotifyURIType(d) === "track";
-                            });
-                        } else {
-                            if (ids.length > 1) {
-                                console.warn("Albums, Artists, Playlists and Podcasts can't have multiple URIs");
-                            }
-                            playOptions.context_uri = ids[0];
-                        }
-                    }
+var ERROR_TYPE = {
+    ACCOUNT: "account",
+    AUTHENTICATION: "authentication",
+    INITIALIZATION: "initialization",
+    PLAYBACK: "playback",
+    PLAYER: "player"
+};
+var STATUS = {
+    ERROR: "ERROR",
+    IDLE: "IDLE",
+    INITIALIZING: "INITIALIZING",
+    READY: "READY",
+    RUNNING: "RUNNING",
+    UNSUPPORTED: "UNSUPPORTED"
+};
+var TYPE = {
+    DEVICE: "device_update",
+    FAVORITE: "favorite_update",
+    PLAYER: "player_update",
+    PROGRESS: "progress_update",
+    STATUS: "status_update",
+    TRACK: "track_update"
+};
+// src/index.tsx
+var SpotifyWebPlayer = /*#__PURE__*/ function(_import_react24_PureComponent) {
+    _inherits(SpotifyWebPlayer, _import_react24_PureComponent);
+    var _super = _createSuper(SpotifyWebPlayer);
+    function SpotifyWebPlayer(props) {
+        _classCallCheck(this, SpotifyWebPlayer);
+        var _this;
+        _this = _super.call(this, props);
+        __publicField(_assertThisInitialized(_this), "isMounted", false);
+        __publicField(_assertThisInitialized(_this), "emptyTrack", {
+            artists: [],
+            durationMs: 0,
+            id: "",
+            image: "",
+            name: "",
+            uri: ""
+        });
+        __publicField(_assertThisInitialized(_this), "locale");
+        __publicField(_assertThisInitialized(_this), "player");
+        __publicField(_assertThisInitialized(_this), "playerProgressInterval");
+        __publicField(_assertThisInitialized(_this), "playerSyncInterval");
+        __publicField(_assertThisInitialized(_this), "ref", (0, import_react24.createRef)());
+        __publicField(_assertThisInitialized(_this), "renderInlineActions", false);
+        __publicField(_assertThisInitialized(_this), "resizeTimeout");
+        __publicField(_assertThisInitialized(_this), "seekUpdateInterval", 100);
+        __publicField(_assertThisInitialized(_this), "styles");
+        __publicField(_assertThisInitialized(_this), "syncTimeout");
+        // eslint-disable-next-line unicorn/consistent-function-scoping
+        __publicField(_assertThisInitialized(_this), "getPlayOptions", (0, import_memoize_one.default)(function(data) {
+            var playOptions = {
+                context_uri: void 0,
+                uris: void 0
+            };
+            if (data) {
+                var ids = Array.isArray(data) ? data : [
+                    data
+                ];
+                if (!ids.every(function(d) {
+                    return validateURI(d);
+                })) {
+                    console.error("Invalid URI");
                     return playOptions;
-                }));
-                var _this1 = _assertThisInitialized(_this);
-                __publicField(_assertThisInitialized(_this), "handleChangeRange", function() {
-                    var _ref = _asyncToGenerator(function(position) {
-                        var track, callback, progress, percentage, stateChanges, state, error;
-                        return __generator(this, function(_state) {
-                            switch(_state.label){
-                                case 0:
-                                    track = _this1.state.track;
-                                    callback = _this1.props.callback;
-                                    progress = 0;
-                                    _state.label = 1;
-                                case 1:
-                                    _state.trys.push([
-                                        1,
-                                        8,
-                                        ,
-                                        9
-                                    ]);
-                                    percentage = position / 100;
-                                    stateChanges = {};
-                                    if (!_this1.isExternalPlayer) return [
-                                        3,
-                                        3
-                                    ];
-                                    progress = Math.round(track.durationMs * percentage);
-                                    return [
-                                        4,
-                                        seek(_this1.token, progress)
-                                    ];
-                                case 2:
-                                    _state.sent();
-                                    stateChanges = {
-                                        position: position,
-                                        progressMs: progress
-                                    };
-                                    return [
-                                        3,
-                                        7
-                                    ];
-                                case 3:
-                                    if (!_this1.player) return [
-                                        3,
-                                        7
-                                    ];
-                                    return [
-                                        4,
-                                        _this1.player.getCurrentState()
-                                    ];
-                                case 4:
-                                    state = _state.sent();
-                                    if (!state) return [
-                                        3,
-                                        6
-                                    ];
-                                    progress = Math.round(state.track_window.current_track.duration_ms * percentage);
-                                    return [
-                                        4,
-                                        _this1.player.seek(progress)
-                                    ];
-                                case 5:
-                                    _state.sent();
-                                    stateChanges = {
-                                        position: position,
-                                        progressMs: progress
-                                    };
-                                    return [
-                                        3,
-                                        7
-                                    ];
-                                case 6:
-                                    stateChanges = {
-                                        position: 0
-                                    };
-                                    _state.label = 7;
-                                case 7:
-                                    _this1.updateState(stateChanges);
-                                    if (callback) {
-                                        callback(_objectSpreadProps(_objectSpread({}, _this1.state, stateChanges), {
-                                            type: TYPE.PROGRESS
-                                        }));
-                                    }
-                                    return [
-                                        3,
-                                        9
-                                    ];
-                                case 8:
-                                    error = _state.sent();
-                                    console.error(error);
-                                    return [
-                                        3,
-                                        9
-                                    ];
-                                case 9:
-                                    return [
-                                        2
-                                    ];
-                            }
-                        });
-                    });
-                    return function(position) {
-                        return _ref.apply(this, arguments);
-                    };
-                }());
-                var _this2 = _assertThisInitialized(_this);
-                // private handleClickTogglePlay = async () => {
-                //   const { isActive } = this.state;
-                //   try {
-                //     await this.togglePlay(!this.isExternalPlayer && !isActive);
-                //   } catch (error) {
-                //     // eslint-disable-next-line no-console
-                //     console.error(error);
-                //   }
-                // };
-                // private handleClickPrevious = async () => {
-                //   try {
-                //     /* istanbul ignore else */
-                //     if (this.isExternalPlayer) {
-                //       await previous(this.token);
-                //       this.syncTimeout = window.setTimeout(() => {
-                //         this.syncDevice();
-                //       }, 300);
-                //     } else if (this.player) {
-                //       await this.player.previousTrack();
-                //     }
-                //   } catch (error) {
-                //     // eslint-disable-next-line no-console
-                //     console.error(error);
-                //   }
-                // };
-                // private handleClickNext = async () => {
-                //   try {
-                //     /* istanbul ignore else */
-                //     if (this.isExternalPlayer) {
-                //       await next(this.token);
-                //       this.syncTimeout = window.setTimeout(() => {
-                //         this.syncDevice();
-                //       }, 300);
-                //     } else if (this.player) {
-                //       await this.player.nextTrack();
-                //     }
-                //   } catch (error) {
-                //     // eslint-disable-next-line no-console
-                //     console.error(error);
-                //   }
-                // };
-                __publicField(_assertThisInitialized(_this), "handleClickDevice", function() {
-                    var _ref = _asyncToGenerator(function(deviceId) {
-                        var isUnsupported, _this_props, autoPlay, persistDeviceSelection, player, error;
-                        return __generator(this, function(_state) {
-                            switch(_state.label){
-                                case 0:
-                                    isUnsupported = _this2.state.isUnsupported;
-                                    _this_props = _this2.props, autoPlay = _this_props.autoPlay, persistDeviceSelection = _this_props.persistDeviceSelection;
-                                    _this2.updateState({
-                                        currentDeviceId: deviceId
-                                    });
-                                    _state.label = 1;
-                                case 1:
-                                    _state.trys.push([
-                                        1,
-                                        7,
-                                        ,
-                                        8
-                                    ]);
-                                    return [
-                                        4,
-                                        setDevice(_this2.token, deviceId)
-                                    ];
-                                case 2:
-                                    _state.sent();
-                                    if (persistDeviceSelection) {
-                                        sessionStorage.setItem("rswpDeviceId", deviceId);
-                                    }
-                                    if (!isUnsupported) return [
-                                        3,
-                                        6
-                                    ];
-                                    return [
-                                        4,
-                                        _this2.syncDevice()
-                                    ];
-                                case 3:
-                                    _state.sent();
-                                    return [
-                                        4,
-                                        getPlaybackState(_this2.token)
-                                    ];
-                                case 4:
-                                    player = _state.sent();
-                                    if (!(player && !player.is_playing && autoPlay)) return [
-                                        3,
-                                        6
-                                    ];
-                                    return [
-                                        4,
-                                        _this2.togglePlay(true)
-                                    ];
-                                case 5:
-                                    _state.sent();
-                                    _state.label = 6;
-                                case 6:
-                                    return [
-                                        3,
-                                        8
-                                    ];
-                                case 7:
-                                    error = _state.sent();
-                                    console.error(error);
-                                    return [
-                                        3,
-                                        8
-                                    ];
-                                case 8:
-                                    return [
-                                        2
-                                    ];
-                            }
-                        });
-                    });
-                    return function(deviceId) {
-                        return _ref.apply(this, arguments);
-                    };
-                }());
-                __publicField(_assertThisInitialized(_this), "handleFavoriteStatusChange", function(status) {
-                    var isSaved = _this.state.isSaved;
-                    _this.updateState({
-                        isSaved: status
-                    });
-                    if (isSaved !== status) {
-                        _this.handleCallback(_objectSpreadProps(_objectSpread({}, _this.state), {
-                            isSaved: status,
-                            type: TYPE.FAVORITE
-                        }));
+                }
+                if (ids.some(function(d) {
+                    return getSpotifyURIType(d) === "track";
+                })) {
+                    if (!ids.every(function(d) {
+                        return getSpotifyURIType(d) === "track";
+                    })) {
+                        console.warn("You can't mix tracks URIs with other types");
                     }
-                });
-                var _this3 = _assertThisInitialized(_this);
-                __publicField(_assertThisInitialized(_this), "handlePlayerErrors", function() {
-                    var _ref = _asyncToGenerator(function(type, message) {
-                        var status, isPlaybackError, isInitializationError, nextStatus, devices, ref, ref1;
-                        return __generator(this, function(_state) {
-                            switch(_state.label){
-                                case 0:
-                                    status = _this3.state.status;
-                                    isPlaybackError = type === ERROR_TYPE.PLAYBACK;
-                                    isInitializationError = type === ERROR_TYPE.INITIALIZATION;
-                                    nextStatus = status;
-                                    devices = [];
-                                    if (_this3.player && !isPlaybackError) {
-                                        _this3.player.disconnect();
-                                        _this3.player = void 0;
-                                    }
-                                    if (!isInitializationError) return [
-                                        3,
-                                        2
-                                    ];
-                                    nextStatus = STATUS.UNSUPPORTED;
-                                    return [
-                                        4,
-                                        getDevices(_this3.token)
-                                    ];
-                                case 1:
-                                    ref = _state.sent(), ref1 = ref.devices, devices = ref1 === void 0 ? [] : ref1, ref;
-                                    return [
-                                        3,
-                                        3
-                                    ];
-                                case 2:
-                                    if (!isPlaybackError) {
-                                        nextStatus = STATUS.ERROR;
-                                    }
-                                    _state.label = 3;
-                                case 3:
-                                    _this3.updateState({
-                                        devices: devices,
-                                        error: message,
-                                        errorType: type,
-                                        isInitializing: false,
-                                        isUnsupported: isInitializationError,
-                                        status: nextStatus
-                                    });
-                                    return [
-                                        2
-                                    ];
-                            }
-                        });
+                    playOptions.uris = ids.filter(function(d) {
+                        return validateURI(d) && getSpotifyURIType(d) === "track";
                     });
-                    return function(type, message) {
-                        return _ref.apply(this, arguments);
-                    };
-                }());
-                var _this4 = _assertThisInitialized(_this);
-                __publicField(_assertThisInitialized(_this), "handlePlayerStateChanges", function() {
-                    var _ref = _asyncToGenerator(function(state) {
-                        var _this_player, paused, position, _state_track_window, current_track, next_tracks, previous_tracks, isPlaying, volume, trackState, error;
-                        return __generator(this, function(_state) {
-                            switch(_state.label){
-                                case 0:
-                                    _state.trys.push([
-                                        0,
-                                        6,
-                                        ,
-                                        7
-                                    ]);
-                                    if (!state) return [
-                                        3,
-                                        2
-                                    ];
-                                    paused = state.paused, position = state.position, _state_track_window = state.track_window, current_track = _state_track_window.current_track, next_tracks = _state_track_window.next_tracks, previous_tracks = _state_track_window.previous_tracks;
-                                    isPlaying = !paused;
-                                    return [
-                                        4,
-                                        (_this_player = _this4.player) === null || _this_player === void 0 ? void 0 : _this_player.getVolume()
-                                    ];
-                                case 1:
-                                    volume = _state.sent() || 100;
-                                    trackState = {};
-                                    if (position === 0 && current_track) {
-                                        trackState = {
-                                            nextTracks: next_tracks.map(convertTrack),
-                                            position: 0,
-                                            previousTracks: previous_tracks.map(convertTrack),
-                                            track: convertTrack(current_track)
-                                        };
-                                    }
-                                    _this4.updateState(_objectSpread({
-                                        error: "",
-                                        errorType: null,
-                                        isActive: true,
-                                        isPlaying: isPlaying,
-                                        progressMs: position,
-                                        volume: round(volume)
-                                    }, trackState));
-                                    return [
-                                        3,
-                                        5
-                                    ];
-                                case 2:
-                                    if (!_this4.isExternalPlayer) return [
-                                        3,
-                                        4
-                                    ];
-                                    return [
-                                        4,
-                                        _this4.syncDevice()
-                                    ];
-                                case 3:
-                                    _state.sent();
-                                    return [
-                                        3,
-                                        5
-                                    ];
-                                case 4:
-                                    _this4.updateState({
-                                        isActive: false,
-                                        isPlaying: false,
-                                        nextTracks: [],
-                                        position: 0,
-                                        previousTracks: [],
-                                        track: {
-                                            artists: [],
-                                            durationMs: 0,
-                                            id: "",
-                                            image: "",
-                                            name: "",
-                                            uri: ""
-                                        }
-                                    });
-                                    _state.label = 5;
-                                case 5:
-                                    return [
-                                        3,
-                                        7
-                                    ];
-                                case 6:
-                                    error = _state.sent();
-                                    console.error(error);
-                                    return [
-                                        3,
-                                        7
-                                    ];
-                                case 7:
-                                    return [
-                                        2
-                                    ];
-                            }
-                        });
-                    });
-                    return function(state) {
-                        return _ref.apply(this, arguments);
-                    };
-                }());
-                var _this5 = _assertThisInitialized(_this);
-                __publicField(_assertThisInitialized(_this), "handlePlayerStatus", function() {
-                    var _ref = _asyncToGenerator(function(param) {
-                        var device_id, _ref, currentDeviceId, devices;
-                        return __generator(this, function(_state) {
-                            switch(_state.label){
-                                case 0:
-                                    device_id = param.device_id;
-                                    return [
-                                        4,
-                                        _this5.initializeDevices(device_id)
-                                    ];
-                                case 1:
-                                    _ref = _state.sent(), currentDeviceId = _ref.currentDeviceId, devices = _ref.devices;
-                                    _this5.updateState({
-                                        currentDeviceId: currentDeviceId,
-                                        deviceId: device_id,
-                                        devices: devices,
-                                        isInitializing: false,
-                                        status: device_id ? STATUS.READY : STATUS.IDLE
-                                    });
-                                    return [
-                                        2
-                                    ];
-                            }
-                        });
-                    });
-                    return function(_) {
-                        return _ref.apply(this, arguments);
-                    };
-                }());
-                __publicField(_assertThisInitialized(_this), "handleResize", function() {
-                    var _this_props = _this.props, _this_props_layout = _this_props.layout, layout = _this_props_layout === void 0 ? "responsive" : _this_props_layout;
-                    clearTimeout(_this.resizeTimeout);
-                    _this.resizeTimeout = window.setTimeout(function() {
-                        _this.renderInlineActions = window.innerWidth >= 768 && layout === "responsive";
-                        _this.forceUpdate();
-                    }, 100);
-                });
-                __publicField(_assertThisInitialized(_this), "handleToggleMagnify", function() {
-                    var magnifySliderOnHover = _this.props.magnifySliderOnHover;
-                    if (magnifySliderOnHover) {
-                        _this.updateState(function(previousState) {
-                            return {
-                                isMagnified: !previousState.isMagnified
+                } else {
+                    if (ids.length > 1) {
+                        console.warn("Albums, Artists, Playlists and Podcasts can't have multiple URIs");
+                    }
+                    playOptions.context_uri = ids[0];
+                }
+            }
+            return playOptions;
+        }));
+        var _this1 = _assertThisInitialized(_this);
+        __publicField(_assertThisInitialized(_this), "handleChangeRange", function() {
+            var _ref = _asyncToGenerator(function(position) {
+                var track, callback, progress, percentage, stateChanges, state, error;
+                return __generator(this, function(_state) {
+                    switch(_state.label){
+                        case 0:
+                            track = _this1.state.track;
+                            callback = _this1.props.callback;
+                            progress = 0;
+                            _state.label = 1;
+                        case 1:
+                            _state.trys.push([
+                                1,
+                                8,
+                                ,
+                                9
+                            ]);
+                            percentage = position / 100;
+                            stateChanges = {};
+                            if (!_this1.isExternalPlayer) return [
+                                3,
+                                3
+                            ];
+                            progress = Math.round(track.durationMs * percentage);
+                            return [
+                                4,
+                                seek(_this1.token, progress)
+                            ];
+                        case 2:
+                            _state.sent();
+                            stateChanges = {
+                                position: position,
+                                progressMs: progress
                             };
-                        });
-                    }
-                });
-                __publicField(_assertThisInitialized(_this), "initializePlayer", function() {
-                    var volume = _this.state.volume;
-                    var _this_props = _this.props, _this_props_getOAuthToken = _this_props.getOAuthToken, getOAuthToken = _this_props_getOAuthToken === void 0 ? function(callback) {
-                        callback(_this.token);
-                    } : _this_props_getOAuthToken, _this_props_name = _this_props.name, name = _this_props_name === void 0 ? "Spotify Web Player" : _this_props_name;
-                    if (!window.Spotify) {
-                        return;
-                    }
-                    _this.updateState({
-                        error: "",
-                        errorType: null,
-                        isInitializing: true
-                    });
-                    _this.player = new window.Spotify.Player({
-                        getOAuthToken: getOAuthToken,
-                        name: name,
-                        volume: volume
-                    });
-                    _this.player.addListener("ready", _this.handlePlayerStatus);
-                    _this.player.addListener("not_ready", _this.handlePlayerStatus);
-                    _this.player.addListener("player_state_changed", _this.handlePlayerStateChanges);
-                    _this.player.addListener("initialization_error", function(error) {
-                        return _this.handlePlayerErrors(ERROR_TYPE.INITIALIZATION, error.message);
-                    });
-                    _this.player.addListener("authentication_error", function(error) {
-                        return _this.handlePlayerErrors(ERROR_TYPE.AUTHENTICATION, error.message);
-                    });
-                    _this.player.addListener("account_error", function(error) {
-                        return _this.handlePlayerErrors(ERROR_TYPE.ACCOUNT, error.message);
-                    });
-                    _this.player.addListener("playback_error", function(error) {
-                        return _this.handlePlayerErrors(ERROR_TYPE.PLAYBACK, error.message);
-                    });
-                    _this.player.addListener("autoplay_failed", /*#__PURE__*/ _asyncToGenerator(function() {
-                        return __generator(this, function(_state) {
-                            console.log("Autoplay is not allowed by the browser autoplay rules");
+                            return [
+                                3,
+                                7
+                            ];
+                        case 3:
+                            if (!_this1.player) return [
+                                3,
+                                7
+                            ];
+                            return [
+                                4,
+                                _this1.player.getCurrentState()
+                            ];
+                        case 4:
+                            state = _state.sent();
+                            if (!state) return [
+                                3,
+                                6
+                            ];
+                            progress = Math.round(state.track_window.current_track.duration_ms * percentage);
+                            return [
+                                4,
+                                _this1.player.seek(progress)
+                            ];
+                        case 5:
+                            _state.sent();
+                            stateChanges = {
+                                position: position,
+                                progressMs: progress
+                            };
+                            return [
+                                3,
+                                7
+                            ];
+                        case 6:
+                            stateChanges = {
+                                position: 0
+                            };
+                            _state.label = 7;
+                        case 7:
+                            _this1.updateState(stateChanges);
+                            if (callback) {
+                                callback(_objectSpreadProps(_objectSpread({}, _this1.state, stateChanges), {
+                                    type: TYPE.PROGRESS
+                                }));
+                            }
+                            return [
+                                3,
+                                9
+                            ];
+                        case 8:
+                            error = _state.sent();
+                            console.error(error);
+                            return [
+                                3,
+                                9
+                            ];
+                        case 9:
                             return [
                                 2
                             ];
-                        });
-                    }));
-                    _this.player.connect();
+                    }
                 });
-                __publicField(_assertThisInitialized(_this), "setExternalDevice", function(id) {
-                    _this.updateState({
-                        currentDeviceId: id,
-                        isPlaying: true
-                    });
-                });
-                var _this6 = _assertThisInitialized(_this);
-                __publicField(_assertThisInitialized(_this), "setVolume", function() {
-                    var _ref = _asyncToGenerator(function(volume) {
-                        return __generator(this, function(_state) {
-                            switch(_state.label){
-                                case 0:
-                                    if (!_this6.isExternalPlayer) return [
-                                        3,
-                                        3
-                                    ];
-                                    return [
-                                        4,
-                                        setVolume(_this6.token, Math.round(volume * 100))
-                                    ];
-                                case 1:
-                                    _state.sent();
-                                    return [
-                                        4,
-                                        _this6.syncDevice()
-                                    ];
-                                case 2:
-                                    _state.sent();
-                                    return [
-                                        3,
-                                        5
-                                    ];
-                                case 3:
-                                    if (!_this6.player) return [
-                                        3,
-                                        5
-                                    ];
-                                    return [
-                                        4,
-                                        _this6.player.setVolume(volume)
-                                    ];
-                                case 4:
-                                    _state.sent();
-                                    _state.label = 5;
-                                case 5:
-                                    _this6.updateState({
-                                        volume: volume
-                                    });
-                                    return [
-                                        2
-                                    ];
+            });
+            return function(position) {
+                return _ref.apply(this, arguments);
+            };
+        }());
+        var _this2 = _assertThisInitialized(_this);
+        // private handleClickTogglePlay = async () => {
+        //   const { isActive } = this.state;
+        //   try {
+        //     await this.togglePlay(!this.isExternalPlayer && !isActive);
+        //   } catch (error) {
+        //     // eslint-disable-next-line no-console
+        //     console.error(error);
+        //   }
+        // };
+        // private handleClickPrevious = async () => {
+        //   try {
+        //     /* istanbul ignore else */
+        //     if (this.isExternalPlayer) {
+        //       await previous(this.token);
+        //       this.syncTimeout = window.setTimeout(() => {
+        //         this.syncDevice();
+        //       }, 300);
+        //     } else if (this.player) {
+        //       await this.player.previousTrack();
+        //     }
+        //   } catch (error) {
+        //     // eslint-disable-next-line no-console
+        //     console.error(error);
+        //   }
+        // };
+        // private handleClickNext = async () => {
+        //   try {
+        //     /* istanbul ignore else */
+        //     if (this.isExternalPlayer) {
+        //       await next(this.token);
+        //       this.syncTimeout = window.setTimeout(() => {
+        //         this.syncDevice();
+        //       }, 300);
+        //     } else if (this.player) {
+        //       await this.player.nextTrack();
+        //     }
+        //   } catch (error) {
+        //     // eslint-disable-next-line no-console
+        //     console.error(error);
+        //   }
+        // };
+        __publicField(_assertThisInitialized(_this), "handleClickDevice", function() {
+            var _ref = _asyncToGenerator(function(deviceId) {
+                var isUnsupported, _this_props, autoPlay, persistDeviceSelection, player, error;
+                return __generator(this, function(_state) {
+                    switch(_state.label){
+                        case 0:
+                            isUnsupported = _this2.state.isUnsupported;
+                            _this_props = _this2.props, autoPlay = _this_props.autoPlay, persistDeviceSelection = _this_props.persistDeviceSelection;
+                            _this2.updateState({
+                                currentDeviceId: deviceId
+                            });
+                            _state.label = 1;
+                        case 1:
+                            _state.trys.push([
+                                1,
+                                7,
+                                ,
+                                8
+                            ]);
+                            return [
+                                4,
+                                setDevice(_this2.token, deviceId)
+                            ];
+                        case 2:
+                            _state.sent();
+                            if (persistDeviceSelection) {
+                                sessionStorage.setItem("rswpDeviceId", deviceId);
                             }
-                        });
-                    });
-                    return function(volume) {
-                        return _ref.apply(this, arguments);
-                    };
-                }());
-                var _this7 = _assertThisInitialized(_this);
-                __publicField(_assertThisInitialized(_this), "syncDevice", /*#__PURE__*/ _asyncToGenerator(function() {
-                    var deviceId, player, track, error, state;
-                    return __generator(this, function(_state) {
-                        switch(_state.label){
-                            case 0:
-                                if (!_this7.isMounted) {
-                                    return [
-                                        2
-                                    ];
-                                }
-                                deviceId = _this7.state.deviceId;
-                                _state.label = 1;
-                            case 1:
-                                _state.trys.push([
-                                    1,
-                                    3,
-                                    ,
-                                    4
-                                ]);
-                                return [
-                                    4,
-                                    getPlaybackState(_this7.token)
-                                ];
-                            case 2:
-                                player = _state.sent();
-                                track = _this7.emptyTrack;
-                                if (!player) {
-                                    throw new Error("No player");
-                                }
-                                if (player.item) {
-                                    track = {
-                                        artists: player.item.artists,
-                                        durationMs: player.item.duration_ms,
-                                        id: player.item.id,
-                                        image: getAlbumImage(player.item.album),
-                                        name: player.item.name,
-                                        uri: player.item.uri
-                                    };
-                                }
-                                _this7.updateState({
-                                    error: "",
-                                    errorType: null,
-                                    isActive: true,
-                                    isPlaying: player.is_playing,
-                                    nextTracks: [],
-                                    previousTracks: [],
-                                    progressMs: player.item ? player.progress_ms : 0,
-                                    status: STATUS.READY,
-                                    track: track,
-                                    volume: parseVolume(player.device.volume_percent)
-                                });
-                                return [
-                                    3,
-                                    4
-                                ];
-                            case 3:
-                                error = _state.sent();
-                                state = {
-                                    isActive: false,
-                                    isPlaying: false,
-                                    position: 0,
-                                    track: _this7.emptyTrack
-                                };
-                                if (deviceId) {
-                                    _this7.updateState(_objectSpread({
-                                        currentDeviceId: deviceId
-                                    }, state));
-                                    return [
-                                        2
-                                    ];
-                                }
-                                _this7.updateState(_objectSpread({
-                                    error: error.message,
-                                    errorType: ERROR_TYPE.PLAYER,
-                                    status: STATUS.ERROR
-                                }, state));
-                                return [
-                                    3,
-                                    4
-                                ];
-                            case 4:
-                                return [
-                                    2
-                                ];
-                        }
-                    });
+                            if (!isUnsupported) return [
+                                3,
+                                6
+                            ];
+                            return [
+                                4,
+                                _this2.syncDevice()
+                            ];
+                        case 3:
+                            _state.sent();
+                            return [
+                                4,
+                                getPlaybackState(_this2.token)
+                            ];
+                        case 4:
+                            player = _state.sent();
+                            if (!(player && !player.is_playing && autoPlay)) return [
+                                3,
+                                6
+                            ];
+                            return [
+                                4,
+                                _this2.togglePlay(true)
+                            ];
+                        case 5:
+                            _state.sent();
+                            _state.label = 6;
+                        case 6:
+                            return [
+                                3,
+                                8
+                            ];
+                        case 7:
+                            error = _state.sent();
+                            console.error(error);
+                            return [
+                                3,
+                                8
+                            ];
+                        case 8:
+                            return [
+                                2
+                            ];
+                    }
+                });
+            });
+            return function(deviceId) {
+                return _ref.apply(this, arguments);
+            };
+        }());
+        __publicField(_assertThisInitialized(_this), "handleFavoriteStatusChange", function(status) {
+            var isSaved = _this.state.isSaved;
+            _this.updateState({
+                isSaved: status
+            });
+            if (isSaved !== status) {
+                _this.handleCallback(_objectSpreadProps(_objectSpread({}, _this.state), {
+                    isSaved: status,
+                    type: TYPE.FAVORITE
                 }));
-                var _this8 = _assertThisInitialized(_this);
-                __publicField(_assertThisInitialized(_this), "toggleOffset", /*#__PURE__*/ _asyncToGenerator(function() {
-                    var currentDeviceId, _this_props, offset, uris;
+            }
+        });
+        var _this3 = _assertThisInitialized(_this);
+        __publicField(_assertThisInitialized(_this), "handlePlayerErrors", function() {
+            var _ref = _asyncToGenerator(function(type, message) {
+                var status, isPlaybackError, isInitializationError, nextStatus, devices, ref, ref1;
+                return __generator(this, function(_state) {
+                    switch(_state.label){
+                        case 0:
+                            status = _this3.state.status;
+                            isPlaybackError = type === ERROR_TYPE.PLAYBACK;
+                            isInitializationError = type === ERROR_TYPE.INITIALIZATION;
+                            nextStatus = status;
+                            devices = [];
+                            if (_this3.player && !isPlaybackError) {
+                                _this3.player.disconnect();
+                                _this3.player = void 0;
+                            }
+                            if (!isInitializationError) return [
+                                3,
+                                2
+                            ];
+                            nextStatus = STATUS.UNSUPPORTED;
+                            return [
+                                4,
+                                getDevices(_this3.token)
+                            ];
+                        case 1:
+                            ref = _state.sent(), ref1 = ref.devices, devices = ref1 === void 0 ? [] : ref1, ref;
+                            return [
+                                3,
+                                3
+                            ];
+                        case 2:
+                            if (!isPlaybackError) {
+                                nextStatus = STATUS.ERROR;
+                            }
+                            _state.label = 3;
+                        case 3:
+                            _this3.updateState({
+                                devices: devices,
+                                error: message,
+                                errorType: type,
+                                isInitializing: false,
+                                isUnsupported: isInitializationError,
+                                status: nextStatus
+                            });
+                            return [
+                                2
+                            ];
+                    }
+                });
+            });
+            return function(type, message) {
+                return _ref.apply(this, arguments);
+            };
+        }());
+        var _this4 = _assertThisInitialized(_this);
+        __publicField(_assertThisInitialized(_this), "handlePlayerStateChanges", function() {
+            var _ref = _asyncToGenerator(function(state) {
+                var _this_player, paused, position, _state_track_window, current_track, next_tracks, previous_tracks, isPlaying, volume, trackState, error;
+                return __generator(this, function(_state) {
+                    switch(_state.label){
+                        case 0:
+                            _state.trys.push([
+                                0,
+                                6,
+                                ,
+                                7
+                            ]);
+                            if (!state) return [
+                                3,
+                                2
+                            ];
+                            paused = state.paused, position = state.position, _state_track_window = state.track_window, current_track = _state_track_window.current_track, next_tracks = _state_track_window.next_tracks, previous_tracks = _state_track_window.previous_tracks;
+                            isPlaying = !paused;
+                            return [
+                                4,
+                                (_this_player = _this4.player) === null || _this_player === void 0 ? void 0 : _this_player.getVolume()
+                            ];
+                        case 1:
+                            volume = _state.sent() || 100;
+                            trackState = {};
+                            if (position === 0 && current_track) {
+                                trackState = {
+                                    nextTracks: next_tracks.map(convertTrack),
+                                    position: 0,
+                                    previousTracks: previous_tracks.map(convertTrack),
+                                    track: convertTrack(current_track)
+                                };
+                            }
+                            _this4.updateState(_objectSpread({
+                                error: "",
+                                errorType: null,
+                                isActive: true,
+                                isPlaying: isPlaying,
+                                progressMs: position,
+                                volume: round(volume)
+                            }, trackState));
+                            return [
+                                3,
+                                5
+                            ];
+                        case 2:
+                            if (!_this4.isExternalPlayer) return [
+                                3,
+                                4
+                            ];
+                            return [
+                                4,
+                                _this4.syncDevice()
+                            ];
+                        case 3:
+                            _state.sent();
+                            return [
+                                3,
+                                5
+                            ];
+                        case 4:
+                            _this4.updateState({
+                                isActive: false,
+                                isPlaying: false,
+                                nextTracks: [],
+                                position: 0,
+                                previousTracks: [],
+                                track: {
+                                    artists: [],
+                                    durationMs: 0,
+                                    id: "",
+                                    image: "",
+                                    name: "",
+                                    uri: ""
+                                }
+                            });
+                            _state.label = 5;
+                        case 5:
+                            return [
+                                3,
+                                7
+                            ];
+                        case 6:
+                            error = _state.sent();
+                            console.error(error);
+                            return [
+                                3,
+                                7
+                            ];
+                        case 7:
+                            return [
+                                2
+                            ];
+                    }
+                });
+            });
+            return function(state) {
+                return _ref.apply(this, arguments);
+            };
+        }());
+        var _this5 = _assertThisInitialized(_this);
+        __publicField(_assertThisInitialized(_this), "handlePlayerStatus", function() {
+            var _ref = _asyncToGenerator(function(param) {
+                var device_id, _ref, currentDeviceId, devices;
+                return __generator(this, function(_state) {
+                    switch(_state.label){
+                        case 0:
+                            device_id = param.device_id;
+                            return [
+                                4,
+                                _this5.initializeDevices(device_id)
+                            ];
+                        case 1:
+                            _ref = _state.sent(), currentDeviceId = _ref.currentDeviceId, devices = _ref.devices;
+                            _this5.updateState({
+                                currentDeviceId: currentDeviceId,
+                                deviceId: device_id,
+                                devices: devices,
+                                isInitializing: false,
+                                status: device_id ? STATUS.READY : STATUS.IDLE
+                            });
+                            return [
+                                2
+                            ];
+                    }
+                });
+            });
+            return function(_) {
+                return _ref.apply(this, arguments);
+            };
+        }());
+        __publicField(_assertThisInitialized(_this), "handleResize", function() {
+            var _this_props = _this.props, _this_props_layout = _this_props.layout, layout = _this_props_layout === void 0 ? "responsive" : _this_props_layout;
+            clearTimeout(_this.resizeTimeout);
+            _this.resizeTimeout = window.setTimeout(function() {
+                _this.renderInlineActions = window.innerWidth >= 768 && layout === "responsive";
+                _this.forceUpdate();
+            }, 100);
+        });
+        __publicField(_assertThisInitialized(_this), "handleToggleMagnify", function() {
+            var magnifySliderOnHover = _this.props.magnifySliderOnHover;
+            if (magnifySliderOnHover) {
+                _this.updateState(function(previousState) {
+                    return {
+                        isMagnified: !previousState.isMagnified
+                    };
+                });
+            }
+        });
+        __publicField(_assertThisInitialized(_this), "initializePlayer", function() {
+            var volume = _this.state.volume;
+            var _this_props = _this.props, _this_props_getOAuthToken = _this_props.getOAuthToken, getOAuthToken = _this_props_getOAuthToken === void 0 ? function(callback) {
+                callback(_this.token);
+            } : _this_props_getOAuthToken, _this_props_name = _this_props.name, name = _this_props_name === void 0 ? "Spotify Web Player" : _this_props_name;
+            if (!window.Spotify) {
+                return;
+            }
+            _this.updateState({
+                error: "",
+                errorType: null,
+                isInitializing: true
+            });
+            _this.player = new window.Spotify.Player({
+                getOAuthToken: getOAuthToken,
+                name: name,
+                volume: volume
+            });
+            _this.player.addListener("ready", _this.handlePlayerStatus);
+            _this.player.addListener("not_ready", _this.handlePlayerStatus);
+            _this.player.addListener("player_state_changed", _this.handlePlayerStateChanges);
+            _this.player.addListener("initialization_error", function(error) {
+                return _this.handlePlayerErrors(ERROR_TYPE.INITIALIZATION, error.message);
+            });
+            _this.player.addListener("authentication_error", function(error) {
+                return _this.handlePlayerErrors(ERROR_TYPE.AUTHENTICATION, error.message);
+            });
+            _this.player.addListener("account_error", function(error) {
+                return _this.handlePlayerErrors(ERROR_TYPE.ACCOUNT, error.message);
+            });
+            _this.player.addListener("playback_error", function(error) {
+                return _this.handlePlayerErrors(ERROR_TYPE.PLAYBACK, error.message);
+            });
+            _this.player.addListener("autoplay_failed", /*#__PURE__*/ _asyncToGenerator(function() {
+                return __generator(this, function(_state) {
+                    console.log("Autoplay is not allowed by the browser autoplay rules");
+                    return [
+                        2
+                    ];
+                });
+            }));
+            _this.player.connect();
+        });
+        __publicField(_assertThisInitialized(_this), "setExternalDevice", function(id) {
+            _this.updateState({
+                currentDeviceId: id,
+                isPlaying: true
+            });
+        });
+        var _this6 = _assertThisInitialized(_this);
+        __publicField(_assertThisInitialized(_this), "setVolume", function() {
+            var _ref = _asyncToGenerator(function(volume) {
+                return __generator(this, function(_state) {
+                    switch(_state.label){
+                        case 0:
+                            if (!_this6.isExternalPlayer) return [
+                                3,
+                                3
+                            ];
+                            return [
+                                4,
+                                setVolume(_this6.token, Math.round(volume * 100))
+                            ];
+                        case 1:
+                            _state.sent();
+                            return [
+                                4,
+                                _this6.syncDevice()
+                            ];
+                        case 2:
+                            _state.sent();
+                            return [
+                                3,
+                                5
+                            ];
+                        case 3:
+                            if (!_this6.player) return [
+                                3,
+                                5
+                            ];
+                            return [
+                                4,
+                                _this6.player.setVolume(volume)
+                            ];
+                        case 4:
+                            _state.sent();
+                            _state.label = 5;
+                        case 5:
+                            _this6.updateState({
+                                volume: volume
+                            });
+                            return [
+                                2
+                            ];
+                    }
+                });
+            });
+            return function(volume) {
+                return _ref.apply(this, arguments);
+            };
+        }());
+        var _this7 = _assertThisInitialized(_this);
+        __publicField(_assertThisInitialized(_this), "syncDevice", /*#__PURE__*/ _asyncToGenerator(function() {
+            var deviceId, player, track, error, state;
+            return __generator(this, function(_state) {
+                switch(_state.label){
+                    case 0:
+                        if (!_this7.isMounted) {
+                            return [
+                                2
+                            ];
+                        }
+                        deviceId = _this7.state.deviceId;
+                        _state.label = 1;
+                    case 1:
+                        _state.trys.push([
+                            1,
+                            3,
+                            ,
+                            4
+                        ]);
+                        return [
+                            4,
+                            getPlaybackState(_this7.token)
+                        ];
+                    case 2:
+                        player = _state.sent();
+                        track = _this7.emptyTrack;
+                        if (!player) {
+                            throw new Error("No player");
+                        }
+                        if (player.item) {
+                            track = {
+                                artists: player.item.artists,
+                                durationMs: player.item.duration_ms,
+                                id: player.item.id,
+                                image: getAlbumImage(player.item.album),
+                                name: player.item.name,
+                                uri: player.item.uri
+                            };
+                        }
+                        _this7.updateState({
+                            error: "",
+                            errorType: null,
+                            isActive: true,
+                            isPlaying: player.is_playing,
+                            nextTracks: [],
+                            previousTracks: [],
+                            progressMs: player.item ? player.progress_ms : 0,
+                            status: STATUS.READY,
+                            track: track,
+                            volume: parseVolume(player.device.volume_percent)
+                        });
+                        return [
+                            3,
+                            4
+                        ];
+                    case 3:
+                        error = _state.sent();
+                        state = {
+                            isActive: false,
+                            isPlaying: false,
+                            position: 0,
+                            track: _this7.emptyTrack
+                        };
+                        if (deviceId) {
+                            _this7.updateState(_objectSpread({
+                                currentDeviceId: deviceId
+                            }, state));
+                            return [
+                                2
+                            ];
+                        }
+                        _this7.updateState(_objectSpread({
+                            error: error.message,
+                            errorType: ERROR_TYPE.PLAYER,
+                            status: STATUS.ERROR
+                        }, state));
+                        return [
+                            3,
+                            4
+                        ];
+                    case 4:
+                        return [
+                            2
+                        ];
+                }
+            });
+        }));
+        var _this8 = _assertThisInitialized(_this);
+        __publicField(_assertThisInitialized(_this), "toggleOffset", /*#__PURE__*/ _asyncToGenerator(function() {
+            var currentDeviceId, _this_props, offset, uris;
+            return __generator(this, function(_state) {
+                switch(_state.label){
+                    case 0:
+                        currentDeviceId = _this8.state.currentDeviceId;
+                        _this_props = _this8.props, offset = _this_props.offset, uris = _this_props.uris;
+                        if (!(typeof offset === "number" && Array.isArray(uris))) return [
+                            3,
+                            2
+                        ];
+                        return [
+                            4,
+                            play(_this8.token, {
+                                deviceId: currentDeviceId,
+                                offset: offset,
+                                uris: uris
+                            })
+                        ];
+                    case 1:
+                        _state.sent();
+                        _state.label = 2;
+                    case 2:
+                        return [
+                            2
+                        ];
+                }
+            });
+        }));
+        var _this9 = _assertThisInitialized(_this);
+        __publicField(_assertThisInitialized(_this), "togglePlay", /*#__PURE__*/ _asyncToGenerator(function() {
+            var force, _this_state, currentDeviceId, isPlaying, needsUpdate, _this_props, offset, uris, shouldInitialize, playOptions, playerState, shouldPlay, error;
+            var _arguments = arguments;
+            return __generator(this, function(_state) {
+                switch(_state.label){
+                    case 0:
+                        force = _arguments.length > 0 && _arguments[0] !== void 0 ? _arguments[0] : false;
+                        _this_state = _this9.state, currentDeviceId = _this_state.currentDeviceId, isPlaying = _this_state.isPlaying, needsUpdate = _this_state.needsUpdate;
+                        _this_props = _this9.props, offset = _this_props.offset, uris = _this_props.uris;
+                        shouldInitialize = force || needsUpdate;
+                        playOptions = _this9.getPlayOptions(uris);
+                        _state.label = 1;
+                    case 1:
+                        _state.trys.push([
+                            1,
+                            14,
+                            ,
+                            15
+                        ]);
+                        if (!_this9.isExternalPlayer) return [
+                            3,
+                            6
+                        ];
+                        if (!!isPlaying) return [
+                            3,
+                            3
+                        ];
+                        return [
+                            4,
+                            play(_this9.token, _objectSpread({
+                                deviceId: currentDeviceId,
+                                offset: offset
+                            }, shouldInitialize ? playOptions : void 0))
+                        ];
+                    case 2:
+                        _state.sent();
+                        return [
+                            3,
+                            5
+                        ];
+                    case 3:
+                        return [
+                            4,
+                            pause(_this9.token)
+                        ];
+                    case 4:
+                        _state.sent();
+                        _this9.updateState({
+                            isPlaying: false
+                        });
+                        _state.label = 5;
+                    case 5:
+                        _this9.syncTimeout = window.setTimeout(function() {
+                            _this9.syncDevice();
+                        }, 300);
+                        return [
+                            3,
+                            13
+                        ];
+                    case 6:
+                        if (!_this9.player) return [
+                            3,
+                            13
+                        ];
+                        return [
+                            4,
+                            _this9.player.activateElement()
+                        ];
+                    case 7:
+                        _state.sent();
+                        return [
+                            4,
+                            _this9.player.getCurrentState()
+                        ];
+                    case 8:
+                        playerState = _state.sent();
+                        shouldPlay = !playerState && !!(playOptions.context_uri || playOptions.uris);
+                        if (!(shouldPlay || shouldInitialize)) return [
+                            3,
+                            11
+                        ];
+                        return [
+                            4,
+                            play(_this9.token, _objectSpread({
+                                deviceId: currentDeviceId,
+                                offset: offset
+                            }, shouldInitialize ? playOptions : void 0))
+                        ];
+                    case 9:
+                        _state.sent();
+                        return [
+                            4,
+                            _this9.player.togglePlay()
+                        ];
+                    case 10:
+                        _state.sent();
+                        return [
+                            3,
+                            13
+                        ];
+                    case 11:
+                        return [
+                            4,
+                            _this9.player.togglePlay()
+                        ];
+                    case 12:
+                        _state.sent();
+                        _state.label = 13;
+                    case 13:
+                        if (needsUpdate) {
+                            _this9.updateState({
+                                needsUpdate: false
+                            });
+                        }
+                        return [
+                            3,
+                            15
+                        ];
+                    case 14:
+                        error = _state.sent();
+                        console.error(error);
+                        return [
+                            3,
+                            15
+                        ];
+                    case 15:
+                        return [
+                            2
+                        ];
+                }
+            });
+        }));
+        var _this10 = _assertThisInitialized(_this);
+        __publicField(_assertThisInitialized(_this), "updateSeekBar", /*#__PURE__*/ _asyncToGenerator(function() {
+            var _this_state, progressMs, track, position, state, progress, position1, error;
+            return __generator(this, function(_state) {
+                switch(_state.label){
+                    case 0:
+                        if (!_this10.isMounted) {
+                            return [
+                                2
+                            ];
+                        }
+                        _this_state = _this10.state, progressMs = _this_state.progressMs, track = _this_state.track;
+                        _state.label = 1;
+                    case 1:
+                        _state.trys.push([
+                            1,
+                            5,
+                            ,
+                            6
+                        ]);
+                        if (!_this10.isExternalPlayer) return [
+                            3,
+                            2
+                        ];
+                        position = progressMs / track.durationMs;
+                        position = Number(((Number.isFinite(position) ? position : 0) * 100).toFixed(1));
+                        _this10.updateState({
+                            position: position,
+                            progressMs: progressMs + _this10.seekUpdateInterval
+                        });
+                        return [
+                            3,
+                            4
+                        ];
+                    case 2:
+                        if (!_this10.player) return [
+                            3,
+                            4
+                        ];
+                        return [
+                            4,
+                            _this10.player.getCurrentState()
+                        ];
+                    case 3:
+                        state = _state.sent();
+                        if (state) {
+                            progress = state.position;
+                            position1 = Number((progress / state.track_window.current_track.duration_ms * 100).toFixed(1));
+                            _this10.updateState({
+                                position: position1,
+                                progressMs: progress + _this10.seekUpdateInterval
+                            });
+                        }
+                        _state.label = 4;
+                    case 4:
+                        return [
+                            3,
+                            6
+                        ];
+                    case 5:
+                        error = _state.sent();
+                        console.error(error);
+                        return [
+                            3,
+                            6
+                        ];
+                    case 6:
+                        return [
+                            2
+                        ];
+                }
+            });
+        }));
+        __publicField(_assertThisInitialized(_this), "updateState", function(state) {
+            if (!_this.isMounted) {
+                return;
+            }
+            _this.setState(state);
+        });
+        _this.state = {
+            currentDeviceId: "",
+            deviceId: "",
+            devices: [],
+            error: "",
+            errorType: null,
+            isActive: false,
+            isInitializing: false,
+            isMagnified: false,
+            isPlaying: false,
+            isSaved: false,
+            isUnsupported: false,
+            needsUpdate: false,
+            nextTracks: [],
+            playerPosition: "bottom",
+            position: 0,
+            previousTracks: [],
+            progressMs: 0,
+            status: STATUS.IDLE,
+            track: _this.emptyTrack,
+            volume: parseVolume(props.initialVolume) || 1
+        };
+        _this.locale = getLocale(props.locale);
+        _this.styles = getMergedStyles(props.styles);
+        return _this;
+    }
+    _createClass(SpotifyWebPlayer, [
+        {
+            key: "componentDidMount",
+            value: function componentDidMount() {
+                var _this = this;
+                return _asyncToGenerator(function() {
+                    var _this_ref_current, _ref, _ref_top, top;
                     return __generator(this, function(_state) {
                         switch(_state.label){
                             case 0:
-                                currentDeviceId = _this8.state.currentDeviceId;
-                                _this_props = _this8.props, offset = _this_props.offset, uris = _this_props.uris;
-                                if (!(typeof offset === "number" && Array.isArray(uris))) return [
-                                    3,
-                                    2
-                                ];
+                                _this.isMounted = true;
+                                _ref = ((_this_ref_current = _this.ref.current) === null || _this_ref_current === void 0 ? void 0 : _this_ref_current.getBoundingClientRect()) || {}, _ref_top = _ref.top, top = _ref_top === void 0 ? 0 : _ref_top;
+                                _this.updateState({
+                                    playerPosition: top > window.innerHeight / 2 ? "bottom" : "top",
+                                    status: STATUS.INITIALIZING
+                                });
+                                if (!window.onSpotifyWebPlaybackSDKReady) {
+                                    window.onSpotifyWebPlaybackSDKReady = _this.initializePlayer;
+                                } else {
+                                    _this.initializePlayer();
+                                }
                                 return [
                                     4,
-                                    play(_this8.token, {
-                                        deviceId: currentDeviceId,
-                                        offset: offset,
-                                        uris: uris
-                                    })
+                                    loadSpotifyPlayer()
                                 ];
                             case 1:
                                 _state.sent();
-                                _state.label = 2;
-                            case 2:
+                                window.addEventListener("resize", _this.handleResize);
+                                _this.handleResize();
                                 return [
                                     2
                                 ];
                         }
                     });
-                }));
-                var _this9 = _assertThisInitialized(_this);
-                __publicField(_assertThisInitialized(_this), "togglePlay", /*#__PURE__*/ _asyncToGenerator(function() {
-                    var force, _this_state, currentDeviceId, isPlaying, needsUpdate, _this_props, offset, uris, shouldInitialize, playOptions, playerState, shouldPlay, error;
-                    var _arguments = arguments;
+                })();
+            }
+        },
+        {
+            key: "componentDidUpdate",
+            value: function componentDidUpdate(previousProps, previousState) {
+                var _this = this;
+                return _asyncToGenerator(function() {
+                    var _this_state, currentDeviceId, deviceId, isInitializing, isPlaying, status, track, _this_props, autoPlay, layout, locale, offset, playProp, showSaveIcon, styles, syncExternalDevice, uris, isReady, changedLayout, changedLocale, changedStyles, changedURIs, playOptions, canPlay, shouldPlay, player;
                     return __generator(this, function(_state) {
                         switch(_state.label){
                             case 0:
-                                force = _arguments.length > 0 && _arguments[0] !== void 0 ? _arguments[0] : false;
-                                _this_state = _this9.state, currentDeviceId = _this_state.currentDeviceId, isPlaying = _this_state.isPlaying, needsUpdate = _this_state.needsUpdate;
-                                _this_props = _this9.props, offset = _this_props.offset, uris = _this_props.uris;
-                                shouldInitialize = force || needsUpdate;
-                                playOptions = _this9.getPlayOptions(uris);
-                                _state.label = 1;
-                            case 1:
-                                _state.trys.push([
-                                    1,
-                                    14,
-                                    ,
-                                    15
-                                ]);
-                                if (!_this9.isExternalPlayer) return [
+                                _this_state = _this.state, currentDeviceId = _this_state.currentDeviceId, deviceId = _this_state.deviceId, isInitializing = _this_state.isInitializing, isPlaying = _this_state.isPlaying, status = _this_state.status, track = _this_state.track;
+                                _this_props = _this.props, autoPlay = _this_props.autoPlay, layout = _this_props.layout, locale = _this_props.locale, offset = _this_props.offset, playProp = _this_props.play, showSaveIcon = _this_props.showSaveIcon, styles = _this_props.styles, syncExternalDevice = _this_props.syncExternalDevice, uris = _this_props.uris;
+                                isReady = previousState.status !== STATUS.READY && status === STATUS.READY;
+                                changedLayout = !(0, import_deep_equal.default)(previousProps.layout, layout);
+                                changedLocale = !(0, import_deep_equal.default)(previousProps.locale, locale);
+                                changedStyles = !(0, import_deep_equal.default)(previousProps.styles, styles);
+                                changedURIs = !(0, import_deep_equal.default)(previousProps.uris, uris);
+                                playOptions = _this.getPlayOptions(uris);
+                                canPlay = !!currentDeviceId && !!(playOptions.context_uri || playOptions.uris);
+                                shouldPlay = isReady && (autoPlay || playProp);
+                                if (!(canPlay && shouldPlay)) return [
                                     3,
-                                    6
-                                ];
-                                if (!!isPlaying) return [
-                                    3,
-                                    3
+                                    2
                                 ];
                                 return [
                                     4,
-                                    play(_this9.token, _objectSpread({
-                                        deviceId: currentDeviceId,
-                                        offset: offset
-                                    }, shouldInitialize ? playOptions : void 0))
+                                    _this.togglePlay(true)
+                                ];
+                            case 1:
+                                _state.sent();
+                                if (!isPlaying) {
+                                    _this.updateState({
+                                        isPlaying: true
+                                    });
+                                }
+                                if (_this.isExternalPlayer) {
+                                    _this.syncTimeout = window.setTimeout(function() {
+                                        _this.syncDevice();
+                                    }, 600);
+                                }
+                                return [
+                                    3,
+                                    8
                                 ];
                             case 2:
+                                if (!changedURIs) return [
+                                    3,
+                                    6
+                                ];
+                                if (!(isPlaying || playProp)) return [
+                                    3,
+                                    4
+                                ];
+                                return [
+                                    4,
+                                    _this.togglePlay(true)
+                                ];
+                            case 3:
                                 _state.sent();
                                 return [
                                     3,
                                     5
                                 ];
-                            case 3:
-                                return [
-                                    4,
-                                    pause(_this9.token)
-                                ];
                             case 4:
-                                _state.sent();
-                                _this9.updateState({
-                                    isPlaying: false
+                                _this.updateState({
+                                    needsUpdate: true
                                 });
                                 _state.label = 5;
                             case 5:
-                                _this9.syncTimeout = window.setTimeout(function() {
-                                    _this9.syncDevice();
-                                }, 300);
                                 return [
                                     3,
-                                    13
+                                    8
                                 ];
                             case 6:
-                                if (!_this9.player) return [
+                                if (!(previousProps.play !== playProp && playProp !== isPlaying)) return [
                                     3,
-                                    13
+                                    8
                                 ];
                                 return [
                                     4,
-                                    _this9.player.activateElement()
+                                    _this.togglePlay(!track.id)
                                 ];
                             case 7:
                                 _state.sent();
-                                return [
-                                    4,
-                                    _this9.player.getCurrentState()
-                                ];
+                                _state.label = 8;
                             case 8:
-                                playerState = _state.sent();
-                                shouldPlay = !playerState && !!(playOptions.context_uri || playOptions.uris);
-                                if (!(shouldPlay || shouldInitialize)) return [
+                                if (previousState.status !== status) {
+                                    _this.handleCallback(_objectSpreadProps(_objectSpread({}, _this.state), {
+                                        type: TYPE.STATUS
+                                    }));
+                                }
+                                if (!(previousState.currentDeviceId !== currentDeviceId && currentDeviceId)) return [
                                     3,
                                     11
                                 ];
+                                if (!isReady) {
+                                    _this.handleCallback(_objectSpreadProps(_objectSpread({}, _this.state), {
+                                        type: TYPE.DEVICE
+                                    }));
+                                }
                                 return [
                                     4,
-                                    play(_this9.token, _objectSpread({
-                                        deviceId: currentDeviceId,
-                                        offset: offset
-                                    }, shouldInitialize ? playOptions : void 0))
+                                    _this.toggleSyncInterval(_this.isExternalPlayer)
                                 ];
                             case 9:
                                 _state.sent();
                                 return [
                                     4,
-                                    _this9.player.togglePlay()
+                                    _this.updateSeekBar()
                                 ];
                             case 10:
                                 _state.sent();
-                                return [
+                                _state.label = 11;
+                            case 11:
+                                if (previousState.track.id !== track.id && track.id) {
+                                    _this.handleCallback(_objectSpreadProps(_objectSpread({}, _this.state), {
+                                        type: TYPE.TRACK
+                                    }));
+                                    if (showSaveIcon) {
+                                        _this.updateState({
+                                            isSaved: false
+                                        });
+                                    }
+                                }
+                                if (!(previousState.isPlaying !== isPlaying)) return [
                                     3,
                                     13
                                 ];
-                            case 11:
+                                _this.toggleProgressBar();
                                 return [
                                     4,
-                                    _this9.player.togglePlay()
+                                    _this.toggleSyncInterval(_this.isExternalPlayer)
                                 ];
                             case 12:
                                 _state.sent();
+                                _this.handleCallback(_objectSpreadProps(_objectSpread({}, _this.state), {
+                                    type: TYPE.PLAYER
+                                }));
                                 _state.label = 13;
                             case 13:
-                                if (needsUpdate) {
-                                    _this9.updateState({
-                                        needsUpdate: false
-                                    });
-                                }
-                                return [
+                                if (!(previousProps.offset !== offset)) return [
                                     3,
                                     15
+                                ];
+                                return [
+                                    4,
+                                    _this.toggleOffset()
                                 ];
                             case 14:
-                                error = _state.sent();
-                                console.error(error);
-                                return [
-                                    3,
-                                    15
-                                ];
+                                _state.sent();
+                                _state.label = 15;
                             case 15:
+                                if (!(previousState.isInitializing && !isInitializing)) return [
+                                    3,
+                                    17
+                                ];
+                                if (!(syncExternalDevice && !uris)) return [
+                                    3,
+                                    17
+                                ];
+                                return [
+                                    4,
+                                    getPlaybackState(_this.token)
+                                ];
+                            case 16:
+                                player = _state.sent();
+                                if (player && player.is_playing && player.device.id !== deviceId) {
+                                    _this.setExternalDevice(player.device.id);
+                                }
+                                _state.label = 17;
+                            case 17:
+                                if (changedLayout) {
+                                    _this.handleResize();
+                                }
+                                if (changedLocale) {
+                                    _this.locale = getLocale(locale);
+                                }
+                                if (changedStyles) {
+                                    _this.styles = getMergedStyles(styles);
+                                }
                                 return [
                                     2
                                 ];
                         }
                     });
-                }));
-                var _this10 = _assertThisInitialized(_this);
-                __publicField(_assertThisInitialized(_this), "updateSeekBar", /*#__PURE__*/ _asyncToGenerator(function() {
-                    var _this_state, progressMs, track, position, state, progress, position1, error;
+                })();
+            }
+        },
+        {
+            key: "componentWillUnmount",
+            value: function componentWillUnmount() {
+                var _this = this;
+                return _asyncToGenerator(function() {
+                    return __generator(this, function(_state) {
+                        _this.isMounted = false;
+                        if (_this.player) {
+                            _this.player.disconnect();
+                        }
+                        clearInterval(_this.playerSyncInterval);
+                        clearInterval(_this.playerProgressInterval);
+                        clearTimeout(_this.syncTimeout);
+                        window.removeEventListener("resize", _this.handleResize);
+                        return [
+                            2
+                        ];
+                    });
+                })();
+            }
+        },
+        {
+            key: "handleCallback",
+            value: function handleCallback(state) {
+                var callback = this.props.callback;
+                if (callback) {
+                    callback(state);
+                }
+            }
+        },
+        {
+            key: "token",
+            get: function get() {
+                var token = this.props.token;
+                return token;
+            }
+        },
+        {
+            key: "initializeDevices",
+            value: function initializeDevices(id) {
+                var _this = this;
+                return _asyncToGenerator(function() {
+                    var persistDeviceSelection, devices, currentDeviceId, savedDeviceId;
                     return __generator(this, function(_state) {
                         switch(_state.label){
                             case 0:
-                                if (!_this10.isMounted) {
-                                    return [
-                                        2
-                                    ];
+                                persistDeviceSelection = _this.props.persistDeviceSelection;
+                                return [
+                                    4,
+                                    getDevices(_this.token)
+                                ];
+                            case 1:
+                                devices = _state.sent().devices;
+                                currentDeviceId = id;
+                                if (persistDeviceSelection) {
+                                    savedDeviceId = sessionStorage.getItem("rswpDeviceId");
+                                    if (!savedDeviceId || !devices.some(function(d) {
+                                        return d.id === savedDeviceId;
+                                    })) {
+                                        sessionStorage.setItem("rswpDeviceId", currentDeviceId);
+                                    } else {
+                                        currentDeviceId = savedDeviceId;
+                                    }
                                 }
-                                _this_state = _this10.state, progressMs = _this_state.progressMs, track = _this_state.track;
+                                return [
+                                    2,
+                                    {
+                                        currentDeviceId: currentDeviceId,
+                                        devices: devices
+                                    }
+                                ];
+                        }
+                    });
+                })();
+            }
+        },
+        {
+            key: "isExternalPlayer",
+            get: function get() {
+                var _this_state = this.state, currentDeviceId = _this_state.currentDeviceId, deviceId = _this_state.deviceId, status = _this_state.status;
+                return currentDeviceId && currentDeviceId !== deviceId || status === STATUS.UNSUPPORTED;
+            }
+        },
+        {
+            key: "toggleSyncInterval",
+            value: function toggleSyncInterval(shouldSync) {
+                var _this = this;
+                return _asyncToGenerator(function() {
+                    var syncExternalDeviceInterval, error;
+                    return __generator(this, function(_state) {
+                        switch(_state.label){
+                            case 0:
+                                syncExternalDeviceInterval = _this.props.syncExternalDeviceInterval;
                                 _state.label = 1;
                             case 1:
                                 _state.trys.push([
                                     1,
-                                    5,
+                                    4,
                                     ,
-                                    6
+                                    5
                                 ]);
-                                if (!_this10.isExternalPlayer) return [
+                                if (!(_this.isExternalPlayer && shouldSync && !_this.playerSyncInterval)) return [
                                     3,
-                                    2
-                                ];
-                                position = progressMs / track.durationMs;
-                                position = Number(((Number.isFinite(position) ? position : 0) * 100).toFixed(1));
-                                _this10.updateState({
-                                    position: position,
-                                    progressMs: progressMs + _this10.seekUpdateInterval
-                                });
-                                return [
-                                    3,
-                                    4
-                                ];
-                            case 2:
-                                if (!_this10.player) return [
-                                    3,
-                                    4
+                                    3
                                 ];
                                 return [
                                     4,
-                                    _this10.player.getCurrentState()
+                                    _this.syncDevice()
                                 ];
+                            case 2:
+                                _state.sent();
+                                clearInterval(_this.playerSyncInterval);
+                                _this.playerSyncInterval = window.setInterval(_this.syncDevice, syncExternalDeviceInterval * 1e3);
+                                _state.label = 3;
                             case 3:
-                                state = _state.sent();
-                                if (state) {
-                                    progress = state.position;
-                                    position1 = Number((progress / state.track_window.current_track.duration_ms * 100).toFixed(1));
-                                    _this10.updateState({
-                                        position: position1,
-                                        progressMs: progress + _this10.seekUpdateInterval
-                                    });
+                                if ((!shouldSync || !_this.isExternalPlayer) && _this.playerSyncInterval) {
+                                    clearInterval(_this.playerSyncInterval);
+                                    _this.playerSyncInterval = void 0;
                                 }
-                                _state.label = 4;
-                            case 4:
                                 return [
                                     3,
-                                    6
+                                    5
                                 ];
-                            case 5:
+                            case 4:
                                 error = _state.sent();
                                 console.error(error);
                                 return [
                                     3,
-                                    6
+                                    5
                                 ];
-                            case 6:
+                            case 5:
                                 return [
                                     2
                                 ];
                         }
                     });
-                }));
-                __publicField(_assertThisInitialized(_this), "updateState", function(state) {
-                    if (!_this.isMounted) {
-                        return;
-                    }
-                    _this.setState(state);
-                });
-                _this.state = {
-                    currentDeviceId: "",
-                    deviceId: "",
-                    devices: [],
-                    error: "",
-                    errorType: null,
-                    isActive: false,
-                    isInitializing: false,
-                    isMagnified: false,
-                    isPlaying: false,
-                    isSaved: false,
-                    isUnsupported: false,
-                    needsUpdate: false,
-                    nextTracks: [],
-                    playerPosition: "bottom",
-                    position: 0,
-                    previousTracks: [],
-                    progressMs: 0,
-                    status: STATUS.IDLE,
-                    track: _this.emptyTrack,
-                    volume: parseVolume(props.initialVolume) || 1
-                };
-                _this.locale = getLocale(props.locale);
-                _this.styles = getMergedStyles(props.styles);
-                return _this;
+                })();
             }
-            _createClass(SpotifyWebPlayer, [
-                {
-                    key: "componentDidMount",
-                    value: function componentDidMount() {
-                        var _this = this;
-                        return _asyncToGenerator(function() {
-                            var _this_ref_current, _ref, _ref_top, top;
-                            return __generator(this, function(_state) {
-                                switch(_state.label){
-                                    case 0:
-                                        _this.isMounted = true;
-                                        _ref = ((_this_ref_current = _this.ref.current) === null || _this_ref_current === void 0 ? void 0 : _this_ref_current.getBoundingClientRect()) || {}, _ref_top = _ref.top, top = _ref_top === void 0 ? 0 : _ref_top;
-                                        _this.updateState({
-                                            playerPosition: top > window.innerHeight / 2 ? "bottom" : "top",
-                                            status: STATUS.INITIALIZING
-                                        });
-                                        if (!window.onSpotifyWebPlaybackSDKReady) {
-                                            window.onSpotifyWebPlaybackSDKReady = _this.initializePlayer;
-                                        } else {
-                                            _this.initializePlayer();
-                                        }
-                                        return [
-                                            4,
-                                            loadSpotifyPlayer()
-                                        ];
-                                    case 1:
-                                        _state.sent();
-                                        window.addEventListener("resize", _this.handleResize);
-                                        _this.handleResize();
-                                        return [
-                                            2
-                                        ];
-                                }
-                            });
-                        })();
+        },
+        {
+            key: "toggleProgressBar",
+            value: function toggleProgressBar() {
+                var isPlaying = this.state.isPlaying;
+                if (isPlaying) {
+                    if (!this.playerProgressInterval) {
+                        this.playerProgressInterval = window.setInterval(this.updateSeekBar, this.seekUpdateInterval);
                     }
-                },
-                {
-                    key: "componentDidUpdate",
-                    value: function componentDidUpdate(previousProps, previousState) {
-                        var _this = this;
-                        return _asyncToGenerator(function() {
-                            var _this_state, currentDeviceId, deviceId, isInitializing, isPlaying, status, track, _this_props, autoPlay, layout, locale, offset, playProp, showSaveIcon, styles, syncExternalDevice, uris, isReady, changedLayout, changedLocale, changedStyles, changedURIs, playOptions, canPlay, shouldPlay, player;
-                            return __generator(this, function(_state) {
-                                switch(_state.label){
-                                    case 0:
-                                        _this_state = _this.state, currentDeviceId = _this_state.currentDeviceId, deviceId = _this_state.deviceId, isInitializing = _this_state.isInitializing, isPlaying = _this_state.isPlaying, status = _this_state.status, track = _this_state.track;
-                                        _this_props = _this.props, autoPlay = _this_props.autoPlay, layout = _this_props.layout, locale = _this_props.locale, offset = _this_props.offset, playProp = _this_props.play, showSaveIcon = _this_props.showSaveIcon, styles = _this_props.styles, syncExternalDevice = _this_props.syncExternalDevice, uris = _this_props.uris;
-                                        isReady = previousState.status !== STATUS.READY && status === STATUS.READY;
-                                        changedLayout = !(0, import_deep_equal.default)(previousProps.layout, layout);
-                                        changedLocale = !(0, import_deep_equal.default)(previousProps.locale, locale);
-                                        changedStyles = !(0, import_deep_equal.default)(previousProps.styles, styles);
-                                        changedURIs = !(0, import_deep_equal.default)(previousProps.uris, uris);
-                                        playOptions = _this.getPlayOptions(uris);
-                                        canPlay = !!currentDeviceId && !!(playOptions.context_uri || playOptions.uris);
-                                        shouldPlay = isReady && (autoPlay || playProp);
-                                        if (!(canPlay && shouldPlay)) return [
-                                            3,
-                                            2
-                                        ];
-                                        return [
-                                            4,
-                                            _this.togglePlay(true)
-                                        ];
-                                    case 1:
-                                        _state.sent();
-                                        if (!isPlaying) {
-                                            _this.updateState({
-                                                isPlaying: true
-                                            });
-                                        }
-                                        if (_this.isExternalPlayer) {
-                                            _this.syncTimeout = window.setTimeout(function() {
-                                                _this.syncDevice();
-                                            }, 600);
-                                        }
-                                        return [
-                                            3,
-                                            8
-                                        ];
-                                    case 2:
-                                        if (!changedURIs) return [
-                                            3,
-                                            6
-                                        ];
-                                        if (!(isPlaying || playProp)) return [
-                                            3,
-                                            4
-                                        ];
-                                        return [
-                                            4,
-                                            _this.togglePlay(true)
-                                        ];
-                                    case 3:
-                                        _state.sent();
-                                        return [
-                                            3,
-                                            5
-                                        ];
-                                    case 4:
-                                        _this.updateState({
-                                            needsUpdate: true
-                                        });
-                                        _state.label = 5;
-                                    case 5:
-                                        return [
-                                            3,
-                                            8
-                                        ];
-                                    case 6:
-                                        if (!(previousProps.play !== playProp && playProp !== isPlaying)) return [
-                                            3,
-                                            8
-                                        ];
-                                        return [
-                                            4,
-                                            _this.togglePlay(!track.id)
-                                        ];
-                                    case 7:
-                                        _state.sent();
-                                        _state.label = 8;
-                                    case 8:
-                                        if (previousState.status !== status) {
-                                            _this.handleCallback(_objectSpreadProps(_objectSpread({}, _this.state), {
-                                                type: TYPE.STATUS
-                                            }));
-                                        }
-                                        if (!(previousState.currentDeviceId !== currentDeviceId && currentDeviceId)) return [
-                                            3,
-                                            11
-                                        ];
-                                        if (!isReady) {
-                                            _this.handleCallback(_objectSpreadProps(_objectSpread({}, _this.state), {
-                                                type: TYPE.DEVICE
-                                            }));
-                                        }
-                                        return [
-                                            4,
-                                            _this.toggleSyncInterval(_this.isExternalPlayer)
-                                        ];
-                                    case 9:
-                                        _state.sent();
-                                        return [
-                                            4,
-                                            _this.updateSeekBar()
-                                        ];
-                                    case 10:
-                                        _state.sent();
-                                        _state.label = 11;
-                                    case 11:
-                                        if (previousState.track.id !== track.id && track.id) {
-                                            _this.handleCallback(_objectSpreadProps(_objectSpread({}, _this.state), {
-                                                type: TYPE.TRACK
-                                            }));
-                                            if (showSaveIcon) {
-                                                _this.updateState({
-                                                    isSaved: false
-                                                });
-                                            }
-                                        }
-                                        if (!(previousState.isPlaying !== isPlaying)) return [
-                                            3,
-                                            13
-                                        ];
-                                        _this.toggleProgressBar();
-                                        return [
-                                            4,
-                                            _this.toggleSyncInterval(_this.isExternalPlayer)
-                                        ];
-                                    case 12:
-                                        _state.sent();
-                                        _this.handleCallback(_objectSpreadProps(_objectSpread({}, _this.state), {
-                                            type: TYPE.PLAYER
-                                        }));
-                                        _state.label = 13;
-                                    case 13:
-                                        if (!(previousProps.offset !== offset)) return [
-                                            3,
-                                            15
-                                        ];
-                                        return [
-                                            4,
-                                            _this.toggleOffset()
-                                        ];
-                                    case 14:
-                                        _state.sent();
-                                        _state.label = 15;
-                                    case 15:
-                                        if (!(previousState.isInitializing && !isInitializing)) return [
-                                            3,
-                                            17
-                                        ];
-                                        if (!(syncExternalDevice && !uris)) return [
-                                            3,
-                                            17
-                                        ];
-                                        return [
-                                            4,
-                                            getPlaybackState(_this.token)
-                                        ];
-                                    case 16:
-                                        player = _state.sent();
-                                        if (player && player.is_playing && player.device.id !== deviceId) {
-                                            _this.setExternalDevice(player.device.id);
-                                        }
-                                        _state.label = 17;
-                                    case 17:
-                                        if (changedLayout) {
-                                            _this.handleResize();
-                                        }
-                                        if (changedLocale) {
-                                            _this.locale = getLocale(locale);
-                                        }
-                                        if (changedStyles) {
-                                            _this.styles = getMergedStyles(styles);
-                                        }
-                                        return [
-                                            2
-                                        ];
-                                }
-                            });
-                        })();
-                    }
-                },
-                {
-                    key: "componentWillUnmount",
-                    value: function componentWillUnmount() {
-                        var _this = this;
-                        return _asyncToGenerator(function() {
-                            return __generator(this, function(_state) {
-                                _this.isMounted = false;
-                                if (_this.player) {
-                                    _this.player.disconnect();
-                                }
-                                clearInterval(_this.playerSyncInterval);
-                                clearInterval(_this.playerProgressInterval);
-                                clearTimeout(_this.syncTimeout);
-                                window.removeEventListener("resize", _this.handleResize);
-                                return [
-                                    2
-                                ];
-                            });
-                        })();
-                    }
-                },
-                {
-                    key: "handleCallback",
-                    value: function handleCallback(state) {
-                        var callback = this.props.callback;
-                        if (callback) {
-                            callback(state);
-                        }
-                    }
-                },
-                {
-                    key: "token",
-                    get: function get() {
-                        var token = this.props.token;
-                        return token;
-                    }
-                },
-                {
-                    key: "initializeDevices",
-                    value: function initializeDevices(id) {
-                        var _this = this;
-                        return _asyncToGenerator(function() {
-                            var persistDeviceSelection, devices, currentDeviceId, savedDeviceId;
-                            return __generator(this, function(_state) {
-                                switch(_state.label){
-                                    case 0:
-                                        persistDeviceSelection = _this.props.persistDeviceSelection;
-                                        return [
-                                            4,
-                                            getDevices(_this.token)
-                                        ];
-                                    case 1:
-                                        devices = _state.sent().devices;
-                                        currentDeviceId = id;
-                                        if (persistDeviceSelection) {
-                                            savedDeviceId = sessionStorage.getItem("rswpDeviceId");
-                                            if (!savedDeviceId || !devices.some(function(d) {
-                                                return d.id === savedDeviceId;
-                                            })) {
-                                                sessionStorage.setItem("rswpDeviceId", currentDeviceId);
-                                            } else {
-                                                currentDeviceId = savedDeviceId;
-                                            }
-                                        }
-                                        return [
-                                            2,
-                                            {
-                                                currentDeviceId: currentDeviceId,
-                                                devices: devices
-                                            }
-                                        ];
-                                }
-                            });
-                        })();
-                    }
-                },
-                {
-                    key: "isExternalPlayer",
-                    get: function get() {
-                        var _this_state = this.state, currentDeviceId = _this_state.currentDeviceId, deviceId = _this_state.deviceId, status = _this_state.status;
-                        return currentDeviceId && currentDeviceId !== deviceId || status === STATUS.UNSUPPORTED;
-                    }
-                },
-                {
-                    key: "toggleSyncInterval",
-                    value: function toggleSyncInterval(shouldSync) {
-                        var _this = this;
-                        return _asyncToGenerator(function() {
-                            var syncExternalDeviceInterval, error;
-                            return __generator(this, function(_state) {
-                                switch(_state.label){
-                                    case 0:
-                                        syncExternalDeviceInterval = _this.props.syncExternalDeviceInterval;
-                                        _state.label = 1;
-                                    case 1:
-                                        _state.trys.push([
-                                            1,
-                                            4,
-                                            ,
-                                            5
-                                        ]);
-                                        if (!(_this.isExternalPlayer && shouldSync && !_this.playerSyncInterval)) return [
-                                            3,
-                                            3
-                                        ];
-                                        return [
-                                            4,
-                                            _this.syncDevice()
-                                        ];
-                                    case 2:
-                                        _state.sent();
-                                        clearInterval(_this.playerSyncInterval);
-                                        _this.playerSyncInterval = window.setInterval(_this.syncDevice, syncExternalDeviceInterval * 1e3);
-                                        _state.label = 3;
-                                    case 3:
-                                        if ((!shouldSync || !_this.isExternalPlayer) && _this.playerSyncInterval) {
-                                            clearInterval(_this.playerSyncInterval);
-                                            _this.playerSyncInterval = void 0;
-                                        }
-                                        return [
-                                            3,
-                                            5
-                                        ];
-                                    case 4:
-                                        error = _state.sent();
-                                        console.error(error);
-                                        return [
-                                            3,
-                                            5
-                                        ];
-                                    case 5:
-                                        return [
-                                            2
-                                        ];
-                                }
-                            });
-                        })();
-                    }
-                },
-                {
-                    key: "toggleProgressBar",
-                    value: function toggleProgressBar() {
-                        var isPlaying = this.state.isPlaying;
-                        if (isPlaying) {
-                            if (!this.playerProgressInterval) {
-                                this.playerProgressInterval = window.setInterval(this.updateSeekBar, this.seekUpdateInterval);
-                            }
-                        } else if (this.playerProgressInterval) {
-                            clearInterval(this.playerProgressInterval);
-                            this.playerProgressInterval = void 0;
-                        }
-                    }
-                },
-                {
-                    key: "render",
-                    value: function render() {
-                        var _this_state = this.state, currentDeviceId = _this_state.currentDeviceId, deviceId = _this_state.deviceId, devices = _this_state.devices, error = _this_state.error, isActive = _this_state.isActive, isMagnified = _this_state.isMagnified, // isPlaying,
-                        isUnsupported = _this_state.isUnsupported, // nextTracks,
-                        playerPosition = _this_state.playerPosition, position = _this_state.position, // previousTracks,
-                        progressMs = _this_state.progressMs, status = _this_state.status, track = _this_state.track, volume = _this_state.volume;
-                        var _this_props = this.props, _this_props_hideAttribution = _this_props.hideAttribution, hideAttribution = _this_props_hideAttribution === void 0 ? false : _this_props_hideAttribution, _this_props_hideCoverArt = _this_props.hideCoverArt, hideCoverArt = _this_props_hideCoverArt === void 0 ? false : _this_props_hideCoverArt, _this_props_inlineVolume = _this_props.inlineVolume, inlineVolume = _this_props_inlineVolume === void 0 ? true : _this_props_inlineVolume, _this_props_layout = _this_props.layout, layout = _this_props_layout === void 0 ? "responsive" : _this_props_layout, showSaveIcon = _this_props.showSaveIcon, updateSavedStatus = _this_props.updateSavedStatus;
-                        var isReady = [
-                            STATUS.READY,
-                            STATUS.UNSUPPORTED
-                        ].includes(status);
-                        var output = {
-                            main: /* @__PURE__ */ import_react24.default.createElement(Loader, {
-                                styles: this.styles
-                            })
-                        };
-                        if (isReady) {
-                            if (!output.info) {
-                                output.info = /* @__PURE__ */ import_react24.default.createElement(Info_default, {
-                                    hideAttribution: hideAttribution,
-                                    hideCoverArt: hideCoverArt,
-                                    isActive: isActive,
-                                    layout: layout,
-                                    locale: this.locale,
-                                    onFavoriteStatusChange: this.handleFavoriteStatusChange,
-                                    showSaveIcon: showSaveIcon,
-                                    styles: this.styles,
-                                    token: this.token,
-                                    track: track,
-                                    updateSavedStatus: updateSavedStatus
-                                });
-                            }
-                            output.devices = /* @__PURE__ */ import_react24.default.createElement(Devices, {
-                                currentDeviceId: currentDeviceId,
-                                deviceId: deviceId,
-                                devices: devices,
-                                layout: layout,
-                                locale: this.locale,
-                                onClickDevice: this.handleClickDevice,
-                                open: isUnsupported && !deviceId,
-                                playerPosition: playerPosition,
-                                styles: this.styles
-                            });
-                            output.volume = currentDeviceId ? /* @__PURE__ */ import_react24.default.createElement(Volume, {
-                                inlineVolume: inlineVolume,
-                                layout: layout,
-                                locale: this.locale,
-                                playerPosition: playerPosition,
-                                setVolume: this.setVolume,
-                                styles: this.styles,
-                                volume: volume
-                            }) : null;
-                            if (this.renderInlineActions) {
-                                output.actions = /* @__PURE__ */ import_react24.default.createElement(Actions_default, {
-                                    layout: layout,
-                                    styles: this.styles
-                                }, output.devices, output.volume);
-                            }
-                            output.controls = /* @__PURE__ */ import_react24.default.createElement(Controls_default, {
-                                durationMs: track.durationMs,
-                                isMagnified: isMagnified,
-                                onChangeRange: this.handleChangeRange,
-                                onToggleMagnify: this.handleToggleMagnify,
-                                position: position,
-                                progressMs: progressMs,
-                                styles: this.styles
-                            });
-                            output.main = /* @__PURE__ */ import_react24.default.createElement(Wrapper_default, {
-                                layout: layout,
-                                styles: this.styles
-                            }, output.controls);
-                        } else if (output.info) {
-                            output.main = output.info;
-                        }
-                        if (status === STATUS.ERROR) {
-                            output.main = /* @__PURE__ */ import_react24.default.createElement(ErrorMessage, {
-                                styles: this.styles
-                            }, error);
-                        }
-                        return(// <Player ref={this.ref} data-ready={isReady} styles={this.styles}>
-                        /* @__PURE__ */ import_react24.default.createElement("div", null, output.main));
-                    }
+                } else if (this.playerProgressInterval) {
+                    clearInterval(this.playerProgressInterval);
+                    this.playerProgressInterval = void 0;
                 }
-            ]);
-            return SpotifyWebPlayer;
-        }(import_react24.PureComponent);
-        // eslint-disable-next-line react/static-property-placement
-        __publicField(SpotifyWebPlayer, "defaultProps", {
-            autoPlay: false,
-            initialVolume: 1,
-            magnifySliderOnHover: false,
-            name: "Spotify Web Player",
-            persistDeviceSelection: false,
-            showSaveIcon: false,
-            syncExternalDeviceInterval: 5,
-            syncExternalDevice: false
-        });
-        SpotifyWebPlayer_default = SpotifyWebPlayer;
-    }
+            }
+        },
+        {
+            key: "render",
+            value: function render() {
+                var _this_state = this.state, currentDeviceId = _this_state.currentDeviceId, deviceId = _this_state.deviceId, devices = _this_state.devices, error = _this_state.error, isActive = _this_state.isActive, isMagnified = _this_state.isMagnified, // isPlaying,
+                isUnsupported = _this_state.isUnsupported, // nextTracks,
+                playerPosition = _this_state.playerPosition, position = _this_state.position, // previousTracks,
+                progressMs = _this_state.progressMs, status = _this_state.status, track = _this_state.track, volume = _this_state.volume;
+                var _this_props = this.props, _this_props_hideAttribution = _this_props.hideAttribution, hideAttribution = _this_props_hideAttribution === void 0 ? false : _this_props_hideAttribution, _this_props_hideCoverArt = _this_props.hideCoverArt, hideCoverArt = _this_props_hideCoverArt === void 0 ? false : _this_props_hideCoverArt, _this_props_inlineVolume = _this_props.inlineVolume, inlineVolume = _this_props_inlineVolume === void 0 ? true : _this_props_inlineVolume, _this_props_layout = _this_props.layout, layout = _this_props_layout === void 0 ? "responsive" : _this_props_layout, showSaveIcon = _this_props.showSaveIcon, updateSavedStatus = _this_props.updateSavedStatus;
+                var isReady = [
+                    STATUS.READY,
+                    STATUS.UNSUPPORTED
+                ].includes(status);
+                var output = {
+                    main: /* @__PURE__ */ import_react24.default.createElement(Loader, {
+                        styles: this.styles
+                    })
+                };
+                if (isReady) {
+                    if (!output.info) {
+                        output.info = /* @__PURE__ */ import_react24.default.createElement(Info_default, {
+                            hideAttribution: hideAttribution,
+                            hideCoverArt: hideCoverArt,
+                            isActive: isActive,
+                            layout: layout,
+                            locale: this.locale,
+                            onFavoriteStatusChange: this.handleFavoriteStatusChange,
+                            showSaveIcon: showSaveIcon,
+                            styles: this.styles,
+                            token: this.token,
+                            track: track,
+                            updateSavedStatus: updateSavedStatus
+                        });
+                    }
+                    output.devices = /* @__PURE__ */ import_react24.default.createElement(Devices, {
+                        currentDeviceId: currentDeviceId,
+                        deviceId: deviceId,
+                        devices: devices,
+                        layout: layout,
+                        locale: this.locale,
+                        onClickDevice: this.handleClickDevice,
+                        open: isUnsupported && !deviceId,
+                        playerPosition: playerPosition,
+                        styles: this.styles
+                    });
+                    output.volume = currentDeviceId ? /* @__PURE__ */ import_react24.default.createElement(Volume, {
+                        inlineVolume: inlineVolume,
+                        layout: layout,
+                        locale: this.locale,
+                        playerPosition: playerPosition,
+                        setVolume: this.setVolume,
+                        styles: this.styles,
+                        volume: volume
+                    }) : null;
+                    if (this.renderInlineActions) {
+                        output.actions = /* @__PURE__ */ import_react24.default.createElement(Actions_default, {
+                            layout: layout,
+                            styles: this.styles
+                        }, output.devices, output.volume);
+                    }
+                    output.controls = /* @__PURE__ */ import_react24.default.createElement(Controls_default, {
+                        durationMs: track.durationMs,
+                        isMagnified: isMagnified,
+                        onChangeRange: this.handleChangeRange,
+                        onToggleMagnify: this.handleToggleMagnify,
+                        position: position,
+                        progressMs: progressMs,
+                        styles: this.styles
+                    });
+                    output.main = /* @__PURE__ */ import_react24.default.createElement(Wrapper_default, {
+                        layout: layout,
+                        styles: this.styles
+                    }, output.controls);
+                } else if (output.info) {
+                    output.main = output.info;
+                }
+                if (status === STATUS.ERROR) {
+                    output.main = /* @__PURE__ */ import_react24.default.createElement(ErrorMessage, {
+                        styles: this.styles
+                    }, error);
+                }
+                return(// <Player ref={this.ref} data-ready={isReady} styles={this.styles}>
+                /* @__PURE__ */ import_react24.default.createElement("div", null, output.main));
+            }
+        }
+    ]);
+    return SpotifyWebPlayer;
+}(import_react24.PureComponent);
+// eslint-disable-next-line react/static-property-placement
+__publicField(SpotifyWebPlayer, "defaultProps", {
+    autoPlay: false,
+    initialVolume: 1,
+    magnifySliderOnHover: false,
+    name: "Spotify Web Player",
+    persistDeviceSelection: false,
+    showSaveIcon: false,
+    syncExternalDeviceInterval: 5,
+    syncExternalDevice: false
 });
-// src/index.tsx
-var import_react25 = __toESM(require("react"));
-var import_client = __toESM(require("react-dom/client"));
-var SpotifyWebPlayer2 = (0, import_react25.lazy)(function() {
-    return Promise.resolve().then(function() {
-        return init_SpotifyWebPlayer(), SpotifyWebPlayer_exports;
-    });
+var src_default = SpotifyWebPlayer;
+// Annotate the CommonJS export names for ESM import in node:
+0 && (module.exports = {
+    ERROR_TYPE: ERROR_TYPE,
+    STATUS: STATUS,
+    TYPE: TYPE
 });
-import_client.default.createRoot(document.getElementById("root")).render(/* @__PURE__ */ import_react25.default.createElement("div", null, /* @__PURE__ */ import_react25.default.createElement(SpotifyWebPlayer2, {
-    token: "BQDTSGraQFTrATgiezQgs2x_lI2FMaWXBIt033meTvbijs_ITvWOzEQtWq2UFb7mUF9ZAxGsdxLU4cji-Wqi_q_1Lf-zdagVQJlZarnuUgovyewG6VyF8Iispw5RJMBAvz6bNPicH4yFx7rLNRQEGdf5Jv2revag57ZLbyIyznWlSL6zAPXUcEH9HwNxQC_0ix3l0_exMBpkvlhoL_HDgUBd9NCc9RQAbP6sZ8KKFSy6qAlADKe4SdtilWd49GNyps_L3ywxxWdWnWO2QBhXRpSj6EIvYe7tn1ewUeP9qLXix0hOxe6GizUq1l26SZ-Z",
-    uris: [
-        "spotify:track:3zYpRGnnoegSpt3SguSo3W"
-    ]
-})));
 //# sourceMappingURL=index.js.map
