@@ -31,18 +31,13 @@
     "player",
     "web playback"
   ],
-  "peerDependencies": {
-    "react": "17 - 18"
-  },
   "dependencies": {
     "@gilbarbara/deep-equal": "^0.1.2",
     "@gilbarbara/react-range-slider": "^0.7.0",
     "@vitejs/plugin-react": "^3.1.0",
     "colorizr": "^2.1.1",
     "memoize-one": "^6.0.0",
-    "nano-css": "^5.3.5",
-    "react": "17 - 18",
-    "react-dom": "^18.2.0"
+    "nano-css": "^5.3.5"
   },
   "devDependencies": {
     "@gilbarbara/eslint-config": "^0.4.0",
@@ -70,6 +65,8 @@
     "jest-fetch-mock": "^3.0.3",
     "jest-watch-typeahead": "^2.2.2",
     "lint-staged": "^13.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "repo-tools": "^0.2.2",
     "size-limit": "^8.2.4",
     "ts-jest": "^29.0.5",
