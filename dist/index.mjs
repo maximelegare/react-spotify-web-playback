@@ -6,7 +6,7 @@ var __publicField = (obj, key, value) => {
 };
 
 // src/index.tsx
-import React22, { createRef, PureComponent } from "react";
+import React21, { createRef, PureComponent } from "react";
 import isEqual from "@gilbarbara/deep-equal";
 import memoize from "memoize-one";
 
@@ -1493,36 +1493,6 @@ function Volume(props) {
   ));
 }
 
-// src/components/Wrapper.tsx
-import React21, { memo as memo6 } from "react";
-var StyledWrapper = styled("div")(
-  {
-    alignItems: "center",
-    display: "flex",
-    flexDirection: "column",
-    flexWrap: "wrap",
-    justifyContent: "center",
-    position: "relative",
-    "> *": {
-      width: "100%"
-    }
-  },
-  () => {
-    const styles = {};
-    return {
-      ...styles
-    };
-  },
-  "WrapperRSWP"
-);
-function Wrapper7({
-  children
-  //  styles
-}) {
-  return /* @__PURE__ */ React21.createElement(StyledWrapper, null, children);
-}
-var Wrapper_default = memo6(Wrapper7);
-
 // src/constants.ts
 var ERROR_TYPE = {
   ACCOUNT: "account",
@@ -2246,11 +2216,11 @@ var SpotifyWebPlayer = class extends PureComponent {
     } = this.props;
     const isReady = [STATUS.READY, STATUS.UNSUPPORTED].includes(status);
     const output = {
-      main: /* @__PURE__ */ React22.createElement(Loader, { styles: this.styles })
+      main: /* @__PURE__ */ React21.createElement(Loader, { styles: this.styles })
     };
     if (isReady) {
       if (!output.info) {
-        output.info = /* @__PURE__ */ React22.createElement(
+        output.info = /* @__PURE__ */ React21.createElement(
           Info_default,
           {
             hideAttribution,
@@ -2267,7 +2237,7 @@ var SpotifyWebPlayer = class extends PureComponent {
           }
         );
       }
-      output.devices = /* @__PURE__ */ React22.createElement(
+      output.devices = /* @__PURE__ */ React21.createElement(
         Devices,
         {
           currentDeviceId,
@@ -2281,7 +2251,7 @@ var SpotifyWebPlayer = class extends PureComponent {
           styles: this.styles
         }
       );
-      output.volume = currentDeviceId ? /* @__PURE__ */ React22.createElement(
+      output.volume = currentDeviceId ? /* @__PURE__ */ React21.createElement(
         Volume,
         {
           inlineVolume,
@@ -2294,9 +2264,9 @@ var SpotifyWebPlayer = class extends PureComponent {
         }
       ) : null;
       if (this.renderInlineActions) {
-        output.actions = /* @__PURE__ */ React22.createElement(Actions_default, { layout, styles: this.styles }, output.devices, output.volume);
+        output.actions = /* @__PURE__ */ React21.createElement(Actions_default, { layout, styles: this.styles }, output.devices, output.volume);
       }
-      output.controls = /* @__PURE__ */ React22.createElement(
+      output.controls = /* @__PURE__ */ React21.createElement(
         Controls_default,
         {
           durationMs: track.durationMs,
@@ -2308,16 +2278,16 @@ var SpotifyWebPlayer = class extends PureComponent {
           styles: this.styles
         }
       );
-      output.main = /* @__PURE__ */ React22.createElement(Wrapper_default, { layout, styles: this.styles }, output.controls);
+      output.main = /* @__PURE__ */ React21.createElement("div", null, output.controls);
     } else if (output.info) {
       output.main = output.info;
     }
     if (status === STATUS.ERROR) {
-      output.main = /* @__PURE__ */ React22.createElement(ErrorMessage, { styles: this.styles }, error);
+      output.main = /* @__PURE__ */ React21.createElement(ErrorMessage, { styles: this.styles }, error);
     }
     return (
       // <Player ref={this.ref} data-ready={isReady} styles={this.styles}>
-      /* @__PURE__ */ React22.createElement("div", null, output.main)
+      /* @__PURE__ */ React21.createElement("div", null, output.main)
     );
   }
 };

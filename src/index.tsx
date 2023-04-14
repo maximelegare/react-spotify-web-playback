@@ -11,7 +11,6 @@ import Info from './components/Info';
 import Loader from './components/Loader';
 // import Player from './components/Player';
 import Volume from './components/Volume';
-import Wrapper from './components/Wrapper';
 import { ERROR_TYPE, STATUS, TYPE } from './constants';
 import { getLocale, getMergedStyles, getSpotifyURIType } from './modules/getters';
 import {
@@ -1011,11 +1010,11 @@ class SpotifyWebPlayer extends PureComponent<Props, State> {
       );
 
       output.main = (
-        <Wrapper layout={layout} styles={this.styles}>
+        <div>
           {/* {output.info} */}
           {output.controls}
           {/* {output.actions} */}
-        </Wrapper>
+        </div>
       );
     } else if (output.info) {
       output.main = output.info;

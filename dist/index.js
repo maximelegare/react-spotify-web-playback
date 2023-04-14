@@ -432,7 +432,7 @@ __export(src_exports, {
     }
 });
 module.exports = __toCommonJS(src_exports);
-var import_react24 = __toESM(require("react"));
+var import_react23 = __toESM(require("react"));
 var import_deep_equal = __toESM(require("@gilbarbara/deep-equal"));
 var import_memoize_one = __toESM(require("memoize-one"));
 // src/components/Actions.tsx
@@ -2034,27 +2034,6 @@ function Volume(props) {
         type: "button"
     }, icon)));
 }
-// src/components/Wrapper.tsx
-var import_react23 = __toESM(require("react"));
-var StyledWrapper = styled("div")({
-    alignItems: "center",
-    display: "flex",
-    flexDirection: "column",
-    flexWrap: "wrap",
-    justifyContent: "center",
-    position: "relative",
-    "> *": {
-        width: "100%"
-    }
-}, function() {
-    var styles = {};
-    return _objectSpread({}, styles);
-}, "WrapperRSWP");
-function Wrapper7(param) {
-    var children = param.children;
-    return /* @__PURE__ */ import_react23.default.createElement(StyledWrapper, null, children);
-}
-var Wrapper_default = (0, import_react23.memo)(Wrapper7);
 // src/constants.ts
 var ERROR_TYPE = {
     ACCOUNT: "account",
@@ -2080,8 +2059,8 @@ var TYPE = {
     TRACK: "track_update"
 };
 // src/index.tsx
-var SpotifyWebPlayer = /*#__PURE__*/ function(_import_react24_PureComponent) {
-    _inherits(SpotifyWebPlayer, _import_react24_PureComponent);
+var SpotifyWebPlayer = /*#__PURE__*/ function(_import_react23_PureComponent) {
+    _inherits(SpotifyWebPlayer, _import_react23_PureComponent);
     var _super = _createSuper(SpotifyWebPlayer);
     function SpotifyWebPlayer(props) {
         _classCallCheck(this, SpotifyWebPlayer);
@@ -2100,7 +2079,7 @@ var SpotifyWebPlayer = /*#__PURE__*/ function(_import_react24_PureComponent) {
         __publicField(_assertThisInitialized(_this), "player");
         __publicField(_assertThisInitialized(_this), "playerProgressInterval");
         __publicField(_assertThisInitialized(_this), "playerSyncInterval");
-        __publicField(_assertThisInitialized(_this), "ref", (0, import_react24.createRef)());
+        __publicField(_assertThisInitialized(_this), "ref", (0, import_react23.createRef)());
         __publicField(_assertThisInitialized(_this), "renderInlineActions", false);
         __publicField(_assertThisInitialized(_this), "resizeTimeout");
         __publicField(_assertThisInitialized(_this), "seekUpdateInterval", 100);
@@ -3441,13 +3420,13 @@ var SpotifyWebPlayer = /*#__PURE__*/ function(_import_react24_PureComponent) {
                     STATUS.UNSUPPORTED
                 ].includes(status);
                 var output = {
-                    main: /* @__PURE__ */ import_react24.default.createElement(Loader, {
+                    main: /* @__PURE__ */ import_react23.default.createElement(Loader, {
                         styles: this.styles
                     })
                 };
                 if (isReady) {
                     if (!output.info) {
-                        output.info = /* @__PURE__ */ import_react24.default.createElement(Info_default, {
+                        output.info = /* @__PURE__ */ import_react23.default.createElement(Info_default, {
                             hideAttribution: hideAttribution,
                             hideCoverArt: hideCoverArt,
                             isActive: isActive,
@@ -3461,7 +3440,7 @@ var SpotifyWebPlayer = /*#__PURE__*/ function(_import_react24_PureComponent) {
                             updateSavedStatus: updateSavedStatus
                         });
                     }
-                    output.devices = /* @__PURE__ */ import_react24.default.createElement(Devices, {
+                    output.devices = /* @__PURE__ */ import_react23.default.createElement(Devices, {
                         currentDeviceId: currentDeviceId,
                         deviceId: deviceId,
                         devices: devices,
@@ -3472,7 +3451,7 @@ var SpotifyWebPlayer = /*#__PURE__*/ function(_import_react24_PureComponent) {
                         playerPosition: playerPosition,
                         styles: this.styles
                     });
-                    output.volume = currentDeviceId ? /* @__PURE__ */ import_react24.default.createElement(Volume, {
+                    output.volume = currentDeviceId ? /* @__PURE__ */ import_react23.default.createElement(Volume, {
                         inlineVolume: inlineVolume,
                         layout: layout,
                         locale: this.locale,
@@ -3482,12 +3461,12 @@ var SpotifyWebPlayer = /*#__PURE__*/ function(_import_react24_PureComponent) {
                         volume: volume
                     }) : null;
                     if (this.renderInlineActions) {
-                        output.actions = /* @__PURE__ */ import_react24.default.createElement(Actions_default, {
+                        output.actions = /* @__PURE__ */ import_react23.default.createElement(Actions_default, {
                             layout: layout,
                             styles: this.styles
                         }, output.devices, output.volume);
                     }
-                    output.controls = /* @__PURE__ */ import_react24.default.createElement(Controls_default, {
+                    output.controls = /* @__PURE__ */ import_react23.default.createElement(Controls_default, {
                         durationMs: track.durationMs,
                         isMagnified: isMagnified,
                         onChangeRange: this.handleChangeRange,
@@ -3496,25 +3475,22 @@ var SpotifyWebPlayer = /*#__PURE__*/ function(_import_react24_PureComponent) {
                         progressMs: progressMs,
                         styles: this.styles
                     });
-                    output.main = /* @__PURE__ */ import_react24.default.createElement(Wrapper_default, {
-                        layout: layout,
-                        styles: this.styles
-                    }, output.controls);
+                    output.main = /* @__PURE__ */ import_react23.default.createElement("div", null, output.controls);
                 } else if (output.info) {
                     output.main = output.info;
                 }
                 if (status === STATUS.ERROR) {
-                    output.main = /* @__PURE__ */ import_react24.default.createElement(ErrorMessage, {
+                    output.main = /* @__PURE__ */ import_react23.default.createElement(ErrorMessage, {
                         styles: this.styles
                     }, error);
                 }
                 return(// <Player ref={this.ref} data-ready={isReady} styles={this.styles}>
-                /* @__PURE__ */ import_react24.default.createElement("div", null, output.main));
+                /* @__PURE__ */ import_react23.default.createElement("div", null, output.main));
             }
         }
     ]);
     return SpotifyWebPlayer;
-}(import_react24.PureComponent);
+}(import_react23.PureComponent);
 // eslint-disable-next-line react/static-property-placement
 __publicField(SpotifyWebPlayer, "defaultProps", {
     autoPlay: false,
