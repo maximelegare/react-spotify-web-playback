@@ -21,11 +21,8 @@ const StyledWrapper = styled('div')(
 
     if (style.layout === 'responsive') {
       styles = {
-        '> *': {
-          '@media (min-width: 768px)': {
-            width: '33.3333%',
-          },
-        },
+       
+        
 
         '@media (min-width: 768px)': {
           flexDirection: 'row',

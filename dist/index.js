@@ -662,7 +662,8 @@ function Slider(props) {
                 padding: "0px 13px",
                 rangeColor: styles.sliderColor,
                 trackBorderRadius: styles.sliderTrackBorderRadius,
-                trackColor: styles.sliderTrackColor
+                trackColor: styles.sliderTrackColor,
+                width: "100%"
             }
         },
         x: position,
@@ -2050,11 +2051,6 @@ var StyledWrapper = styled("div")({
     var styles = {};
     if (style.layout === "responsive") {
         styles = {
-            "> *": {
-                "@media (min-width: 768px)": {
-                    width: "33.3333%"
-                }
-            },
             "@media (min-width: 768px)": {
                 flexDirection: "row",
                 padding: "0 ".concat(px(8))

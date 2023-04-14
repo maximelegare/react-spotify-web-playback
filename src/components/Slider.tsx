@@ -81,6 +81,7 @@ function Slider(props: Props) {
             rangeColor: styles.sliderColor,
             trackBorderRadius: styles.sliderTrackBorderRadius,
             trackColor: styles.sliderTrackColor,
+            width:"100%"
           },
         }}
         x={position}

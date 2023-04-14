@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable prettier/prettier */
 // eslint-disable-next-line import/no-extraneous-dependencies
-import reactRefresh from '@vitejs/plugin-react-refresh'
+import reactRefresh from "@vitejs/plugin-react-refresh"
 import { defineConfig } from 'vite';
 
 const path = require('path');
@@ -24,5 +24,4 @@ export default defineConfig({
     
   },
   plugins: [reactRefresh()]
-  
 })
