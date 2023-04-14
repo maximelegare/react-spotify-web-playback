@@ -2,6 +2,8 @@ import { css, Global } from '@emotion/react';
 import styled from '@emotion/styled';
 import { theme } from '@gilbarbara/components';
 
+
+
 export function GlobalStyles({ hasToken }: any) {
   return (
     <Global
