@@ -130,8 +130,6 @@ function Controls(props: Props) {
   // const { color } = styles;
 
   return (
-    <div>
-
       
       <Slider
         durationMs={durationMs}
@@ -142,7 +140,7 @@ function Controls(props: Props) {
         progressMs={progressMs}
         styles={styles}
       />
-    </div>
+    
   );
 }
 

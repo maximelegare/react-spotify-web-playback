@@ -692,7 +692,7 @@ function Controls(props) {
     // onClickTogglePlay,
     onToggleMagnify = props.onToggleMagnify, position = props.position, // previousTracks,
     progressMs = props.progressMs, styles = props.styles;
-    return /* @__PURE__ */ import_react4.default.createElement("div", null, /* @__PURE__ */ import_react4.default.createElement(Slider_default, {
+    return /* @__PURE__ */ import_react4.default.createElement(Slider_default, {
         durationMs: durationMs,
         isMagnified: isMagnified,
         onChangeRange: onChangeRange,
@@ -700,7 +700,7 @@ function Controls(props) {
         position: position,
         progressMs: progressMs,
         styles: styles
-    }));
+    });
 }
 var Controls_default = (0, import_react4.memo)(Controls);
 {}// src/components/Devices.tsx
@@ -1054,22 +1054,14 @@ function getLocale(locale) {
 }
 function getMergedStyles(styles) {
     return _objectSpread({
-        activeColor: "#1cb954",
+        // activeColor: '#1cb954',
         altColor: "#ccc",
-        bgColor: "#fff",
-        color: "#333",
+        // bgColor: '#fff',
+        // color: '#333',
         errorColor: "#ff0026",
-        height: 80,
-        loaderColor: "#ccc",
-        loaderSize: 32,
-        sliderColor: "#666",
-        sliderHandleBorderRadius: "50%",
-        sliderHandleColor: "#000",
-        sliderHeight: 4,
-        sliderTrackBorderRadius: 4,
-        sliderTrackColor: "#ccc",
-        trackArtistColor: "#666",
-        trackNameColor: "#333"
+        // height: 80,
+        // loaderColor: '#ccc',
+        loaderSize: 32
     }, styles);
 }
 function getSpotifyLink(uri) {
