@@ -253,7 +253,15 @@ function App() {
           persistDeviceSelection
           play={isPlaying}
           showSaveIcon
-          styles={styles}
+          styles={{
+            sliderTrackColor: "#ffe3d4",
+            sliderColor: "rgb(90, 20, 160)",
+            sliderHandleColor: "rgb(63, 16, 110)",
+            sliderDurationFontSize: "16px",
+            sliderDurationFontFamily: "monospace",
+            color: "#ffe3d4",
+            sliderHeight: 7,
+          }}
           syncExternalDevice
           token={token}
           uris={URIs}

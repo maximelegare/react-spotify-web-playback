@@ -74,13 +74,13 @@ function Slider(props: Props) {
           options: {
             thumbBorder: 0,
             thumbBorderRadius: styles.sliderHandleBorderRadius,
-            thumbColor: "blue",
+            thumbColor: styles.sliderHandleColor,
             thumbSize: isMagnified ? handleSize + 4 : handleSize,
             height: isMagnified ? styles.sliderHeight + 4 : styles.sliderHeight,
             padding: "0px 13px",
             rangeColor: styles.sliderColor,
             trackBorderRadius: styles.sliderTrackBorderRadius,
-            trackColor: "red",
+            trackColor: styles.sliderTrackColor,
             width:"100%"
           },
         }}
