@@ -17,24 +17,24 @@ export function getLocale(locale?: Partial<Locale>): Locale {
   };
 }
 
-export function getMergedStyles(styles?: StylesProps): any {
+export function getMergedStyles(styles?: StylesProps): StylesOptions {
   return {
-    // activeColor: '#1cb954',
+    activeColor: '#1cb954',
     altColor: '#ccc',
-    // bgColor: '#fff',
-    // color: '#333',
+    bgColor: '#fff',
+    color: '#333',
     errorColor: '#ff0026',
-    // height: 80,
-    // loaderColor: '#ccc',
+    height: 80,
+    loaderColor: '#ccc',
     loaderSize: 32,
-    // sliderColor: '#666',
-    // sliderHandleBorderRadius: '50%',
-    // sliderHandleColor: '#000',
-    // sliderHeight: 4,
-    // sliderTrackBorderRadius: 4,
-    // sliderTrackColor: '#ccc',
-    // trackArtistColor: '#666',
-    // trackNameColor: '#333',
+    sliderColor: '#666',
+    sliderHandleBorderRadius: '50%',
+    sliderHandleColor: '#000',
+    sliderHeight: 4,
+    sliderTrackBorderRadius: 4,
+    sliderTrackColor: '#ccc',
+    trackArtistColor: '#666',
+    trackNameColor: '#333',
     ...styles,
   };
 }

@@ -130,7 +130,7 @@ function Controls(props: Props) {
   // const { color } = styles;
 
   return (
-      
+    <div style={{width:"100%"}}>
       <Slider
         durationMs={durationMs}
         isMagnified={isMagnified}
@@ -140,7 +140,7 @@ function Controls(props: Props) {
         progressMs={progressMs}
         styles={styles}
       />
-    
+    </div>
   );
 }
 
