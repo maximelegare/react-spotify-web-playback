@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 
-import { CssLikeObject, px, styled } from '../modules/styled';
-import { ComponentsProps, StyledProps } from '../types';
+import { CssLikeObject,  styled } from '../modules/styled';
+import { ComponentsProps, } from '../types';
 
 const StyledWrapper = styled('div')(
   {
@@ -16,20 +16,8 @@ const StyledWrapper = styled('div')(
       width: '100%',
     },
   },
-  ({ style }: StyledProps) => {
-    let styles: CssLikeObject = {};
-
-    if (style.layout === 'responsive') {
-      styles = {
-       
-        
-
-        '@media (min-width: 768px)': {
-          flexDirection: 'row',
-          padding: `0 ${px(8)}`,
-        },
-      };
-    }
+  () => {
+    const styles: CssLikeObject = {};
 
     return {
       ...styles,
@@ -38,7 +26,7 @@ const StyledWrapper = styled('div')(
   'WrapperRSWP',
 );
 
-function Wrapper({ children, layout,
+function Wrapper({ children
   //  styles
    }: ComponentsProps) {
   return (

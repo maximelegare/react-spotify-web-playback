@@ -2046,21 +2046,12 @@ var StyledWrapper = styled("div")({
     "> *": {
         width: "100%"
     }
-}, function(param) {
-    var style = param.style;
+}, function() {
     var styles = {};
-    if (style.layout === "responsive") {
-        styles = {
-            "@media (min-width: 768px)": {
-                flexDirection: "row",
-                padding: "0 ".concat(px(8))
-            }
-        };
-    }
     return _objectSpread({}, styles);
 }, "WrapperRSWP");
 function Wrapper7(param) {
-    var children = param.children, layout = param.layout;
+    var children = param.children;
     return /* @__PURE__ */ import_react23.default.createElement(StyledWrapper, {
         "data-component-name": "Wrapper",
         style: {}

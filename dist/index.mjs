@@ -1507,16 +1507,8 @@ var StyledWrapper = styled("div")(
       width: "100%"
     }
   },
-  ({ style }) => {
-    let styles = {};
-    if (style.layout === "responsive") {
-      styles = {
-        "@media (min-width: 768px)": {
-          flexDirection: "row",
-          padding: `0 ${px(8)}`
-        }
-      };
-    }
+  () => {
+    const styles = {};
     return {
       ...styles
     };
@@ -1524,8 +1516,7 @@ var StyledWrapper = styled("div")(
   "WrapperRSWP"
 );
 function Wrapper7({
-  children,
-  layout
+  children
   //  styles
 }) {
   return /* @__PURE__ */ React21.createElement(StyledWrapper, { "data-component-name": "Wrapper", style: {} }, children);
