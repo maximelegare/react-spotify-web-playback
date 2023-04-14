@@ -3093,12 +3093,12 @@ var SpotifyWebPlayer = /*#__PURE__*/ function(_import_react24_PureComponent) {
             value: function componentDidUpdate(previousProps, previousState) {
                 var _this = this;
                 return _asyncToGenerator(function() {
-                    var _this_state, currentDeviceId, deviceId, isInitializing, isPlaying, status, track, _this_props, autoPlay, layout, locale, offset, playProp, showSaveIcon, styles, syncExternalDevice, uris, isReady, changedLayout, changedLocale, changedStyles, changedURIs, playOptions, canPlay, shouldPlay, player;
+                    var _this_state, currentDeviceId, deviceId, isInitializing, isPlaying, status, track, volume, _this_props, autoPlay, layout, locale, offset, playProp, setVolumeProp, showSaveIcon, styles, syncExternalDevice, uris, isReady, changedLayout, changedLocale, changedStyles, changedURIs, playOptions, canPlay, shouldPlay, player;
                     return __generator(this, function(_state) {
                         switch(_state.label){
                             case 0:
-                                _this_state = _this.state, currentDeviceId = _this_state.currentDeviceId, deviceId = _this_state.deviceId, isInitializing = _this_state.isInitializing, isPlaying = _this_state.isPlaying, status = _this_state.status, track = _this_state.track;
-                                _this_props = _this.props, autoPlay = _this_props.autoPlay, layout = _this_props.layout, locale = _this_props.locale, offset = _this_props.offset, playProp = _this_props.play, showSaveIcon = _this_props.showSaveIcon, styles = _this_props.styles, syncExternalDevice = _this_props.syncExternalDevice, uris = _this_props.uris;
+                                _this_state = _this.state, currentDeviceId = _this_state.currentDeviceId, deviceId = _this_state.deviceId, isInitializing = _this_state.isInitializing, isPlaying = _this_state.isPlaying, status = _this_state.status, track = _this_state.track, volume = _this_state.volume;
+                                _this_props = _this.props, autoPlay = _this_props.autoPlay, layout = _this_props.layout, locale = _this_props.locale, offset = _this_props.offset, playProp = _this_props.play, setVolumeProp = _this_props.setVolume, showSaveIcon = _this_props.showSaveIcon, styles = _this_props.styles, syncExternalDevice = _this_props.syncExternalDevice, uris = _this_props.uris;
                                 isReady = previousState.status !== STATUS.READY && status === STATUS.READY;
                                 changedLayout = !(0, import_deep_equal.default)(previousProps.layout, layout);
                                 changedLocale = !(0, import_deep_equal.default)(previousProps.locale, locale);
@@ -3258,6 +3258,18 @@ var SpotifyWebPlayer = /*#__PURE__*/ function(_import_react24_PureComponent) {
                                 }
                                 _state.label = 17;
                             case 17:
+                                if (!(setVolumeProp && setVolumeProp !== volume)) return [
+                                    3,
+                                    19
+                                ];
+                                return [
+                                    4,
+                                    _this.setVolume(setVolumeProp)
+                                ];
+                            case 18:
+                                _state.sent();
+                                _state.label = 19;
+                            case 19:
                                 if (changedLayout) {
                                     _this.handleResize();
                                 }

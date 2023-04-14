@@ -205,6 +205,11 @@ interface Props {
      */
     play?: boolean;
     /**
+   *
+   * Set the volume
+   */
+    setVolume?: number;
+    /**
      * Display a Favorite button. It needs additional scopes in your token.
      * @default false
      */
@@ -234,7 +239,7 @@ interface Props {
     updateSavedStatus?: (fn: (status: boolean) => any) => any;
     /**
      * A list of Spotify URIs.
-     */
+    */
     uris: string | string[];
 }
 interface State {

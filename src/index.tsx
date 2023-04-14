@@ -69,12 +69,17 @@ class SpotifyWebPlayer extends PureComponent<Props, State> {
   private styles: StylesOptions;
   private syncTimeout?: number;
 
+
+ 
+
   // eslint-disable-next-line unicorn/consistent-function-scoping
   private getPlayOptions = memoize((data): PlayOptions => {
     const playOptions: PlayOptions = {
       context_uri: undefined,
       uris: undefined,
     };
+
+  
 
     /* istanbul ignore else */
     if (data) {
@@ -151,6 +156,8 @@ class SpotifyWebPlayer extends PureComponent<Props, State> {
     syncExternalDevice: false,
   };
 
+  
+
   public async componentDidMount() {
     this.isMounted = true;
     const { top = 0 } = this.ref.current?.getBoundingClientRect() || {};
@@ -173,18 +180,20 @@ class SpotifyWebPlayer extends PureComponent<Props, State> {
   }
 
   public async componentDidUpdate(previousProps: Props, previousState: State) {
-    const { currentDeviceId, deviceId, isInitializing, isPlaying, status, track } = this.state;
+    const { currentDeviceId, deviceId, isInitializing, isPlaying, status, track, volume } = this.state;
     const {
       autoPlay,
       layout,
       locale,
       offset,
       play: playProp,
+      setVolume:setVolumeProp,
       showSaveIcon,
       styles,
       syncExternalDevice,
       uris,
     } = this.props;
+
     const isReady = previousState.status !== STATUS.READY && status === STATUS.READY;
     const changedLayout = !isEqual(previousProps.layout, layout);
     const changedLocale = !isEqual(previousProps.locale, locale);
@@ -272,6 +281,12 @@ class SpotifyWebPlayer extends PureComponent<Props, State> {
         }
       }
     }
+
+    if(setVolumeProp && setVolumeProp !== volume){
+      await this.setVolume(setVolumeProp)
+    }  
+
+
 
     if (changedLayout) {
       this.handleResize();
@@ -655,8 +670,6 @@ class SpotifyWebPlayer extends PureComponent<Props, State> {
 
   private setVolume = async (volume: number) => {
 
-
-
     /* istanbul ignore else */
     if (this.isExternalPlayer) {
       await setVolume(this.token, Math.round(volume * 100));
@@ -667,6 +680,8 @@ class SpotifyWebPlayer extends PureComponent<Props, State> {
 
     this.updateState({ volume });
   };
+
+ 
 
   private syncDevice = async () => {
     if (!this.isMounted) {

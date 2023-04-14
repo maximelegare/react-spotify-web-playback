@@ -84,9 +84,15 @@ export interface Props {
    */
   play?: boolean;
   /**
+ * 
+ * Set the volume
+ */
+  setVolume?:number
+  /**
    * Display a Favorite button. It needs additional scopes in your token.
    * @default false
    */
+
   showSaveIcon?: boolean;
   /**
    * Customize the player's appearance.
@@ -113,8 +119,10 @@ export interface Props {
   updateSavedStatus?: (fn: (status: boolean) => any) => any;
   /**
    * A list of Spotify URIs.
-   */
+  */
   uris: string | string[];
+
+
 }
 
 export interface State {
@@ -158,6 +166,7 @@ export interface Locale {
   saveTrack: string;
   title: string;
   volume: string;
+
 }
 
 export interface PlayOptions {

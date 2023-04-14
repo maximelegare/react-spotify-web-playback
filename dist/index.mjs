@@ -2058,13 +2058,14 @@ var SpotifyWebPlayer = class extends PureComponent {
     this.handleResize();
   }
   async componentDidUpdate(previousProps, previousState) {
-    const { currentDeviceId, deviceId, isInitializing, isPlaying, status, track } = this.state;
+    const { currentDeviceId, deviceId, isInitializing, isPlaying, status, track, volume } = this.state;
     const {
       autoPlay,
       layout,
       locale,
       offset,
       play: playProp,
+      setVolume: setVolumeProp,
       showSaveIcon,
       styles,
       syncExternalDevice,
@@ -2140,6 +2141,9 @@ var SpotifyWebPlayer = class extends PureComponent {
           this.setExternalDevice(player.device.id);
         }
       }
+    }
+    if (setVolumeProp && setVolumeProp !== volume) {
+      await this.setVolume(setVolumeProp);
     }
     if (changedLayout) {
       this.handleResize();
