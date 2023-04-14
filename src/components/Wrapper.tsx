@@ -42,7 +42,7 @@ function Wrapper({ children, layout,
   //  styles
    }: ComponentsProps) {
   return (
-    <StyledWrapper data-component-name="Wrapper" style={{  layout }}>
+    <StyledWrapper data-component-name="Wrapper" style={{}}>
       {children}
     </StyledWrapper>
   );

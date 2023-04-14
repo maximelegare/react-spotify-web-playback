@@ -2063,9 +2063,7 @@ function Wrapper7(param) {
     var children = param.children, layout = param.layout;
     return /* @__PURE__ */ import_react23.default.createElement(StyledWrapper, {
         "data-component-name": "Wrapper",
-        style: {
-            layout: layout
-        }
+        style: {}
     }, children);
 }
 var Wrapper_default = (0, import_react23.memo)(Wrapper7);
