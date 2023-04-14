@@ -305,8 +305,6 @@ exports[`SpotifyWebPlayer Device listeners should handle \`ready\` 1`] = `
   style="background: rgb(255, 255, 255); min-height: 80px;"
 >
   <div
-    class=" _WrapperRSWP __1g3et1y"
-    data-component-name="Wrapper"
   >
     <div />
     <div

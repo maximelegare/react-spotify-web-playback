@@ -1519,7 +1519,7 @@ function Wrapper7({
   children
   //  styles
 }) {
-  return /* @__PURE__ */ React21.createElement(StyledWrapper, { "data-component-name": "Wrapper", style: {} }, children);
+  return /* @__PURE__ */ React21.createElement(StyledWrapper, null, children);
 }
 var Wrapper_default = memo6(Wrapper7);
 

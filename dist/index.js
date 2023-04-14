@@ -2052,10 +2052,7 @@ var StyledWrapper = styled("div")({
 }, "WrapperRSWP");
 function Wrapper7(param) {
     var children = param.children;
-    return /* @__PURE__ */ import_react23.default.createElement(StyledWrapper, {
-        "data-component-name": "Wrapper",
-        style: {}
-    }, children);
+    return /* @__PURE__ */ import_react23.default.createElement(StyledWrapper, null, children);
 }
 var Wrapper_default = (0, import_react23.memo)(Wrapper7);
 // src/constants.ts

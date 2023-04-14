@@ -30,7 +30,7 @@ function Wrapper({ children
   //  styles
    }: ComponentsProps) {
   return (
-    <StyledWrapper data-component-name="Wrapper" style={{}}>
+    <StyledWrapper>
       {children}
     </StyledWrapper>
   );
