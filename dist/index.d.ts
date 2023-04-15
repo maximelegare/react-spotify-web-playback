@@ -205,6 +205,11 @@ interface Props {
      */
     play?: boolean;
     /**
+     * Triggered when song ends
+     *
+     */
+    setNextSong?: () => any;
+    /**
    *
    * Set the volume
    */

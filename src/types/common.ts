@@ -83,6 +83,12 @@ export interface Props {
    * Control the player's status.
    */
   play?: boolean;
+  /** 
+   * Triggered when song ends
+   * 
+   */
+  setNextSong?:() => any;
+
   /**
  * 
  * Set the volume

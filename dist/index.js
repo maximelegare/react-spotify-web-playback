@@ -5153,78 +5153,89 @@ var SpotifyWebPlayer = /*#__PURE__*/ function(_import_react23_PureComponent) {
             });
         }));
         var _this10 = _assertThisInitialized(_this);
-        __publicField(_assertThisInitialized(_this), "updateSeekBar", /*#__PURE__*/ _asyncToGenerator(function() {
-            var _this_state, progressMs, track, position, state, progress, position1, error;
-            return __generator(this, function(_state) {
-                switch(_state.label){
-                    case 0:
-                        if (!_this10.isMounted) {
+        __publicField(_assertThisInitialized(_this), "updateSeekBar", function() {
+            var _ref = _asyncToGenerator(function(setNextSong) {
+                var _this_state, progressMs, track, position, state, progress, position1, error;
+                return __generator(this, function(_state) {
+                    switch(_state.label){
+                        case 0:
+                            if (!_this10.isMounted) {
+                                return [
+                                    2
+                                ];
+                            }
+                            _this_state = _this10.state, progressMs = _this_state.progressMs, track = _this_state.track;
+                            _state.label = 1;
+                        case 1:
+                            _state.trys.push([
+                                1,
+                                5,
+                                ,
+                                6
+                            ]);
+                            if (!_this10.isExternalPlayer) return [
+                                3,
+                                2
+                            ];
+                            position = progressMs / track.durationMs;
+                            position = Number(((Number.isFinite(position) ? position : 0) * 100).toFixed(1));
+                            _this10.updateState({
+                                position: position,
+                                progressMs: progressMs + _this10.seekUpdateInterval
+                            });
+                            if (position === 100 && setNextSong) {
+                                setNextSong();
+                            }
+                            return [
+                                3,
+                                4
+                            ];
+                        case 2:
+                            if (!_this10.player) return [
+                                3,
+                                4
+                            ];
+                            return [
+                                4,
+                                _this10.player.getCurrentState()
+                            ];
+                        case 3:
+                            state = _state.sent();
+                            if (state) {
+                                progress = state.position;
+                                position1 = Number((progress / state.track_window.current_track.duration_ms * 100).toFixed(1));
+                                _this10.updateState({
+                                    position: position1,
+                                    progressMs: progress + _this10.seekUpdateInterval
+                                });
+                                if (position1 === 100 && setNextSong) {
+                                    setNextSong();
+                                }
+                            }
+                            _state.label = 4;
+                        case 4:
+                            return [
+                                3,
+                                6
+                            ];
+                        case 5:
+                            error = _state.sent();
+                            console.error(error);
+                            return [
+                                3,
+                                6
+                            ];
+                        case 6:
                             return [
                                 2
                             ];
-                        }
-                        _this_state = _this10.state, progressMs = _this_state.progressMs, track = _this_state.track;
-                        _state.label = 1;
-                    case 1:
-                        _state.trys.push([
-                            1,
-                            5,
-                            ,
-                            6
-                        ]);
-                        if (!_this10.isExternalPlayer) return [
-                            3,
-                            2
-                        ];
-                        position = progressMs / track.durationMs;
-                        position = Number(((Number.isFinite(position) ? position : 0) * 100).toFixed(1));
-                        _this10.updateState({
-                            position: position,
-                            progressMs: progressMs + _this10.seekUpdateInterval
-                        });
-                        return [
-                            3,
-                            4
-                        ];
-                    case 2:
-                        if (!_this10.player) return [
-                            3,
-                            4
-                        ];
-                        return [
-                            4,
-                            _this10.player.getCurrentState()
-                        ];
-                    case 3:
-                        state = _state.sent();
-                        if (state) {
-                            progress = state.position;
-                            position1 = Number((progress / state.track_window.current_track.duration_ms * 100).toFixed(1));
-                            _this10.updateState({
-                                position: position1,
-                                progressMs: progress + _this10.seekUpdateInterval
-                            });
-                        }
-                        _state.label = 4;
-                    case 4:
-                        return [
-                            3,
-                            6
-                        ];
-                    case 5:
-                        error = _state.sent();
-                        console.error(error);
-                        return [
-                            3,
-                            6
-                        ];
-                    case 6:
-                        return [
-                            2
-                        ];
-                }
+                    }
+                });
             });
-        }));
+            return function(setNextSong) {
+                return _ref.apply(this, arguments);
+            };
+        }());
         __publicField(_assertThisInitialized(_this), "updateState", function(state) {
             if (!_this.isMounted) {
                 return;
@@ -5299,12 +5310,12 @@ var SpotifyWebPlayer = /*#__PURE__*/ function(_import_react23_PureComponent) {
             value: function componentDidUpdate(previousProps, previousState) {
                 var _this = this;
                 return _asyncToGenerator(function() {
-                    var _this_state, currentDeviceId, deviceId, isInitializing, isPlaying, status, track, volume, _this_props, autoPlay, layout, locale, offset, playProp, setVolumeProp, showSaveIcon, styles, syncExternalDevice, uris, isReady, changedLayout, changedLocale, changedStyles, changedURIs, playOptions, canPlay, shouldPlay, player;
+                    var _this_state, currentDeviceId, deviceId, isInitializing, isPlaying, status, track, volume, _this_props, autoPlay, layout, locale, offset, playProp, setNextSong, setVolumeProp, showSaveIcon, styles, syncExternalDevice, uris, isReady, changedLayout, changedLocale, changedStyles, changedURIs, playOptions, canPlay, shouldPlay, player;
                     return __generator(this, function(_state) {
                         switch(_state.label){
                             case 0:
                                 _this_state = _this.state, currentDeviceId = _this_state.currentDeviceId, deviceId = _this_state.deviceId, isInitializing = _this_state.isInitializing, isPlaying = _this_state.isPlaying, status = _this_state.status, track = _this_state.track, volume = _this_state.volume;
-                                _this_props = _this.props, autoPlay = _this_props.autoPlay, layout = _this_props.layout, locale = _this_props.locale, offset = _this_props.offset, playProp = _this_props.play, setVolumeProp = _this_props.setVolume, showSaveIcon = _this_props.showSaveIcon, styles = _this_props.styles, syncExternalDevice = _this_props.syncExternalDevice, uris = _this_props.uris;
+                                _this_props = _this.props, autoPlay = _this_props.autoPlay, layout = _this_props.layout, locale = _this_props.locale, offset = _this_props.offset, playProp = _this_props.play, setNextSong = _this_props.setNextSong, setVolumeProp = _this_props.setVolume, showSaveIcon = _this_props.showSaveIcon, styles = _this_props.styles, syncExternalDevice = _this_props.syncExternalDevice, uris = _this_props.uris;
                                 isReady = previousState.status !== STATUS.READY && status === STATUS.READY;
                                 changedLayout = !(0, import_deep_equal.default)(previousProps.layout, layout);
                                 changedLocale = !(0, import_deep_equal.default)(previousProps.locale, locale);
@@ -5401,7 +5412,7 @@ var SpotifyWebPlayer = /*#__PURE__*/ function(_import_react23_PureComponent) {
                                 _state.sent();
                                 return [
                                     4,
-                                    _this.updateSeekBar()
+                                    _this.updateSeekBar(setNextSong)
                                 ];
                             case 10:
                                 _state.sent();

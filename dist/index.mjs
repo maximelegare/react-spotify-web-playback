@@ -4147,7 +4147,7 @@ var SpotifyWebPlayer = class extends import_react23.PureComponent {
         console.error(error);
       }
     });
-    __publicField(this, "updateSeekBar", async () => {
+    __publicField(this, "updateSeekBar", async (setNextSong) => {
       if (!this.isMounted) {
         return;
       }
@@ -4160,6 +4160,9 @@ var SpotifyWebPlayer = class extends import_react23.PureComponent {
             position,
             progressMs: progressMs + this.seekUpdateInterval
           });
+          if (position === 100 && setNextSong) {
+            setNextSong();
+          }
         } else if (this.player) {
           const state = await this.player.getCurrentState();
           if (state) {
@@ -4171,6 +4174,9 @@ var SpotifyWebPlayer = class extends import_react23.PureComponent {
               position,
               progressMs: progress + this.seekUpdateInterval
             });
+            if (position === 100 && setNextSong) {
+              setNextSong();
+            }
           }
         }
       } catch (error) {
@@ -4232,6 +4238,7 @@ var SpotifyWebPlayer = class extends import_react23.PureComponent {
       locale,
       offset,
       play: playProp,
+      setNextSong,
       setVolume: setVolumeProp,
       showSaveIcon,
       styles,
@@ -4279,7 +4286,7 @@ var SpotifyWebPlayer = class extends import_react23.PureComponent {
         });
       }
       await this.toggleSyncInterval(this.isExternalPlayer);
-      await this.updateSeekBar();
+      await this.updateSeekBar(setNextSong);
     }
     if (previousState.track.id !== track.id && track.id) {
       this.handleCallback({

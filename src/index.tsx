@@ -186,6 +186,7 @@ class SpotifyWebPlayer extends PureComponent<Props, State> {
       locale,
       offset,
       play: playProp,
+      setNextSong,
       setVolume:setVolumeProp,
       showSaveIcon,
       styles,
@@ -240,9 +241,9 @@ class SpotifyWebPlayer extends PureComponent<Props, State> {
           type: TYPE.DEVICE,
         });
       }
-
+      
       await this.toggleSyncInterval(this.isExternalPlayer);
-      await this.updateSeekBar();
+      await this.updateSeekBar(setNextSong);
     }
 
     if (previousState.track.id !== track.id && track.id) {
@@ -850,7 +851,7 @@ class SpotifyWebPlayer extends PureComponent<Props, State> {
     }
   };
 
-  private updateSeekBar = async () => {
+  private updateSeekBar = async (setNextSong?:() => any ) => {
     if (!this.isMounted) {
       return;
     }
@@ -868,6 +869,10 @@ class SpotifyWebPlayer extends PureComponent<Props, State> {
           position,
           progressMs: progressMs + this.seekUpdateInterval,
         });
+
+        if(position === 100 && setNextSong){
+          setNextSong()
+        }
       } else if (this.player) {
         const state = await this.player.getCurrentState();
 
@@ -882,6 +887,10 @@ class SpotifyWebPlayer extends PureComponent<Props, State> {
             position,
             progressMs: progress + this.seekUpdateInterval,
           });
+
+          if(position === 100 && setNextSong){
+            setNextSong()
+          }
         }
       }
     } catch (error) {
